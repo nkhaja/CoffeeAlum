@@ -7,23 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD30B3581DAC5BE2001B554D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B3571DAC5BE2001B554D /* ProfileTableViewCell.swift */; };
+		BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */; };
+		BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */; };
+		BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B37D1DAED0E3001B554D /* Helper.swift */; };
 		BD6D9B721DA71C6300BA0BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */; };
-		BD6D9B741DA71C6300BA0BAF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B731DA71C6300BA0BAF /* FirstViewController.swift */; };
-		BD6D9B761DA71C6300BA0BAF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B751DA71C6300BA0BAF /* SecondViewController.swift */; };
+		BD6D9B741DA71C6300BA0BAF /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B731DA71C6300BA0BAF /* ConnectViewController.swift */; };
 		BD6D9B791DA71C6300BA0BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B771DA71C6300BA0BAF /* Main.storyboard */; };
 		BD6D9B7B1DA71C6300BA0BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */; };
 		BD6D9B7E1DA71C6300BA0BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B7C1DA71C6300BA0BAF /* LaunchScreen.storyboard */; };
+		BD6D9B861DA71CA600BA0BAF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B851DA71CA600BA0BAF /* GoogleService-Info.plist */; };
+		BD6D9B891DA71EF000BA0BAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B881DA71EF000BA0BAF /* User.swift */; };
+		BD6D9B8B1DA723A100BA0BAF /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B8A1DA723A100BA0BAF /* Employer.swift */; };
+		BD6D9B8D1DA7510000BA0BAF /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */; };
+		BD6D9B8F1DA756E500BA0BAF /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B8E1DA756E500BA0BAF /* ConnectTableViewCell.swift */; };
+		BD6D9B911DA7574B00BA0BAF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B901DA7574B00BA0BAF /* ProfileViewController.swift */; };
+		BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8331DA86246000F1003 /* LoginViewController.swift */; };
+		BDCDA8361DA9CB3E000F1003 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8351DA9CB3E000F1003 /* package.swift */; };
+		DAA60A692344CBB8636E0090 /* Pods_CoffeeAlum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AFB0389FA1DDD5318B33F /* Pods_CoffeeAlum.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11EC12A8D757022DA4C3F1C5 /* Pods-CoffeeAlum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeAlum.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeAlum/Pods-CoffeeAlum.release.xcconfig"; sourceTree = "<group>"; };
+		BD30B3571DAC5BE2001B554D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTableViewCell.swift; sourceTree = "<group>"; };
+		BD30B37D1DAED0E3001B554D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeAlum.entitlements; sourceTree = "<group>"; };
 		BD6D9B6E1DA71C6300BA0BAF /* CoffeeAlum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeAlum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD6D9B731DA71C6300BA0BAF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BD6D9B751DA71C6300BA0BAF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BD6D9B731DA71C6300BA0BAF /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		BD6D9B781DA71C6300BA0BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD6D9B7D1DA71C6300BA0BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD6D9B7F1DA71C6300BA0BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD6D9B851DA71CA600BA0BAF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD6D9B881DA71EF000BA0BAF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BD6D9B8A1DA723A100BA0BAF /* Employer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employer.swift; sourceTree = "<group>"; };
+		BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		BD6D9B8E1DA756E500BA0BAF /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
+		BD6D9B901DA7574B00BA0BAF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BDCDA8331DA86246000F1003 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BDCDA8351DA9CB3E000F1003 /* package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = package.swift; sourceTree = "<group>"; };
+		C0E065FF2EB151F0C12BEAF1 /* Pods-CoffeeAlum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeAlum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeAlum/Pods-CoffeeAlum.debug.xcconfig"; sourceTree = "<group>"; };
+		CC2AFB0389FA1DDD5318B33F /* Pods_CoffeeAlum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeAlum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +58,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA60A692344CBB8636E0090 /* Pods_CoffeeAlum.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A84A72CE4D065900EC58147A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0E065FF2EB151F0C12BEAF1 /* Pods-CoffeeAlum.debug.xcconfig */,
+				11EC12A8D757022DA4C3F1C5 /* Pods-CoffeeAlum.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B1FCC15C18C5F1918855267D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC2AFB0389FA1DDD5318B33F /* Pods_CoffeeAlum.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD6D9B651DA71C6300BA0BAF = {
 			isa = PBXGroup;
 			children = (
 				BD6D9B701DA71C6300BA0BAF /* CoffeeAlum */,
 				BD6D9B6F1DA71C6300BA0BAF /* Products */,
+				A84A72CE4D065900EC58147A /* Pods */,
+				B1FCC15C18C5F1918855267D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +103,35 @@
 		BD6D9B701DA71C6300BA0BAF /* CoffeeAlum */ = {
 			isa = PBXGroup;
 			children = (
+				BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */,
 				BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */,
-				BD6D9B731DA71C6300BA0BAF /* FirstViewController.swift */,
-				BD6D9B751DA71C6300BA0BAF /* SecondViewController.swift */,
+				BD6D9B871DA71E2200BA0BAF /* Model */,
+				BD6D9B731DA71C6300BA0BAF /* ConnectViewController.swift */,
+				BDCDA8331DA86246000F1003 /* LoginViewController.swift */,
+				BD6D9B8E1DA756E500BA0BAF /* ConnectTableViewCell.swift */,
+				BD6D9B901DA7574B00BA0BAF /* ProfileViewController.swift */,
+				BD30B3571DAC5BE2001B554D /* ProfileTableViewCell.swift */,
+				BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */,
+				BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */,
 				BD6D9B771DA71C6300BA0BAF /* Main.storyboard */,
 				BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */,
 				BD6D9B7C1DA71C6300BA0BAF /* LaunchScreen.storyboard */,
 				BD6D9B7F1DA71C6300BA0BAF /* Info.plist */,
+				BD6D9B851DA71CA600BA0BAF /* GoogleService-Info.plist */,
 			);
 			path = CoffeeAlum;
+			sourceTree = "<group>";
+		};
+		BD6D9B871DA71E2200BA0BAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD6D9B881DA71EF000BA0BAF /* User.swift */,
+				BD30B37D1DAED0E3001B554D /* Helper.swift */,
+				BD6D9B8A1DA723A100BA0BAF /* Employer.swift */,
+				BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */,
+				BDCDA8351DA9CB3E000F1003 /* package.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +141,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD6D9B821DA71C6300BA0BAF /* Build configuration list for PBXNativeTarget "CoffeeAlum" */;
 			buildPhases = (
+				48C55CF3809F66118A4F8428 /* [CP] Check Pods Manifest.lock */,
 				BD6D9B6A1DA71C6300BA0BAF /* Sources */,
 				BD6D9B6B1DA71C6300BA0BAF /* Frameworks */,
 				BD6D9B6C1DA71C6300BA0BAF /* Resources */,
+				59294B98BD5A9423A62459F8 /* [CP] Embed Pods Frameworks */,
+				FA5D9839FC2E2BE542C66ED7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -99,7 +169,14 @@
 				TargetAttributes = {
 					BD6D9B6D1DA71C6300BA0BAF = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = PU7KSX8Z6J;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -128,20 +205,79 @@
 			files = (
 				BD6D9B7E1DA71C6300BA0BAF /* LaunchScreen.storyboard in Resources */,
 				BD6D9B7B1DA71C6300BA0BAF /* Assets.xcassets in Resources */,
+				BD6D9B861DA71CA600BA0BAF /* GoogleService-Info.plist in Resources */,
 				BD6D9B791DA71C6300BA0BAF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		48C55CF3809F66118A4F8428 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		59294B98BD5A9423A62459F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeAlum/Pods-CoffeeAlum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA5D9839FC2E2BE542C66ED7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeAlum/Pods-CoffeeAlum-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD6D9B6A1DA71C6300BA0BAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD6D9B761DA71C6300BA0BAF /* SecondViewController.swift in Sources */,
+				BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */,
+				BD6D9B891DA71EF000BA0BAF /* User.swift in Sources */,
+				BD6D9B8F1DA756E500BA0BAF /* ConnectTableViewCell.swift in Sources */,
+				BD30B3581DAC5BE2001B554D /* ProfileTableViewCell.swift in Sources */,
 				BD6D9B721DA71C6300BA0BAF /* AppDelegate.swift in Sources */,
-				BD6D9B741DA71C6300BA0BAF /* FirstViewController.swift in Sources */,
+				BD6D9B8B1DA723A100BA0BAF /* Employer.swift in Sources */,
+				BD6D9B741DA71C6300BA0BAF /* ConnectViewController.swift in Sources */,
+				BD6D9B911DA7574B00BA0BAF /* ProfileViewController.swift in Sources */,
+				BDCDA8361DA9CB3E000F1003 /* package.swift in Sources */,
+				BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */,
+				BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */,
+				BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */,
+				BD6D9B8D1DA7510000BA0BAF /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,11 +396,14 @@
 		};
 		BD6D9B831DA71C6300BA0BAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0E065FF2EB151F0C12BEAF1 /* Pods-CoffeeAlum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeAlum/CoffeeAlum.entitlements;
+				DEVELOPMENT_TEAM = PU7KSX8Z6J;
 				INFOPLIST_FILE = CoffeeAlum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.coffeealum.CoffeeAlum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeealum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -272,11 +411,14 @@
 		};
 		BD6D9B841DA71C6300BA0BAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11EC12A8D757022DA4C3F1C5 /* Pods-CoffeeAlum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeAlum/CoffeeAlum.entitlements;
+				DEVELOPMENT_TEAM = PU7KSX8Z6J;
 				INFOPLIST_FILE = CoffeeAlum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.coffeealum.CoffeeAlum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeealum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -301,6 +443,7 @@
 				BD6D9B841DA71C6300BA0BAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
