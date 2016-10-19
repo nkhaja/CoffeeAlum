@@ -13,6 +13,7 @@ import Firebase
 class ConnectViewController: UIViewController, UISearchResultsUpdating {
     var userId:String = ""
     var thisUser:User?
+    var selectedUser:User?
 
     var alumni:[User] = []
     var students:[User] = []
@@ -24,7 +25,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     var currentUserRef:FIRDatabaseReference?
     var searchController: UISearchController!
     
-   // @IBOutlet weak var searchBar: UISearchBar!
     
 
 
@@ -44,6 +44,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
         
         tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
+    
         
 
     
@@ -73,6 +74,11 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                     if snapshot.hasChildren(){
                         self.thisUser = User(snapshot: snapshot)
                         self.thisUser?.uid = self.userId
+                        if let tbc = self.tabBarController as? CustomTabBarController {
+                            tbc.thisUser = self.thisUser
+                            tbc.userRef = self.userRef
+                        }
+                        
                     }
 
                 })
@@ -148,17 +154,27 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
         }
 
     
+    @IBAction func logoutButtonTapped(_ sender: AnyObject) {
+        try! FIRAuth.auth()?.signOut()
+         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+    }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "seeProfile"{
             if let profileViewController = segue.destination as? ProfileViewController{
-               
+                // Assigning the user variable to the thisUser variable.
+               profileViewController.user = self.selectedUser
                 //pass data related to selected profile
             }
         }
     
     }
+    
+    
+
+    
+
     
 }
 
@@ -198,88 +214,9 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedUser = alumni[indexPath.row]
         performSegue(withIdentifier: "seeProfile", sender: self)
         
     }
 }
-
-//extension ConnectViewController: UISearchBarDelegate, UISearchDisplayDelegate,  UISearchResultsUpdating{
-//    
-//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-//        let scope = searchBar.selectedScopeButtonIndex
-//        filterContent(searchText: searchText, scope: scope)
-//    }
-//    
-//    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-//        searchBar.showsCancelButton = false
-//        searchBar.text = ""
-//        searchBar.resignFirstResponder()
-//    }
-//    
-//    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-//        self.searchBar.showsCancelButton = true
-//    }
-//    
-//    
-//    
-//    
-//    func filterContent(searchText:String, scope: Int){
-//        filteredAlumni = []
-//        if alumni.count == 0 {
-//            return
-//        }
-//        
-//        for a in alumni{
-//
-//            switch(scope){
-//            case(0):
-//                if a.name.lowercased().range(of: searchText.lowercased()) != nil{
-//                    filteredAlumni.append(a)
-//                }
-//            case(1):
-//                if a.employer!.name.lowercased().range(of: searchText.lowercased()) != nil{
-//                    filteredAlumni.append(a)
-//                }
-//            case(2):
-//                if a.location.lowercased().range(of: searchText.lowercased()) != nil{
-//                    filteredAlumni.append(a)
-//                }
-//            
-//            case(3):
-//                for i in a.interests{
-//                    if i.lowercased().range(of: searchText.lowercased()) != nil{
-//                        filteredAlumni.append(a)
-//                    }
-//                }
-//            default:
-//                break
-//            }
-//  
-//        }
-//    }
-//    
-//    func updateSearchResults(for searchController: UISearchController){
-//        
-//    }
-//    
-//    
-//    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-//        let selectedIndex = searchBar.selectedScopeButtonIndex
-//        self.filterContent(searchText: searchString, scope: selectedIndex)
-//        return true
-//    }
-//    
-//    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-//        let searchString = searchBar.text
-//        self.filterContent(searchText: searchString!, scope: searchOption)
-//        return true
-//    }
-//
-//}
-
-    
-    
-
-
-
 

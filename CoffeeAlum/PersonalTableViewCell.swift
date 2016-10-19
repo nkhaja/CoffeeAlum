@@ -11,9 +11,8 @@ import Spring
 
 class PersonalTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: DesignableLabel!
+    @IBOutlet weak var itemLabel: DesignableLabel!
     @IBOutlet weak var descriptionLabel: DesignableLabel!
-    
     @IBOutlet weak var itemImage: DesignableImageView!
     
     

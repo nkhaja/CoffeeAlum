@@ -62,11 +62,7 @@ class LoginViewController: UIViewController {
                                                                                                password: self.textFieldLoginPassword.text!)
                                                                     }
                                         }
-                                        
-                                        
-                                        
-                                        
-                                        
+                            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -85,6 +81,9 @@ class LoginViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToLogin(segue:UIStoryboardSegue){
     }
 
     

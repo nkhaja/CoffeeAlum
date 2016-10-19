@@ -12,7 +12,6 @@
 		BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */; };
 		BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B37D1DAED0E3001B554D /* Helper.swift */; };
 		BD6D9B721DA71C6300BA0BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */; };
-		BD6D9B741DA71C6300BA0BAF /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B731DA71C6300BA0BAF /* ConnectViewController.swift */; };
 		BD6D9B791DA71C6300BA0BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B771DA71C6300BA0BAF /* Main.storyboard */; };
 		BD6D9B7B1DA71C6300BA0BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */; };
 		BD6D9B7E1DA71C6300BA0BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B7C1DA71C6300BA0BAF /* LaunchScreen.storyboard */; };
@@ -22,8 +21,11 @@
 		BD6D9B8D1DA7510000BA0BAF /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */; };
 		BD6D9B8F1DA756E500BA0BAF /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B8E1DA756E500BA0BAF /* ConnectTableViewCell.swift */; };
 		BD6D9B911DA7574B00BA0BAF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B901DA7574B00BA0BAF /* ProfileViewController.swift */; };
+		BDC53E331DB72F4A00C29237 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC53E321DB72F4A00C29237 /* CustomTabBarController.swift */; };
+		BDC53E351DB72FA300C29237 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC53E341DB72FA300C29237 /* ConnectViewController.swift */; };
+		BDC53E371DB7D82A00C29237 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC53E361DB7D82A00C29237 /* EditViewController.swift */; };
 		BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8331DA86246000F1003 /* LoginViewController.swift */; };
-		BDCDA8361DA9CB3E000F1003 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8351DA9CB3E000F1003 /* package.swift */; };
+		BDCDA8361DA9CB3E000F1003 /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8351DA9CB3E000F1003 /* Major.swift */; };
 		DAA60A692344CBB8636E0090 /* Pods_CoffeeAlum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AFB0389FA1DDD5318B33F /* Pods_CoffeeAlum.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +38,6 @@
 		BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeAlum.entitlements; sourceTree = "<group>"; };
 		BD6D9B6E1DA71C6300BA0BAF /* CoffeeAlum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeAlum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD6D9B731DA71C6300BA0BAF /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		BD6D9B781DA71C6300BA0BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD6D9B7D1DA71C6300BA0BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,8 +48,11 @@
 		BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		BD6D9B8E1DA756E500BA0BAF /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
 		BD6D9B901DA7574B00BA0BAF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BDC53E321DB72F4A00C29237 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		BDC53E341DB72FA300C29237 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		BDC53E361DB7D82A00C29237 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		BDCDA8331DA86246000F1003 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BDCDA8351DA9CB3E000F1003 /* package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = package.swift; sourceTree = "<group>"; };
+		BDCDA8351DA9CB3E000F1003 /* Major.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
 		C0E065FF2EB151F0C12BEAF1 /* Pods-CoffeeAlum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeAlum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeAlum/Pods-CoffeeAlum.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AFB0389FA1DDD5318B33F /* Pods_CoffeeAlum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeAlum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -106,12 +110,14 @@
 				BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */,
 				BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */,
 				BD6D9B871DA71E2200BA0BAF /* Model */,
-				BD6D9B731DA71C6300BA0BAF /* ConnectViewController.swift */,
 				BDCDA8331DA86246000F1003 /* LoginViewController.swift */,
+				BDC53E341DB72FA300C29237 /* ConnectViewController.swift */,
 				BD6D9B8E1DA756E500BA0BAF /* ConnectTableViewCell.swift */,
+				BDC53E321DB72F4A00C29237 /* CustomTabBarController.swift */,
 				BD6D9B901DA7574B00BA0BAF /* ProfileViewController.swift */,
 				BD30B3571DAC5BE2001B554D /* ProfileTableViewCell.swift */,
 				BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */,
+				BDC53E361DB7D82A00C29237 /* EditViewController.swift */,
 				BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */,
 				BD6D9B771DA71C6300BA0BAF /* Main.storyboard */,
 				BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */,
@@ -129,7 +135,7 @@
 				BD30B37D1DAED0E3001B554D /* Helper.swift */,
 				BD6D9B8A1DA723A100BA0BAF /* Employer.swift */,
 				BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */,
-				BDCDA8351DA9CB3E000F1003 /* package.swift */,
+				BDCDA8351DA9CB3E000F1003 /* Major.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -265,15 +271,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDC53E371DB7D82A00C29237 /* EditViewController.swift in Sources */,
 				BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */,
 				BD6D9B891DA71EF000BA0BAF /* User.swift in Sources */,
 				BD6D9B8F1DA756E500BA0BAF /* ConnectTableViewCell.swift in Sources */,
 				BD30B3581DAC5BE2001B554D /* ProfileTableViewCell.swift in Sources */,
 				BD6D9B721DA71C6300BA0BAF /* AppDelegate.swift in Sources */,
 				BD6D9B8B1DA723A100BA0BAF /* Employer.swift in Sources */,
-				BD6D9B741DA71C6300BA0BAF /* ConnectViewController.swift in Sources */,
 				BD6D9B911DA7574B00BA0BAF /* ProfileViewController.swift in Sources */,
-				BDCDA8361DA9CB3E000F1003 /* package.swift in Sources */,
+				BDC53E351DB72FA300C29237 /* ConnectViewController.swift in Sources */,
+				BDC53E331DB72F4A00C29237 /* CustomTabBarController.swift in Sources */,
+				BDCDA8361DA9CB3E000F1003 /* Major.swift in Sources */,
 				BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */,
 				BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */,
 				BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */,

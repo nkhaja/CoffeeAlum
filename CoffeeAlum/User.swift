@@ -16,6 +16,7 @@ class User {
     var employer: Employer?
     var location: String = ""
     var workHistory: [String] = []
+    var education: [Major] = []
     var interests: [String] = []
     var coffeeIds: [String] = []
     var portrait: String = ""
@@ -46,6 +47,12 @@ class User {
         if let workHistoryData = snapshotValue["workHistory"] {
             workHistory = workHistoryData as! [String]
         }
+        
+        if let educationData = snapshotValue["education"] {
+            education = educationData as! [Major]
+        }
+        
+        
         
         if let interestsData = snapshotValue["interests"] {
             interests = interestsData as! [String]

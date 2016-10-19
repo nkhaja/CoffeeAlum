@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rxb-s3-bxb" id="Bys-2b-j4Y">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="testLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R64-h4-9wa" customClass="DesignableLabel" customModule="Spring">
@@ -86,7 +86,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="employmentLabel" destination="91L-KM-d19" id="I9y-AZ-umC"/>
+                                            <outlet property="employmentLabel" destination="91L-KM-d19" id="8zS-FR-Fc3"/>
                                             <outlet property="locationLabel" destination="r2I-8C-Vuq" id="41T-sw-Uw7"/>
                                             <outlet property="nameLabel" destination="R64-h4-9wa" id="aRc-67-mJZ"/>
                                             <outlet property="profileImage" destination="dAi-7Z-Lvz" id="zfL-K3-tDr"/>
@@ -96,8 +96,18 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="SyH-hB-ltD"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="uVG-hp-69O"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajB-ch-avu">
+                                <frame key="frameInset" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logOutButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="nEl-p7-2wd"/>
+                                    <action selector="logoutButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="mZI-8l-xP2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -111,16 +121,18 @@
                     <connections>
                         <outlet property="tableView" destination="9mR-cJ-BRR" id="9BJ-eE-SP8"/>
                         <segue destination="JUJ-D7-B3E" kind="show" identifier="seeProfile" id="NTI-lW-06C"/>
+                        <segue destination="YQI-8n-gCY" kind="unwind" unwindAction="unwindToLoginWithSegue:" id="wrv-YR-6HX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <exit id="YQI-8n-gCY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="727" y="-322"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-367.46626686656674"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="tGd-ur-oxj">
             <objects>
-                <viewController id="JUJ-D7-B3E" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController id="JUJ-D7-B3E" customClass="ProfileViewController" customModule="CoffeeAlum" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ajs-Ml-g4D"/>
                         <viewControllerLayoutGuide type="bottom" id="GCO-gL-y30"/>
@@ -144,20 +156,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIU-Hk-0YX" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="16" minY="248" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjh-UL-9fn" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="16" minY="275" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lJt-Q6-Bfa">
                                 <frame key="frameInset" minX="38" minY="311" width="311" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -166,6 +164,9 @@
                                     <segment title="Interests"/>
                                     <segment title="Academic"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentButton:" destination="JUJ-D7-B3E" eventType="valueChanged" id="Ohw-ZC-Siw"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u7K-D3-8wX">
                                 <frame key="frameInset" minX="16" minY="359" width="343" height="251"/>
@@ -176,7 +177,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K7b-SJ-XUb" id="lEh-ie-Q1f">
-                                            <frame key="frameInset" width="343" height="69.5"/>
+                                            <frame key="frameInset" width="343" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2U-a2-9pE" customClass="DesignableLabel" customModule="Spring">
@@ -219,16 +220,29 @@
                                     <action selector="CoffeeButton:" destination="JUJ-D7-B3E" eventType="touchUpInside" id="KO9-aG-cZi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HK-u6-C8T" customClass="DesignableLabel" customModule="Spring">
+                                <frame key="frameInset" minX="16" minY="248" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFw-gp-X1S" customClass="DesignableLabel" customModule="Spring">
+                                <frame key="frameInset" minX="16" minY="275" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="careerLabel" destination="EIU-Hk-0YX" id="pio-CX-Cma"/>
-                        <outlet property="locationLabel" destination="Tjh-UL-9fn" id="rVE-8C-QAd"/>
+                        <outlet property="careerLabel" destination="4HK-u6-C8T" id="o1d-sF-TUK"/>
+                        <outlet property="locationLabel" destination="nFw-gp-X1S" id="vTy-FX-12h"/>
                         <outlet property="nameLabel" destination="b6g-gs-hZk" id="usD-fb-fSh"/>
-                        <outlet property="picker" destination="lJt-Q6-Bfa" id="dsb-Nw-fGJ"/>
                         <outlet property="profileImage" destination="05V-9S-TLb" id="VAs-MP-Wi9"/>
-                        <outlet property="segmentedControl" destination="lJt-Q6-Bfa" id="Kf8-WK-qg6"/>
+                        <outlet property="segmentedControl" destination="lJt-Q6-Bfa" id="z1O-Uv-sef"/>
                         <outlet property="tableView" destination="u7K-D3-8wX" id="FYE-hD-zHr"/>
                     </connections>
                 </viewController>
@@ -263,20 +277,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZr-kY-8fc" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="16" minY="248" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12B-T2-xoz" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="16" minY="275" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kWC-9t-eAd">
                                 <frame key="frameInset" minX="32" minY="304" width="311" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -295,7 +295,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oMP-Kk-9Xc" id="CA8-nS-di2">
-                                            <frame key="frameInset" width="343" height="70"/>
+                                            <frame key="frameInset" width="343" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE4-5f-AyT" customClass="DesignableLabel" customModule="Spring">
@@ -373,13 +373,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="careerLabel" destination="qZr-kY-8fc" id="8dz-I3-j9j"/>
                         <outlet property="changeSummaryButton" destination="Cxt-7F-hRW" id="kYs-cU-sBw"/>
-                        <outlet property="editSummaryButton" destination="nlh-nZ-qAP" id="AhN-sE-RJD"/>
-                        <outlet property="locationLabel" destination="12B-T2-xoz" id="tKW-ui-w9Z"/>
+                        <outlet property="imageView" destination="WKW-1o-Da4" id="Ygf-nt-xhe"/>
                         <outlet property="nameLabel" destination="6CM-PW-q96" id="Jah-J4-eqB"/>
                         <outlet property="segmentedControl" destination="kWC-9t-eAd" id="ibL-Ky-o69"/>
                         <outlet property="tableView" destination="Wao-a3-QmD" id="IMs-la-g6W"/>
+                        <segue destination="9f6-bl-1RT" kind="show" identifier="edit" id="qd0-ka-7tX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -389,7 +388,7 @@
         <!--Edit View Controller-->
         <scene sceneID="WiM-Ri-x8c">
             <objects>
-                <viewController id="9f6-bl-1RT" customClass="EditViewController" sceneMemberID="viewController">
+                <viewController id="9f6-bl-1RT" customClass="EditViewController" customModule="CoffeeAlum" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JvC-3i-IML"/>
                         <viewControllerLayoutGuide type="bottom" id="EIg-X7-484"/>
@@ -430,10 +429,18 @@
                                 <frame key="frameInset" minX="155" minY="617" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveChangesButton:" destination="9f6-bl-1RT" eventType="touchUpInside" id="lXz-RI-Ugt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="ccY-Ep-yzK" id="qne-fo-CEP"/>
+                        <outlet property="secondDescriptionTextField" destination="zGj-k7-fWm" id="8tY-NL-dYT"/>
+                        <outlet property="titleTextField" destination="juP-b3-eg0" id="FMA-nP-hEd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ep-M5-UiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -451,7 +458,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
