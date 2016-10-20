@@ -13,7 +13,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    
+    var newUser:Bool = false
     // MARK: Constants
     let loginToList = "LoginToList"
     
@@ -25,10 +25,18 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newUser = false
         
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-            if user != nil {
-                self.performSegue(withIdentifier: self.loginToList, sender: nil)
+            if user != nil{
+                if self.newUser == true{
+                    self.performSegue(withIdentifier: self.loginToList, sender: nil)
+
+                }
+                
+                else {
+                    
+                }
             }
         }
     }
@@ -38,8 +46,35 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginDidTouch(_ sender: AnyObject) {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
-                               password: textFieldLoginPassword.text!)
-        performSegue(withIdentifier: loginToList, sender: nil)
+                               password: textFieldLoginPassword.text!){ success in
+                                if success.0 != nil{
+                                    self.performSegue(withIdentifier: self.loginToList, sender: nil)
+                                }
+                                    
+                                else if success.1 != nil{
+                                    let alert = UIAlertController(title: "Login Failed",
+                                                                  message: success.1!.localizedDescription,
+                                                                  preferredStyle: .alert)
+                                    
+                                    let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                                    alert.addAction(okAction)
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                                
+                                else{
+                                    
+                                let alert = UIAlertController(title: "Login Failed",
+                                                                  message: "Your Username or Password is incorrect",
+                                                                  preferredStyle: .alert)
+                    
+                                    let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                                    alert.addAction(okAction)
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                                
+                                
+        }
+        
     }
     
     @IBAction func signUpDidTouch(_ sender: AnyObject) {
@@ -50,6 +85,7 @@ class LoginViewController: UIViewController {
         let saveAction = UIAlertAction(title: "Save",
                                        style: .default) { action in
                                         // 1
+                                        newUser = true
                                         let emailField = alert.textFields![0]
                                         let passwordField = alert.textFields![1]
                                         
@@ -84,6 +120,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func unwindToLogin(segue:UIStoryboardSegue){
+        newUser = false
     }
 
     

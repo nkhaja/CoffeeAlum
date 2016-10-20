@@ -154,10 +154,17 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
         }
 
     
-    @IBAction func logoutButtonTapped(_ sender: AnyObject) {
+//    @IBAction func logoutButtonTapped(_ sender: AnyObject) {
+//        try! FIRAuth.auth()?.signOut()
+//         self.performSegue(withIdentifier: "logOut", sender: self)
+//    }
+    
+    
+    @IBAction func logOutButton(_ sender: AnyObject) {
         try! FIRAuth.auth()?.signOut()
-         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+        self.performSegue(withIdentifier: "logOut", sender: self)
     }
+  
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
