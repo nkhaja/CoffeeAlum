@@ -11,6 +11,11 @@
 		BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */; };
 		BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */; };
 		BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B37D1DAED0E3001B554D /* Helper.swift */; };
+		BD589A401DB9865E0067D1B4 /* NameIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */; };
+		BD589A431DB9868C0067D1B4 /* AccountTypeIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */; };
+		BD589A451DB986AE0067D1B4 /* AcademicIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */; };
+		BD589A471DB986C10067D1B4 /* EmployerIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A461DB986C10067D1B4 /* EmployerIntroViewController.swift */; };
+		BD589A491DB988D40067D1B4 /* LocationIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A481DB988D40067D1B4 /* LocationIntroViewController.swift */; };
 		BD6D9B721DA71C6300BA0BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */; };
 		BD6D9B791DA71C6300BA0BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B771DA71C6300BA0BAF /* Main.storyboard */; };
 		BD6D9B7B1DA71C6300BA0BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */; };
@@ -36,6 +41,11 @@
 		BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTableViewCell.swift; sourceTree = "<group>"; };
 		BD30B37D1DAED0E3001B554D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeAlum.entitlements; sourceTree = "<group>"; };
+		BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameIntroViewController.swift; sourceTree = "<group>"; };
+		BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeIntroViewController.swift; sourceTree = "<group>"; };
+		BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcademicIntroViewController.swift; sourceTree = "<group>"; };
+		BD589A461DB986C10067D1B4 /* EmployerIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerIntroViewController.swift; sourceTree = "<group>"; };
+		BD589A481DB988D40067D1B4 /* LocationIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationIntroViewController.swift; sourceTree = "<group>"; };
 		BD6D9B6E1DA71C6300BA0BAF /* CoffeeAlum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeAlum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD6D9B781DA71C6300BA0BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +96,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD589A411DB9866A0067D1B4 /* IntroViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */,
+				BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */,
+				BD589A481DB988D40067D1B4 /* LocationIntroViewController.swift */,
+				BD589A461DB986C10067D1B4 /* EmployerIntroViewController.swift */,
+				BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */,
+			);
+			name = IntroViewControllers;
+			sourceTree = "<group>";
+		};
 		BD6D9B651DA71C6300BA0BAF = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +142,7 @@
 				BDC53E361DB7D82A00C29237 /* EditViewController.swift */,
 				BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */,
 				BD6D9B771DA71C6300BA0BAF /* Main.storyboard */,
+				BD589A411DB9866A0067D1B4 /* IntroViewControllers */,
 				BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */,
 				BD6D9B7C1DA71C6300BA0BAF /* LaunchScreen.storyboard */,
 				BD6D9B7F1DA71C6300BA0BAF /* Info.plist */,
@@ -271,19 +294,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD589A491DB988D40067D1B4 /* LocationIntroViewController.swift in Sources */,
 				BDC53E371DB7D82A00C29237 /* EditViewController.swift in Sources */,
 				BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */,
 				BD6D9B891DA71EF000BA0BAF /* User.swift in Sources */,
 				BD6D9B8F1DA756E500BA0BAF /* ConnectTableViewCell.swift in Sources */,
+				BD589A401DB9865E0067D1B4 /* NameIntroViewController.swift in Sources */,
 				BD30B3581DAC5BE2001B554D /* ProfileTableViewCell.swift in Sources */,
+				BD589A431DB9868C0067D1B4 /* AccountTypeIntroViewController.swift in Sources */,
 				BD6D9B721DA71C6300BA0BAF /* AppDelegate.swift in Sources */,
 				BD6D9B8B1DA723A100BA0BAF /* Employer.swift in Sources */,
 				BD6D9B911DA7574B00BA0BAF /* ProfileViewController.swift in Sources */,
 				BDC53E351DB72FA300C29237 /* ConnectViewController.swift in Sources */,
 				BDC53E331DB72F4A00C29237 /* CustomTabBarController.swift in Sources */,
+				BD589A451DB986AE0067D1B4 /* AcademicIntroViewController.swift in Sources */,
 				BDCDA8361DA9CB3E000F1003 /* Major.swift in Sources */,
 				BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */,
 				BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */,
+				BD589A471DB986C10067D1B4 /* EmployerIntroViewController.swift in Sources */,
 				BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */,
 				BD6D9B8D1DA7510000BA0BAF /* Coffee.swift in Sources */,
 			);

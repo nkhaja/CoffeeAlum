@@ -85,7 +85,7 @@ class LoginViewController: UIViewController {
         let saveAction = UIAlertAction(title: "Save",
                                        style: .default) { action in
                                         // 1
-                                        newUser = true
+                                        self.newUser = true
                                         let emailField = alert.textFields![0]
                                         let passwordField = alert.textFields![1]
                                         
