@@ -10,8 +10,6 @@
         <!--ConnectViewController-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <exit id="YQI-8n-gCY" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <viewController id="9pv-A4-QxB" userLabel="ConnectViewController" customClass="ConnectViewController" customModule="CoffeeAlum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
@@ -125,6 +123,8 @@
                         <segue destination="YQI-8n-gCY" kind="unwind" identifier="logOut" unwindAction="unwindToLoginWithSegue:" id="Quz-Ic-ylH"/>
                     </connections>
                 </viewController>
+                <exit id="YQI-8n-gCY" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-367.46626686656674"/>
         </scene>
@@ -533,10 +533,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KY6-Jm-yaW">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KY6-Jm-yaW" customClass="DesignableButton" customModule="Spring">
                                 <frame key="frameInset" minX="320" minY="629" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="VjP-45-4x5" eventType="touchUpInside" id="vHe-K8-Qvn"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State/Province" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdb-7U-ARZ" customClass="DesignableTextField" customModule="Spring">
                                 <frame key="frameInset" minX="16" minY="481" width="343" height="30"/>
@@ -562,6 +565,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="cityTextField" destination="019-Vh-j8R" id="egO-rD-bnW"/>
+                        <outlet property="nextButton" destination="KY6-Jm-yaW" id="IHZ-nH-8sN"/>
+                        <outlet property="stateTextField" destination="vdb-7U-ARZ" id="yIs-yz-xtA"/>
+                        <segue destination="u5k-82-bwG" kind="show" identifier="employer" id="OP4-f7-kSf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFB-H1-8iW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -632,6 +641,7 @@
                         <outlet property="alumniButtonOutlet" destination="rUR-ON-fz4" id="SS7-Qm-0Yz"/>
                         <outlet property="studentButton" destination="uX7-XQ-pco" id="fPb-yw-Tfc"/>
                         <outlet property="studentButtonOutlet" destination="uX7-XQ-pco" id="3UN-y5-N3K"/>
+                        <segue destination="VjP-45-4x5" kind="show" identifier="location" id="xog-Db-YE6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x46-OL-R35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -703,10 +713,18 @@
                                 <frame key="frameInset" minX="327" minY="629" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="u5k-82-bwG" eventType="touchUpInside" id="cGT-KG-cWF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="employerTextField" destination="lhL-19-jMP" id="dwJ-oo-60g"/>
+                        <outlet property="nextButton" destination="5tH-KB-a3t" id="ii1-s5-O5w"/>
+                        <outlet property="roleTextField" destination="0Dg-7r-6Mm" id="kt9-YO-xSo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlT-oZ-7NJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -724,23 +742,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tell us about your education" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx6-Gv-jvj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tell us about your education" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx6-Gv-jvj">
                                 <frame key="frameInset" minX="33" width="309" height="334"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="47"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-yg-lwa" customClass="DesignableTextField" customModule="Spring">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-yg-lwa" customClass="DesignableTextField" customModule="Spring">
                                 <frame key="frameInset" minX="16" minY="401" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qwb-vD-8a9" customClass="DesignableImageView" customModule="Spring">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qwb-vD-8a9" customClass="DesignableImageView" customModule="Spring">
                                 <frame key="frameInset" minX="16" minY="430" width="343" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -752,16 +767,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Major, Minor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tU7-aY-ZcD" customClass="DesignableTextField" customModule="Spring">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Major, Minor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tU7-aY-ZcD" customClass="DesignableTextField" customModule="Spring">
                                 <frame key="frameInset" minX="16" minY="481" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-ed-jjs" customClass="DesignableImageView" customModule="Spring">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-ed-jjs" customClass="DesignableImageView" customModule="Spring">
                                 <frame key="frameInset" minX="16" minY="510" width="343" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -777,38 +790,70 @@
                                 <frame key="frameInset" minX="16" minY="542" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showPickerButton:" destination="TuT-YY-rUe" eventType="touchUpInside" id="aAo-7Z-0xo"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrS-Bf-JYy">
-                                <frame key="frameInset" minX="16" minY="606" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Graduation Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bae-qx-pJ4" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="77" minY="602" width="194" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwd-VC-D1C">
                                 <frame key="frameInset" minX="327" minY="629" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="TuT-YY-rUe" eventType="touchUpInside" id="0uE-eQ-8Y4"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Degree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdS-4D-O8O" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="77" minY="538" width="194" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BSc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdS-4D-O8O" customClass="DesignableLabel" customModule="Spring">
+                                <frame key="frameInset" minX="77" minY="538" width="240" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7he-Ii-LhL">
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XMK-K9-7K6">
+                                        <frame key="frameInset" height="128"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-Ob-vke">
+                                        <frame key="frameInset" minX="96" minY="128" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitButton:" destination="TuT-YY-rUe" eventType="touchUpInside" id="m6l-IH-rTH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Ncc-Ob-vke" firstAttribute="top" secondItem="XMK-K9-7K6" secondAttribute="bottom" id="VHn-6m-4MN"/>
+                                    <constraint firstItem="Ncc-Ob-vke" firstAttribute="top" secondItem="XMK-K9-7K6" secondAttribute="bottom" id="XcN-8W-ocO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="top" secondItem="FtC-Kd-0IE" secondAttribute="bottom" constant="245" id="1Tf-hj-WU4"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="centerX" secondItem="5tJ-yg-lwa" secondAttribute="centerX" id="2dh-yw-KVi"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="bottom" secondItem="5tJ-yg-lwa" secondAttribute="bottom" id="9l1-Bf-WpM"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="centerX" secondItem="Qwb-vD-8a9" secondAttribute="centerX" id="NBz-Ia-x4C"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="centerX" secondItem="zx6-Gv-jvj" secondAttribute="centerX" id="PIJ-aI-Kkz"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="centerX" secondItem="9RG-ed-jjs" secondAttribute="centerX" id="Qu6-tk-JHv"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="centerX" secondItem="Ks7-4x-zO7" secondAttribute="centerX" id="Umv-GD-Efh"/>
+                            <constraint firstItem="tU7-aY-ZcD" firstAttribute="top" secondItem="7he-Ii-LhL" secondAttribute="bottom" constant="50" id="bXL-ow-LWm"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="leading" secondItem="Ks7-4x-zO7" secondAttribute="leadingMargin" constant="51" id="jCW-6J-BzC"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="centerX" secondItem="tU7-aY-ZcD" secondAttribute="centerX" id="mUV-lG-cq5"/>
+                            <constraint firstAttribute="bottom" secondItem="7he-Ii-LhL" secondAttribute="bottom" constant="236" id="ovk-gx-A2r"/>
+                            <constraint firstItem="7he-Ii-LhL" firstAttribute="bottom" secondItem="Qwb-vD-8a9" secondAttribute="bottom" id="yOg-xI-msa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="degreeLabel" destination="mVn-Fe-vhj" id="9Uv-Le-VtF"/>
+                        <outlet property="miniView" destination="7he-Ii-LhL" id="f51-aV-rd0"/>
+                        <outlet property="pickerView" destination="XMK-K9-7K6" id="Hmh-x4-gV4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ow-x5-XME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3586" y="1721"/>
+            <point key="canvasLocation" x="3584.8000000000002" y="1720.3898050974515"/>
         </scene>
         <!--EmployerIntroViewController-->
         <scene sceneID="w52-wp-KMc">

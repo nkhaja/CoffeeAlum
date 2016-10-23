@@ -11,6 +11,7 @@ target 'CoffeeAlum' do
 	pod 'Firebase/Auth'
 	pod 'Google/SignIn'
 	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+	pod 'DatePickerDialog'
 
 
 end

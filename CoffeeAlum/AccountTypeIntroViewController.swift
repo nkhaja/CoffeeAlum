@@ -41,7 +41,8 @@ class AccountTypeIntroViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "location"{
             if let livc = segue.destination as? LocationIntroViewController{
-                livc.name = self.name
+                data["accountType"] = self.accountType
+                livc.data = self.data
             }
         }
     }
@@ -76,6 +77,8 @@ class AccountTypeIntroViewController: UIViewController{
         else{
             self.accountType = .alumni
         }
+        
+        performSegue(withIdentifier: "location", sender: self)
     }
 
 }

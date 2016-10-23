@@ -23,7 +23,8 @@ class NameIntroViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "account"{
             if let atvc = segue.destination as? AccountTypeIntroViewController{
-                atvc.name = self.name
+                data["name"] = self.name
+                atvc.data = self.data
             }
         }
     }
@@ -46,7 +47,10 @@ class NameIntroViewController: UIViewController {
             
             
         }
-        performSegue(withIdentifier: "account", sender: self)
+        
+        else{
+            performSegue(withIdentifier: "account", sender: self)
+        }
     }
     
 

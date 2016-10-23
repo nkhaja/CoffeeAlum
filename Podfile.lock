@@ -1,4 +1,5 @@
 PODS:
+  - DatePickerDialog (1.1.7)
   - Firebase/Analytics (3.6.0):
     - FirebaseAnalytics (= 3.4.2)
   - Firebase/Auth (3.6.0):
@@ -46,6 +47,7 @@ PODS:
   - Spring (1.0.3)
 
 DEPENDENCIES:
+  - DatePickerDialog
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -63,6 +65,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  DatePickerDialog: bd5e7e92e4da2c6a8966b28d5f5d8f335d6c2c63
   Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -78,6 +81,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 2b5280479705ba991228f8e4e3b4e14a97859596
+PODFILE CHECKSUM: daf6464939e1b196cd7314968bdb33eeee147c15
 
 COCOAPODS: 1.0.1
