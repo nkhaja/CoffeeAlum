@@ -38,10 +38,7 @@ class ProfileViewController: UIViewController {
         if let user = self.user{
             nameLabel.text = user.name
             locationLabel.text = user.location
-            
-            if let employer = user.employer {
-                careerLabel.text = employer.name
-            }
+            careerLabel.text = user.employer[0].name
             profileImage.image = Helper.dataStringToImage(dataString: user.portrait)
         }
 

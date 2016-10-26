@@ -26,8 +26,8 @@ class EmployerIntroViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "academic"{
-            if let aivc = segue.destination as? EmployerIntroViewController{
+        if  segue.identifier == "education"{
+            if let aivc = segue.destination as? AcademicIntroViewController{
                 let employerStruct = Employer(name: self.employerName, position: self.role)
                 data["employer"] = employerStruct
                 aivc.data = self.data
@@ -63,7 +63,7 @@ class EmployerIntroViewController: UIViewController {
         }
             
         else{
-            performSegue(withIdentifier: "academic", sender: self)
+            performSegue(withIdentifier: "education", sender: self)
         }
     }
 }

@@ -12,8 +12,8 @@ import Spring
 class AccountTypeIntroViewController: UIViewController{
     var data: [String:Any] =  Dictionary()
     
-    let uncheckedImage = UIImage(cgImage: #imageLiteral(resourceName: "uncheckedButton.png") as! CGImage)
-    let checkedImage = UIImage(cgImage: #imageLiteral(resourceName: "checkedButton.png") as! CGImage)
+    let uncheckedImage = #imageLiteral(resourceName: "uncheckedButton")
+    let checkedImage = #imageLiteral(resourceName: "checkedButton")
     var studentPressed: Bool = true
     var alumniPressed: Bool = false
     var name:String = ""

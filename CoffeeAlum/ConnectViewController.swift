@@ -64,7 +64,9 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
               
                 
             }
+            
             })
+        
         
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             if let user = user{
@@ -74,9 +76,12 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                     if snapshot.hasChildren(){
                         self.thisUser = User(snapshot: snapshot)
                         self.thisUser?.uid = self.userId
+                        
                         if let tbc = self.tabBarController as? CustomTabBarController {
                             tbc.thisUser = self.thisUser
                             tbc.userRef = self.userRef
+                            self.currentUserRef!.updateChildValues(["uid": user.uid])
+                            self.tableView.reloadData()
                         }
                         
                     }
@@ -132,7 +137,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                         filteredAlumni.append(a)
                     }
                 case(1):
-                    if a.employer!.name.lowercased().range(of: searchText.lowercased()) != nil{
+                    if a.employer[0].name.lowercased().range(of: searchText.lowercased()) != nil{
                         filteredAlumni.append(a)
                     }
                 case(2):
@@ -178,11 +183,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     
     }
     
-    
-
-    
-
-    
+  
 }
 
 
@@ -212,10 +213,10 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "connect") as! ConnectTableViewCell
         
         let alumForRow = alumni[indexPath.row]
-//        cell.nameLabel.text = alumForRow.name
-//        cell.employmentLabel.text = alumForRow.employer!.name
+        cell.nameLabel.text = alumForRow.name
+//        cell.employmentLabel.text = alumForRow.employer[0].name
 //        cell.locationLabel.text = alumForRow.location
-        //cell.profileImage.image = Helper.dataStringToImage(dataString: pictureAsString!)
+//        cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
         return cell
     }
     

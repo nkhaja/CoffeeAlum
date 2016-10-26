@@ -5,17 +5,19 @@
 
 import Foundation
 
-struct Major{
-    var graduationDate:Date?
+struct Education{
+    var school: String
+    var graduationYear:String
     var major:String
     var type: DegreeType
     
     
     func toAnyObject() -> Any{
         return [
-            "graduationDate": graduationDate?.convertToString(),
+            "school":school,
+            "graduationYear": graduationYear,
             "major":major,
-            "type": type.rawValue,
+            "type": type.rawValue
         ]
     }
     
@@ -23,12 +25,16 @@ struct Major{
 
 
 enum DegreeType: String{
-    case bachelors = "Bachelors"
-    case masters = "Masters"
-    case doctorate = "Doctorate"
-    case law = "Law"
-    case medical = "Medical"
-    case dental = "Dental"
+    case bsc = "BSc"
+    case ba = "BA"
+    case bba = "BBA"
+    case msc = "MSc"
+    case ma = "MA"
+    case pdh = "PhD"
+    case md = "MD"
+    case jd = "JD"
+    case dds = "DDS"
+
 }
 
 extension Date{

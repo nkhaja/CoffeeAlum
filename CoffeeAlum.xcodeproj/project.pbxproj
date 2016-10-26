@@ -11,6 +11,7 @@
 		BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */; };
 		BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */; };
 		BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B37D1DAED0E3001B554D /* Helper.swift */; };
+		BD519B961DBEDE8100069A21 /* PictureIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */; };
 		BD589A401DB9865E0067D1B4 /* NameIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */; };
 		BD589A431DB9868C0067D1B4 /* AccountTypeIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */; };
 		BD589A451DB986AE0067D1B4 /* AcademicIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */; };
@@ -30,7 +31,7 @@
 		BDC53E351DB72FA300C29237 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC53E341DB72FA300C29237 /* ConnectViewController.swift */; };
 		BDC53E371DB7D82A00C29237 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC53E361DB7D82A00C29237 /* EditViewController.swift */; };
 		BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8331DA86246000F1003 /* LoginViewController.swift */; };
-		BDCDA8361DA9CB3E000F1003 /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8351DA9CB3E000F1003 /* Major.swift */; };
+		BDCDA8361DA9CB3E000F1003 /* Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDA8351DA9CB3E000F1003 /* Education.swift */; };
 		DAA60A692344CBB8636E0090 /* Pods_CoffeeAlum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AFB0389FA1DDD5318B33F /* Pods_CoffeeAlum.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTableViewCell.swift; sourceTree = "<group>"; };
 		BD30B37D1DAED0E3001B554D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeAlum.entitlements; sourceTree = "<group>"; };
+		BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureIntroViewController.swift; sourceTree = "<group>"; };
 		BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameIntroViewController.swift; sourceTree = "<group>"; };
 		BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeIntroViewController.swift; sourceTree = "<group>"; };
 		BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcademicIntroViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		BDC53E341DB72FA300C29237 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		BDC53E361DB7D82A00C29237 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		BDCDA8331DA86246000F1003 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BDCDA8351DA9CB3E000F1003 /* Major.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
+		BDCDA8351DA9CB3E000F1003 /* Education.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Education.swift; sourceTree = "<group>"; };
 		C0E065FF2EB151F0C12BEAF1 /* Pods-CoffeeAlum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeAlum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeAlum/Pods-CoffeeAlum.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AFB0389FA1DDD5318B33F /* Pods_CoffeeAlum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeAlum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 				BD589A481DB988D40067D1B4 /* LocationIntroViewController.swift */,
 				BD589A461DB986C10067D1B4 /* EmployerIntroViewController.swift */,
 				BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */,
+				BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */,
 			);
 			name = IntroViewControllers;
 			sourceTree = "<group>";
@@ -158,7 +161,7 @@
 				BD30B37D1DAED0E3001B554D /* Helper.swift */,
 				BD6D9B8A1DA723A100BA0BAF /* Employer.swift */,
 				BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */,
-				BDCDA8351DA9CB3E000F1003 /* Major.swift */,
+				BDCDA8351DA9CB3E000F1003 /* Education.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -302,13 +305,14 @@
 				BD589A401DB9865E0067D1B4 /* NameIntroViewController.swift in Sources */,
 				BD30B3581DAC5BE2001B554D /* ProfileTableViewCell.swift in Sources */,
 				BD589A431DB9868C0067D1B4 /* AccountTypeIntroViewController.swift in Sources */,
+				BD519B961DBEDE8100069A21 /* PictureIntroViewController.swift in Sources */,
 				BD6D9B721DA71C6300BA0BAF /* AppDelegate.swift in Sources */,
 				BD6D9B8B1DA723A100BA0BAF /* Employer.swift in Sources */,
 				BD6D9B911DA7574B00BA0BAF /* ProfileViewController.swift in Sources */,
 				BDC53E351DB72FA300C29237 /* ConnectViewController.swift in Sources */,
 				BDC53E331DB72F4A00C29237 /* CustomTabBarController.swift in Sources */,
 				BD589A451DB986AE0067D1B4 /* AcademicIntroViewController.swift in Sources */,
-				BDCDA8361DA9CB3E000F1003 /* Major.swift in Sources */,
+				BDCDA8361DA9CB3E000F1003 /* Education.swift in Sources */,
 				BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */,
 				BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */,
 				BD589A471DB986C10067D1B4 /* EmployerIntroViewController.swift in Sources */,

@@ -14,6 +14,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     var newUser:Bool = false
+    var uid:String = ""
     // MARK: Constants
     let loginToList = "LoginToList"
     
@@ -25,17 +26,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newUser = false
-        
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil{
-                if self.newUser == true{
+                if self.newUser == false{
                     self.performSegue(withIdentifier: self.loginToList, sender: nil)
 
                 }
                 
                 else {
-                    
+                    self.performSegue(withIdentifier: "intro", sender: nil)
+                    self.uid = user!.uid
                 }
             }
         }
@@ -43,11 +43,20 @@ class LoginViewController: UIViewController {
     
     
     // MARK: Actions
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "intro"{
+            if let nivc = segue.destination as? NameIntroViewController{
+                nivc.data["uid"] = self.uid
+            }
+        }
+    }
 
     @IBAction func loginDidTouch(_ sender: AnyObject) {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
                                password: textFieldLoginPassword.text!){ success in
                                 if success.0 != nil{
+                                    self.newUser = false
                                     self.performSegue(withIdentifier: self.loginToList, sender: nil)
                                 }
                                     

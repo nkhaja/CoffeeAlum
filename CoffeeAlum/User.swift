@@ -13,10 +13,10 @@ import Firebase
 class User {
     let name:String
     let account:AccountType
-    var employer: Employer?
+    var employer: [Employer] = []
     var location: String = ""
     var workHistory: [String] = []
-    var education: [Major] = []
+    var education: [Education] = []
     var interests: [String] = []
     var coffeeIds: [String] = []
     var portrait: String = ""
@@ -49,7 +49,7 @@ class User {
         }
         
         if let educationData = snapshotValue["education"] {
-            education = educationData as! [Major]
+            education = educationData as! [Education]
         }
         
         
