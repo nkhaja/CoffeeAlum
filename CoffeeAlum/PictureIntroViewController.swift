@@ -13,8 +13,27 @@ import Firebase
 class PictureIntroViewController: UIViewController,UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
     
-    var userRef:FIRDatabaseReference = FIRDatabase.database().reference(withPath: "users")
+    //User's Variables
+    
+    var name:String?
+    var accountType: AccountType?
+    var city: String?
+    var state: String?
+    var employer: Employer?
+    var education: Education?
+    var portrait: String?
+    var uid: String?
+    
+    // DATABASE REFERENCES
+    var newUserRef: FIRDatabaseReference?
+    var employerRef: FIRDatabaseReference?
+    var educationRef: FIRDatabaseReference?
+    
+    
+    
+    let userRef:FIRDatabaseReference = FIRDatabase.database().reference(withPath: "users")
     var newUser: User?
+    var success:Bool?
     
     var data: [String:Any] =  Dictionary()
     
@@ -22,6 +41,24 @@ UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user != nil{
+                self.uid = user?.uid
+                self.buildUser()
+                self.setReferences()
+                self.newUser?.uid = self.uid!
+                
+                self.newUserRef!.setValue(self.newUser!.toAnyObject())
+                self.employerRef!.setValue(self.employer!.toAnyObject())
+                self.educationRef!.setValue(self.education!.toAnyObject()){(error, ref) -> Void in
+                    self.performSegue(withIdentifier: "connect", sender: self)
+                }
+                
+                
+            }
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,16 +69,44 @@ UINavigationControllerDelegate {
         }
     }
     
+    
+    func buildUser(){
+        data["portrait"] = Helper.imageToDataString(image: profileImageView.image!)
+        name = data["name"] as? String
+        accountType = data["accountType"] as? AccountType
+        city = data["city"] as? String
+        state = data["state"] as? String
+        education = data["education"] as? Education
+        employer = data["employer"] as? Employer
+        portrait = data["portrait"] as? String
+        //uid = data["uid"] as? String
+        
+        self.newUser = User(name: name!, account: accountType!)
+        if let newUser = newUser{
+            newUser.location = city!
+            newUser.education.append(education!)
+            newUser.employer.append(employer!)
+            newUser.portrait = portrait!
+        }
+    }
+    
+    func setReferences(){
+         self.newUserRef = userRef.child(uid!)
+         self.employerRef = newUserRef!.child("employer")
+         self.educationRef = newUserRef!.child("academic")
+        
+    }
+    
 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        profileImageView.image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        profileImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.dismiss(animated: true, completion: nil);
     }
     
     @IBAction func openCameraButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            var imagePicker = UIImagePickerController()
+            let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
             imagePicker.allowsEditing = false
@@ -51,7 +116,7 @@ UINavigationControllerDelegate {
     
     @IBAction func openPhotoLibraryButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-            var imagePicker = UIImagePickerController()
+            let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
             imagePicker.allowsEditing = true
@@ -60,33 +125,52 @@ UINavigationControllerDelegate {
     }
     
     @IBAction func nextButton(sender: AnyObject) {
-        data["portrait"] = Helper.imageToDataString(image: profileImageView.image!)
+        register()
         
-        let name:String = data["name"] as! String
-        let accountType = data["accountType"] as! AccountType
-        let city:String = data["city"] as! String
-        let state = data["state"] as! String
-        let education:Education = data["education"] as! Education
-        let employer = data["employer"] as! Employer
-        let portrait = data["portrait"] as! String
-        let uid = data["uid"] as! String
         
-        self.newUser = User(name: name, account: accountType)
-        if let newUser = newUser{
-            newUser.location = city
-            newUser.education.append(education)
-            newUser.employer.append(employer)
-            newUser.portrait = portrait
+        
+    }
+    
+    
+    func register(){
+        let alert = UIAlertController(title: "Register",
+                                      message: "Register",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { action in
+            // 1
+            let emailField = alert.textFields![0]
+            let passwordField = alert.textFields![1]
             
-            let newUserRef = userRef.child(uid)
-            let employerRef = newUserRef.child("employer")
-            let academicRef = newUserRef.child("academic")
-            newUserRef.setValue(newUser.toAnyObject())
-            employerRef.setValue(employer.toAnyObject())
-            academicRef.setValue(education.toAnyObject())
+            // 2
+            FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+                                       password: passwordField.text!) { user, error in
+                                        if error == nil {
+                                            // 3
+                                            FIRAuth.auth()!.signIn(withEmail: emailField.text!,
+                                                                   password:  passwordField.text!)
+                                        }
+                    }
+                                        
         }
         
-        performSegue(withIdentifier: "connect", sender: self)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        
+        alert.addTextField { textEmail in
+            textEmail.placeholder = "Enter your email"
+        }
+        
+        alert.addTextField { textPassword in
+            textPassword.isSecureTextEntry = true
+            textPassword.placeholder = "Enter your password"
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
         
     }
 

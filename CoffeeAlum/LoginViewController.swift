@@ -14,9 +14,10 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     var newUser:Bool = false
-    var uid:String = ""
+
     // MARK: Constants
     let loginToList = "LoginToList"
+
     
     // MARK: Outlets
     
@@ -26,17 +27,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil{
-                if self.newUser == false{
-                    self.performSegue(withIdentifier: self.loginToList, sender: nil)
-
-                }
-                
-                else {
-                    self.performSegue(withIdentifier: "intro", sender: nil)
-                    self.uid = user!.uid
-                }
+                self.performSegue(withIdentifier: self.loginToList, sender: nil)
             }
         }
     }
@@ -44,13 +38,13 @@ class LoginViewController: UIViewController {
     
     // MARK: Actions
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "intro"{
-            if let nivc = segue.destination as? NameIntroViewController{
-                nivc.data["uid"] = self.uid
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "intro"{
+//            if let nivc = segue.destination as? NameIntroViewController{
+//                nivc.data["uid"] = self.uid
+//            }
+//        }
+//    }
 
     @IBAction func loginDidTouch(_ sender: AnyObject) {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
@@ -87,45 +81,48 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signUpDidTouch(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Register",
-                                      message: "Register",
-                                      preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { action in
-                                        // 1
-                                        self.newUser = true
-                                        let emailField = alert.textFields![0]
-                                        let passwordField = alert.textFields![1]
-                                        
-                                        // 2
-                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                                                   password: passwordField.text!) { user, error in
-                                                                    if error == nil {
-                                                                        // 3
-                                                                        FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!,
-                                                                                               password: self.textFieldLoginPassword.text!)
-                                                                    }
-                                        }
-                            
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
-        
-        alert.addTextField { textEmail in
-            textEmail.placeholder = "Enter your email"
-        }
-        
-        alert.addTextField { textPassword in
-            textPassword.isSecureTextEntry = true
-            textPassword.placeholder = "Enter your password"
-        }
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
+        performSegue(withIdentifier: "intro", sender: nil)
+
+
+//        let alert = UIAlertController(title: "Register",
+//                                      message: "Register",
+//                                      preferredStyle: .alert)
+//        
+//        let saveAction = UIAlertAction(title: "Save",
+//                                       style: .default) { action in
+//                                        // 1
+//                                        self.newUser = true
+//                                        let emailField = alert.textFields![0]
+//                                        let passwordField = alert.textFields![1]
+//                                        
+//                                        // 2
+//                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+//                                                                   password: passwordField.text!) { user, error in
+//                                                                    if error == nil {
+//                                                                        // 3
+//                                                                        FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!,
+//                                                                                               password: self.textFieldLoginPassword.text!)
+//                                                                    }
+//                                        }
+//        
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel",
+//                                         style: .default)
+//        
+//        alert.addTextField { textEmail in
+//            textEmail.placeholder = "Enter your email"
+//        }
+//        
+//        alert.addTextField { textPassword in
+//            textPassword.isSecureTextEntry = true
+//            textPassword.placeholder = "Enter your password"
+//        }
+//        
+//        alert.addAction(saveAction)
+//        alert.addAction(cancelAction)
+//        
+//        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func unwindToLogin(segue:UIStoryboardSegue){
