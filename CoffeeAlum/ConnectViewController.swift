@@ -188,9 +188,9 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
         if updateComplete{
             let alumForRow = alumni[indexPath.row]
             cell.nameLabel.text = alumForRow.name
-            cell.employmentLabel.text = alumForRow.employer[0].name
-            cell.locationLabel.text = alumForRow.location
-            cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
+//            cell.employmentLabel.text = alumForRow.employer[0].name
+//            cell.locationLabel.text = alumForRow.location
+//            cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
         }
         return cell
     }

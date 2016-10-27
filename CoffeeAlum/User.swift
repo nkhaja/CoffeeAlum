@@ -36,9 +36,9 @@ class User {
         name = snapshotValue["name"] as! String
         account = AccountType(rawValue: snapshotValue["account"] as! String)!
         
-        if let employerData = snapshotValue["employer"] {
-            employer =  employerData as! [Employer] //Employer(snapshot: employerData as! FIRDataSnapshot)
-        }
+//        if let employerData = snapshotValue["employer"] {
+//            employer =  employerData as! [Employer] //Employer(snapshot: employerData as! FIRDataSnapshot)
+//        }
         
         if let locationData = snapshotValue["location"]{
             location = locationData as! String
