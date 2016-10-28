@@ -36,9 +36,19 @@ class User {
         name = snapshotValue["name"] as! String
         account = AccountType(rawValue: snapshotValue["account"] as! String)!
         
-//        if let employerData = snapshotValue["employer"] {
-//            employer =  employerData as! [Employer] //Employer(snapshot: employerData as! FIRDataSnapshot)
-//        }
+        if let employerData = snapshotValue["employer"] as? NSArray{
+            for value in employerData {
+                let value = value as! NSDictionary
+                let employerName = value["name"] as! String
+                let employerPosition = value["position"] as! String
+                let thisEmployer = Employer(name: employerName, position: employerPosition)
+                employer.append(thisEmployer)
+            }
+            
+
+            
+
+        }
         
         if let locationData = snapshotValue["location"]{
             location = locationData as! String
@@ -48,8 +58,18 @@ class User {
             workHistory = workHistoryData as! [String]
         }
         
-        if let educationData = snapshotValue["education"] {
-            education = educationData as! [Education]
+        if let educationData = snapshotValue["academic"] as? NSArray { // UPDATE: to "Education="//
+            for value in educationData {
+                let value = value as! NSDictionary
+                let schoolName = value["school"] as! String
+                let graduationYear = value["graduationYear"] as! String
+                let major = value["major"] as! String
+                let degree = DegreeType(rawValue: value["type"] as! String)
+
+                let thisEducation = Education(school: schoolName, graduationYear: graduationYear, major: major, type: degree!)
+                education.append(thisEducation)
+            }
+            
         }
         
         

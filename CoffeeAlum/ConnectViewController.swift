@@ -35,7 +35,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater  = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -188,9 +188,10 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
         if updateComplete{
             let alumForRow = alumni[indexPath.row]
             cell.nameLabel.text = alumForRow.name
-//            cell.employmentLabel.text = alumForRow.employer[0].name
-//            cell.locationLabel.text = alumForRow.location
-//            cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
+            cell.employmentLabel.text = alumForRow.employer[0].name
+            cell.locationLabel.text = alumForRow.location
+            cell.schoolLabel.text = alumForRow.education[0].school
+            cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
         }
         return cell
     }

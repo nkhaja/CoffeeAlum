@@ -92,9 +92,8 @@ UINavigationControllerDelegate {
     
     func setReferences(){
          self.newUserRef = userRef.child(uid!)
-         self.employerRef = newUserRef!.child("employer")
-         self.educationRef = newUserRef!.child("academic")
-        
+         self.employerRef = newUserRef!.child("employer").childByAutoId()
+         self.educationRef = newUserRef!.child("academic").childByAutoId()
     }
     
 
