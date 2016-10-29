@@ -179,25 +179,37 @@
                                             <frame key="frameInset" width="343" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2U-a2-9pE" customClass="DesignableLabel" customModule="Spring">
-                                                    <frame key="frameInset" minX="80" minY="8" width="255" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2U-a2-9pE" customClass="DesignableLabel" customModule="Spring">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="esD-GP-5tc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-sd-Qzj" customClass="DesignableLabel" customModule="Spring">
-                                                    <frame key="frameInset" minX="82" minY="40" width="253" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-sd-Qzj" customClass="DesignableLabel" customModule="Spring">
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-8y-lTO" customClass="DesignableImageView" customModule="Spring">
-                                                    <frame key="frameInset" minX="8" minY="3" width="55" height="63"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-8y-lTO" customClass="DesignableImageView" customModule="Spring">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="lsU-47-dGE"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="L2U-a2-9pE" firstAttribute="top" secondItem="lEh-ie-Q1f" secondAttribute="topMargin" id="3sm-rN-evR"/>
+                                                <constraint firstItem="gPd-sd-Qzj" firstAttribute="leading" secondItem="DRB-8y-lTO" secondAttribute="trailing" constant="19" id="8So-nv-8PQ"/>
+                                                <constraint firstItem="gPd-sd-Qzj" firstAttribute="top" secondItem="L2U-a2-9pE" secondAttribute="bottom" constant="11" id="HIa-sW-DsJ"/>
+                                                <constraint firstItem="L2U-a2-9pE" firstAttribute="leading" secondItem="DRB-8y-lTO" secondAttribute="trailing" constant="17" id="JwA-NT-bYZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gPd-sd-Qzj" secondAttribute="bottom" constant="0.5" id="O2V-vf-lgI"/>
+                                                <constraint firstItem="L2U-a2-9pE" firstAttribute="trailing" secondItem="lEh-ie-Q1f" secondAttribute="trailingMargin" id="QJ4-NZ-kqT"/>
+                                                <constraint firstItem="DRB-8y-lTO" firstAttribute="centerY" secondItem="lEh-ie-Q1f" secondAttribute="centerY" id="Xfz-FQ-dzo"/>
+                                                <constraint firstItem="DRB-8y-lTO" firstAttribute="leading" secondItem="lEh-ie-Q1f" secondAttribute="leadingMargin" id="cEh-SI-Vy9"/>
+                                                <constraint firstItem="L2U-a2-9pE" firstAttribute="trailing" secondItem="gPd-sd-Qzj" secondAttribute="trailing" id="iCb-m8-qFQ"/>
+                                                <constraint firstItem="DRB-8y-lTO" firstAttribute="top" secondItem="lEh-ie-Q1f" secondAttribute="topMargin" constant="-5" id="kuW-hW-PsM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="itemDescription" destination="gPd-sd-Qzj" id="7W3-CJ-kV4"/>
@@ -249,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="2409" y="-367"/>
         </scene>
-        <!--Second-->
+        <!--PersonalViewController-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="PersonalViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" userLabel="PersonalViewController" customClass="PersonalViewController" customModule="CoffeeAlum" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -261,6 +273,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sarah Makula" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CM-PW-q96" customClass="DesignableLabel" customModule="Spring">
+                                <frame key="frameInset" minX="16" minY="222" width="137" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="testUser3" translatesAutoresizingMaskIntoConstraints="NO" id="WKW-1o-Da4" customClass="DesignableImageView" customModule="Spring">
                                 <frame key="frameInset" width="375" height="296"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -269,13 +288,6 @@
                                 <frame key="frameInset" minY="221" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sarah Makula" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMh-hS-0iU" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="16" minY="222" width="137" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kWC-9t-eAd">
                                 <frame key="frameInset" minX="32" minY="304" width="311" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -285,12 +297,36 @@
                                     <segment title="Academic"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mv-Mv-bV7" customClass="DesignableButton" customModule="Spring">
+                                <frame key="frameInset" minX="313" minY="36" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="changePictureButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="rn3-SF-Txs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE6-MB-hXA" customClass="DesignableButton" customModule="Spring">
+                                <frame key="frameInset" minX="340" minY="303" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="addItemButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="vjn-kW-Qcu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxt-7F-hRW" customClass="DesignableButton" customModule="Spring">
+                                <frame key="frameInset" minX="313" minY="256" width="46" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveEditsButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="tFJ-NU-EIX"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wao-a3-QmD">
                                 <frame key="frameInset" minX="16" minY="350" width="343" height="251"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="70" id="oMP-Kk-9Xc" customClass="PersonalTableViewCell" customModule="CoffeeAlum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="70" id="oMP-Kk-9Xc" customClass="PersonalTableViewCell" customModule="CoffeeAlum" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oMP-Kk-9Xc" id="CA8-nS-di2">
@@ -323,13 +359,29 @@
                                                         <action selector="editItemButton:" destination="oMP-Kk-9Xc" eventType="touchUpInside" id="7uf-PD-eMg"/>
                                                     </connections>
                                                 </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IhW-mG-orl" customClass="DesignableTextField" customModule="Spring">
+                                                    <frame key="frameInset" minX="71" minY="3" width="223" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUv-pq-exs" customClass="DesignableTextField" customModule="Spring">
+                                                    <frame key="frameInset" minX="71" minY="35" width="223" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="AA2-Kt-Rv4" id="x8O-9X-AUS"/>
-                                            <outlet property="itemDescription" destination="AA2-Kt-Rv4" id="2oa-L5-llB"/>
+                                            <outlet property="descriptionTextfield" destination="mUv-pq-exs" id="g9m-f7-bVz"/>
                                             <outlet property="itemImage" destination="6Tn-N3-kEa" id="Rif-iu-hIj"/>
+                                            <outlet property="itemImageView" destination="6Tn-N3-kEa" id="grb-Ak-0oS"/>
                                             <outlet property="itemLabel" destination="IE4-5f-AyT" id="Xox-UB-t4c"/>
+                                            <outlet property="itemTextField" destination="IhW-mG-orl" id="AEL-vq-1iT"/>
                                             <outlet property="titleLabel" destination="IE4-5f-AyT" id="ZRh-kD-AsD"/>
                                         </connections>
                                     </tableViewCell>
@@ -339,42 +391,28 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="gB7-wf-koW"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mv-Mv-bV7" customClass="DesignableButton" customModule="Spring">
-                                <frame key="frameInset" minX="313" minY="36" width="46" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D9-l5-5w1" customClass="DesignableLabel" customModule="Spring">
+                                <frame key="frameInset" minX="16" minY="226" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="changePictureButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="rn3-SF-Txs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE6-MB-hXA" customClass="DesignableButton" customModule="Spring">
-                                <frame key="frameInset" minX="340" minY="303" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <action selector="addItemButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="vjn-kW-Qcu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxt-7F-hRW" customClass="DesignableButton" customModule="Spring">
-                                <frame key="frameInset" minX="313" minY="256" width="46" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sarah Makula" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CM-PW-q96" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="16" minY="222" width="137" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.85000002384185802" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snG-4z-SCu" customClass="DesignableTextField" customModule="Spring">
+                                <frame key="frameInset" minX="8" minY="221" width="359" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="changeSummaryButton" destination="Cxt-7F-hRW" id="kYs-cU-sBw"/>
-                        <outlet property="imageView" destination="WKW-1o-Da4" id="Ygf-nt-xhe"/>
-                        <outlet property="nameLabel" destination="6CM-PW-q96" id="Jah-J4-eqB"/>
+                        <outlet property="nameLabel" destination="9D9-l5-5w1" id="CLJ-7z-DAK"/>
+                        <outlet property="nameTextField" destination="snG-4z-SCu" id="isV-bB-7ex"/>
+                        <outlet property="profileImageView" destination="WKW-1o-Da4" id="ebn-Ia-qUO"/>
                         <outlet property="segmentedControl" destination="kWC-9t-eAd" id="ibL-Ky-o69"/>
                         <outlet property="tableView" destination="Wao-a3-QmD" id="IMs-la-g6W"/>
                         <segue destination="9f6-bl-1RT" kind="show" identifier="edit" id="qd0-ka-7tX"/>

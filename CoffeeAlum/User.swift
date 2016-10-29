@@ -11,8 +11,8 @@ import UIKit
 import Firebase
 
 class User {
-    let name:String
-    let account:AccountType
+    var name:String
+    var account:AccountType
     var employer: [Employer] = []
     var location: String = ""
     var workHistory: [String] = []
