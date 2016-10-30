@@ -16,7 +16,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     
     var thisUser:User?
     
-    var userRef: FIRDatabaseReference?
+    var thisUserRef: FIRDatabaseReference?
     var employerRef: FIRDatabaseReference?
     var educationRef: FIRDatabaseReference?
     
@@ -26,6 +26,8 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     var employment: [Employer] = []
     
     var canEdit:Bool = false
+    var changesMade = false
+    var saveRequested: Bool = false
     var savedChanges:Bool = true
     
     
@@ -50,7 +52,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         imagePicker.delegate = self
         if let tbc = self.tabBarController as? CustomTabBarController{
             self.thisUser = tbc.thisUser
-            self.userRef = tbc.userRef
+            self.thisUserRef = tbc.thisUserRef
         }
         
         
@@ -109,30 +111,56 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func allowEdits() {
         canEdit = true
+        changesMade = true
         savedChanges = false
         tableView.reloadData()
+        
     }
     
     func saveEdits(){
         canEdit = false
+        changesMade = false
+        saveRequested = true
         savedChanges = true
         tableView.reloadData()
+        
+        
+        for e in thisUser!.employer{
+            e.ref!.setValue(e.toAnyObject())
+        }
+        
+        for e in thisUser!.education{
+            e.ref!.setValue(e.toAnyObject())
+        }
+
+        educationRef?.setValue(thisUser?.education)
+        
+        
     }
 
     @IBAction func saveEditsButton(_ sender: AnyObject) {
-        
+        if canEdit == false{
+            allowEdits()
+        }
+        else{
+            saveEdits()
+        }
     }
     
     
     @IBAction func addItemButton(_ sender: DesignableButton) {
-        
     }
+    
+    @IBAction func segmentButton(_ sender: AnyObject) {
+        tableView.reloadData()
+    }
+    
 
 }
 
 
 
-extension PersonalViewController: UITableViewDataSource{
+extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -158,42 +186,46 @@ extension PersonalViewController: UITableViewDataSource{
         //cell.delegate = self
         cell.canEdit = self.canEdit
         cell.savedChanges = self.savedChanges
-        cell.index = indexPath.row
+        cell.saveRequested = self.saveRequested
+        cell.thisRow = indexPath.row
         
         if segmentedControl.selectedSegmentIndex == 0 {
             // We are assigning the insterests to be stored in the data array.
             cell.itemLabel.text = self.thisUser!.employer[indexPath.row].name
             cell.source = "experience"
-            tableView.reloadData()
         }
             
         else if segmentedControl.selectedSegmentIndex == 1 {
             cell.itemLabel.text = self.thisUser!.interests[indexPath.row]
             cell.source = "interests"
-            tableView.reloadData()
         }
             
         else {
             // TODO: Change into .name after Field of Study is implemented.
             cell.itemLabel.text = self.thisUser!.education[indexPath.row].school
             cell.source = "academic"
-            tableView.reloadData()
         }
         
+        self.saveRequested = false
         return cell
     }
     
     
     
     
-//    
-//   func updateEdits(index:Int, source:String){
-//    
-//    }
-//    
-//    func getUser() -> User {
-//        return self.thisUser!
-//    }
+    
+    func updateEdits(index:Int, source:String, data:[String]){
+        
+    }
+    
+    func getUser() -> User {
+        return self.thisUser!
+    }
+    
+    func changesMade(changed: Bool){
+        changesMade = changed
+    }
+
 
     
 }

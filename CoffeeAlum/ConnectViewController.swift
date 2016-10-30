@@ -56,12 +56,13 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                         self.thisUser = User(snapshot: snapshot)
                         self.thisUser?.uid = self.userId
                         self.updateTable()
+                        print(self.thisUser?.employer[0].key)
                         
                         if let tbc = self.tabBarController as? CustomTabBarController {
-                            tbc.thisUser = self.thisUser
-                            tbc.userRef = self.userRef
                             self.currentUserRef!.updateChildValues(["uid": user.uid])
-                           
+                            tbc.thisUser = self.thisUser
+                            tbc.thisUserRef = self.currentUserRef
+
                         }
                         
                     }
@@ -77,6 +78,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
             for item in snapshot.children{
                 let info = item as! FIRDataSnapshot
                 let dict = info.value as! [String:Any]
+                print(info.key)
                 let accountType = (dict["account"] as! String)
                 if accountType == "alumni"{
                     let alumUser = User(snapshot: info)
@@ -151,8 +153,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
         }
     
     }
-    
-  
 }
 
 
@@ -168,7 +168,7 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
             
         
         
-            if filteredAlumni.count > 0{
+            if filteredAlumni.count > 0 {
                 return self.filteredAlumni.count
             }
             

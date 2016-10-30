@@ -94,6 +94,7 @@ UINavigationControllerDelegate {
          self.newUserRef = userRef.child(uid!)
          self.employerRef = newUserRef!.child("employer").childByAutoId()
          self.educationRef = newUserRef!.child("academic").childByAutoId()
+        
     }
     
 

@@ -26,6 +26,7 @@ struct Employer{
     
     init(snapshot: FIRDataSnapshot){
         key = snapshot.key
+        ref = snapshot.ref
         let snapshotValue = snapshot.value as! [String: AnyObject]
         name = snapshotValue["name"] as! String
         position = snapshotValue["position"] as! String
@@ -41,9 +42,6 @@ struct Employer{
         if let logoData = snapshotValue["logo"]{
             logo = logoData as! String
         }
-
-        key = snapshotValue["key"] as! String
-        ref = snapshot.ref
     }
     
     func toAnyObject() -> Any{
