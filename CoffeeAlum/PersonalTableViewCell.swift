@@ -12,6 +12,7 @@ import Spring
 protocol CellDataDelegate {
     func getUser() -> User
     func changesMade(changed: Bool)
+    func uploadChangesToFirebase()
 }
 
 class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -35,6 +36,16 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+    func buildCell(){
+        
         itemTextField.delegate = self
         itemTextField.isHidden = true
         itemLabel.isUserInteractionEnabled = true
@@ -50,12 +61,6 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
         itemLabel.addGestureRecognizer(tapGesture)
         descriptionLabel.addGestureRecognizer(tapGesture)
         updateUser()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
    
 
@@ -99,6 +104,8 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
         default: return
             }
             self.saveRequested = false
+            delegate?.uploadChangesToFirebase()
+            
         }
     }
     
