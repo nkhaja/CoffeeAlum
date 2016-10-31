@@ -10,9 +10,9 @@ import UIKit
 import Spring
 
 protocol CellDataDelegate {
-    func updateEdits(index:Int, source: String)
     func getUser() -> User
-    func editsAllowed() -> Bool
+    func changesMade(changed: Bool)
+    func uploadChangesToFirebase()
 }
 
 class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -25,15 +25,26 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var itemImageView: DesignableImageView!
     
     var source: String?
-    var index: Int?
+    var thisRow: Int?
     var delegate: CellDataDelegate?
     var canEdit:Bool = false
-    var savedChanges: Bool = true
+    var savedChanges: Bool = false
+    var saveRequested: Bool = false
 
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+    func buildCell(){
         
         itemTextField.delegate = self
         itemTextField.isHidden = true
@@ -49,17 +60,10 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 1
         itemLabel.addGestureRecognizer(tapGesture)
         descriptionLabel.addGestureRecognizer(tapGesture)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        updateUser()
     }
    
-    @IBAction func editItemButton(_ sender: DesignableButton) {
-        
-    }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool  {
         textField.resignFirstResponder()
@@ -73,13 +77,36 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func labelTapped(){
-        itemLabel.isHidden = true
-        itemTextField.isHidden = false
-        itemTextField.text = itemLabel.text
+        if canEdit{
+            itemLabel.isHidden = true
+            itemTextField.isHidden = false
+            itemTextField.text = itemLabel.text
+            
+            descriptionLabel.isHidden = true
+            descriptionTextfield.isHidden = false
+            descriptionTextfield.text = descriptionLabel.text
+            delegate?.changesMade(changed: true)
+            
+        }
         
-        descriptionLabel.isHidden = true
-        descriptionTextfield.isHidden = false
-        descriptionTextfield.text = descriptionLabel.text
+    }
+    
+    func updateUser(){
+        if saveRequested == true{
+        let updatedUser = delegate!.getUser()
+        switch source!{
+            case "experience":
+                updatedUser.employer[thisRow!].name = itemLabel.text!
+            case "academic":
+                updatedUser.education[thisRow!].school = itemLabel.text!
+            case "interests":
+                updatedUser.interests[thisRow!] = itemLabel.text!
+        default: return
+            }
+            self.saveRequested = false
+            delegate?.uploadChangesToFirebase()
+            
+        }
     }
     
 

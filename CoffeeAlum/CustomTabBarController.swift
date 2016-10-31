@@ -12,7 +12,7 @@ import Firebase
 
 class CustomTabBarController: UITabBarController {
     var thisUser:User?
-    var userRef: FIRDatabaseReference?
+    var thisUserRef: FIRDatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()

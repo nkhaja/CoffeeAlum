@@ -4,12 +4,39 @@
 //
 
 import Foundation
+import Firebase
 
 struct Education{
     var school: String
     var graduationYear:String
     var major:String
     var type: DegreeType
+    var logo: String = ""
+    var key: String = ""
+    var ref: FIRDatabaseReference?
+    
+
+    init(school: String, graduationYear:String, major:String, type:DegreeType){
+        self.school = school
+        self.graduationYear = graduationYear
+        self.major = major
+        self.type = type
+    }
+    
+    init(snapshot:FIRDataSnapshot){
+        key = snapshot.key
+        ref = snapshot.ref
+        let snapshotValue = snapshot.value as! [String:Any]
+        self.school = snapshotValue["school"] as! String
+        self.graduationYear = snapshotValue["graduationYear"] as! String
+        self.major = snapshotValue["major"] as! String
+        self.type = DegreeType(rawValue:snapshotValue["type"] as! String)!
+        let logoData = snapshotValue["logo"] as? String
+        if logoData != ""{
+            self.logo = logoData!
+        }
+    }
+    
     
     
     func toAnyObject() -> Any{
@@ -17,7 +44,8 @@ struct Education{
             "school":school,
             "graduationYear": graduationYear,
             "major":major,
-            "type": type.rawValue
+            "type": type.rawValue,
+            "logo": self.logo
         ]
     }
     
