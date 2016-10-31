@@ -32,7 +32,7 @@ struct Education{
         self.major = snapshotValue["major"] as! String
         self.type = DegreeType(rawValue:snapshotValue["type"] as! String)!
         let logoData = snapshotValue["logo"] as? String
-        if logoData != ""{
+        if logoData != nil{
             self.logo = logoData!
         }
     }

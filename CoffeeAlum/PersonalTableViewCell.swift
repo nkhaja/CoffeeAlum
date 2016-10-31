@@ -86,7 +86,6 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
             descriptionTextfield.isHidden = false
             descriptionTextfield.text = descriptionLabel.text
             delegate?.changesMade(changed: true)
-            
         }
         
     }
@@ -105,7 +104,6 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
             }
             self.saveRequested = false
             delegate?.uploadChangesToFirebase()
-            
         }
     }
     

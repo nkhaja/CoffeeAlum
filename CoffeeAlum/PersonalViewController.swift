@@ -11,6 +11,8 @@ import Spring
 import Firebase
 
 
+//TODO: Block Add feature when edit mode is enabled.
+
 
 class PersonalViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
     
@@ -19,6 +21,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     var thisUserRef: FIRDatabaseReference?
     var employerRef: FIRDatabaseReference?
     var educationRef: FIRDatabaseReference?
+    var interestRef: FIRDatabaseReference?
     
     var tbc: CustomTabBarController?
     var interests: [String] = []
@@ -33,16 +36,14 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     // MARK: Outlets - Labels
-    
     @IBOutlet weak var nameLabel: DesignableLabel!
     
-    
+    // MARK: Special - Outlets
     @IBOutlet weak var profileImageView: DesignableImageView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Outlets - TextFields
-    
     @IBOutlet weak var nameTextField: DesignableTextField!
     
     //ImagePicker
@@ -52,10 +53,17 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // MARK: Set References
+        
+        
         imagePicker.delegate = self
         if let tbc = self.tabBarController as? CustomTabBarController{
             self.thisUser = tbc.thisUser
             self.thisUserRef = tbc.thisUserRef
+            self.employerRef = thisUserRef?.child("employer")
+            self.educationRef = thisUserRef?.child("academic")
+            self.interestRef = thisUserRef?.child("interests")
+            
         }
         
         
@@ -91,7 +99,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
 
 
     // MARK: - UIImagePickerControllerDelegate Methods
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profileImageView.contentMode = .scaleAspectFit
@@ -128,9 +135,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         changesMade = false
         saveRequested = true
         savedChanges = true
-        
         thisUser?.name = nameLabel.text!
-        
         tableView.reloadData()
     }
     
@@ -145,8 +150,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         for e in thisUser!.education{
             e.ref!.setValue(e.toAnyObject())
         }
-        
-        
         thisUser!.ref?.setValue(thisUser!)
         
         
@@ -164,104 +167,114 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
-    
+    //MARK: ADD NEW ITEM FUNCTIONALITY
     @IBAction func addItemButton(_ sender: DesignableButton) {
-        
-//        let alert = UIAlertController(title: "Register",
-//                                      message: "Register",
-//                                      preferredStyle: .alert)
-//        
-//        let saveAction = UIAlertAction(title: "Save",
-//                                       style: .default) { action in
-//                                        // 1
-//                                        let emailField = alert.textFields![0]
-//                                        let passwordField = alert.textFields![1]
-//                                        
-//                                        // 2
-//                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-//                                                                   password: passwordField.text!) { user, error in
-//                                                                    if error == nil {
-//                                                                        // 3
-//                                                                        FIRAuth.auth()!.signIn(withEmail: emailField.text!,
-//                                                                                               password:  passwordField.text!)
-//                                                                    }
-//                                        }
-//                                        
-//        }
-//        
-//        let cancelAction = UIAlertAction(title: "Cancel",
-//                                         style: .default)
-//        
-//        alert.addTextField { textEmail in
-//            textEmail.placeholder = "Enter your email"
-//        }
-//        
-//        alert.addTextField { textPassword in
-//            textPassword.isSecureTextEntry = true
-//            textPassword.placeholder = "Enter your password"
-//        }
-//        
-//        alert.addAction(saveAction)
-//        alert.addAction(cancelAction)
-//        
-//        present(alert, animated: true, completion: nil)
         
         let alert = UIAlertController(title: "Update",
                                       message: "Register",
                                       preferredStyle: .alert)
         var itemChanged = ""
-        var selectedIndex = segmentedControl.selectedSegmentIndex
-        let nameField = alert.textFields![0]
-        var positionField: UITextField
-        var degreeField: UITextField
-        var majorField: UITextField
-        var graduationYearField: UITextField
-        var newRef: FIRDatabaseReference
+        let selectedIndex = segmentedControl.selectedSegmentIndex
+        var newRef: FIRDatabaseReference?
+        
+        
+        // Build Save Button
+        let saveAction = UIAlertAction(title: "Save", style: .default){ action in
+            let nameField = alert.textFields![0] as UITextField
+
+            if selectedIndex == 0{
+                _ = alert.textFields![0]
+                let positionField = alert.textFields![1]
+                
+                //Add new item to current user
+                var newEmployer = Employer(name: self.nameTextField.text!, position: positionField.text!)
+                self.thisUser?.employer.append(newEmployer)
+                newRef = (self.employerRef?.childByAutoId())!
+                newEmployer.ref = newRef
+                newRef?.setValue(newEmployer.toAnyObject())
+                
+                
+            }
+            else if selectedIndex == 1 {
+                _ = alert.textFields![0]
+                
+                let newInterest = nameField.text
+                self.thisUser?.interests.append(newInterest!)
+                newRef = self.interestRef?.childByAutoId()
+                newRef?.setValue(newInterest)
+            }
+            
+            else{
+                _ = alert.textFields![0] as UITextField
+                let degreeField = alert.textFields![1] as UITextField
+                let majorField = alert.textFields![2] as UITextField
+                let graduationYearField = alert.textFields![3] as UITextField
+                
+                let newEducation = Education(school: self.nameTextField.text!, graduationYear: graduationYearField.text!, major: majorField.text!, type: DegreeType(rawValue: degreeField.text!)!)
+                
+                self.thisUser?.education.append(newEducation)
+                newRef = self.educationRef?.childByAutoId()
+                newRef?.setValue(newEducation.toAnyObject())
+            }
+        }
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        
+        
+        //ADD Textfields with custom placeholders to Alerts
         
         if selectedIndex == 0 {
             itemChanged = "work experience"
             alert.message = "Add new \(itemChanged)"
-            let positionField = alert.textFields![1]
-            nameField.placeholder = "Where did you work?"
-            positionField.placeholder = "Your Role"
             
+            alert.addTextField{ workNameField in
+                workNameField.placeholder = "Where did you work?"
+            }
+            
+            alert.addTextField{ positionField in
+                positionField.placeholder = "Your Role"
+            }
             
         }
             
         else if selectedIndex == 1 {
             itemChanged = "interest"
             alert.message = "Add new \(itemChanged)"
-            nameField.placeholder = "what are you interested in?"
+            
+            alert.addTextField{ interestField in
+                interestField.placeholder = "What interests you?"
+            }
+            
         }
             
         else {
             itemChanged = "education item"
             alert.message = "Add new \(itemChanged)"
-            nameField.placeholder = "Where did you go to school?"
             
-             degreeField = alert.textFields![1]
-             majorField = alert.textFields![2]
-             graduationYearField = alert.textFields![3]
-            
-            degreeField.placeholder = "What level was your degree?"
-            majorField.placeholder = "Major"
-            graduationYearField.placeholder = "Graduation Year"
-        }
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default){ action in
-            if selectedIndex == 0{
-                var newEmployer = Employer(name: self.nameTextField.text!, position: positionField.text!)
-                self.thisUser?.employer.append(newEmployer)
-                newRef = (employerRef?.childByAutoId())!
-                newEmployer.ref = newRef
-                newRef.setValue(newEmployer.toAnyObject())
+            alert.addTextField{ schoolNameField in
+                schoolNameField.placeholder = "School?"
             }
-            else if selectedIndex == 1{
-                var newEducation = 
+            
+            alert.addTextField{ degreeField in
+                degreeField.placeholder = "Degree (e.g BSc)"
+            }
+            
+            alert.addTextField{ majorField in
+                majorField.placeholder = "Major"
+            }
+            
+            alert.addTextField{ yearField in
+                yearField.placeholder = "Grad Year"
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+        
+        self.tableView.reloadData()
         
     }
     
@@ -302,7 +315,6 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell") as! PersonalTableViewCell
         
-        //cell.delegate = self
         cell.canEdit = self.canEdit
         cell.savedChanges = self.savedChanges
         cell.saveRequested = self.saveRequested

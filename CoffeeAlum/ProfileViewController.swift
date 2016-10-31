@@ -50,8 +50,6 @@ class ProfileViewController: UIViewController {
             interests = user.interests
             tableView.reloadData()
         }
-
-
     }
 
 
@@ -90,6 +88,7 @@ extension ProfileViewController: UITableViewDataSource{
         
         if segmentedControl.selectedSegmentIndex == 0  {
             cell.itemLabel.text = employment[indexPath.row].name
+            cell.itemDescription.text = employment[indexPath.row].position
         }
         
         else if segmentedControl.selectedSegmentIndex == 1{
@@ -101,7 +100,8 @@ extension ProfileViewController: UITableViewDataSource{
         else if segmentedControl.selectedSegmentIndex == 2 {
             // TODO: Change into .name after Field of Study is implemented.
             cell.itemLabel.text = education[indexPath.row].school
-            
+            cell.itemDescription.text = education[indexPath.row].major
+
         }
         return cell
     }
