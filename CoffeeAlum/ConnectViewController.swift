@@ -56,7 +56,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                         self.thisUser = User(snapshot: snapshot)
                         self.thisUser?.uid = self.userId
                         self.updateTable()
-                        print(self.thisUser?.employer[0].key)
                         
                         if let tbc = self.tabBarController as? CustomTabBarController {
                             self.currentUserRef!.updateChildValues(["uid": user.uid])

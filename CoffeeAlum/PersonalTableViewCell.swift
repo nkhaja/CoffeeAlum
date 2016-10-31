@@ -13,13 +13,15 @@ protocol CellDataDelegate {
     func getUser() -> User
     func changesMade(changed: Bool)
     func uploadChangesToFirebase()
+    func newImageForCell(changing: Bool, segment:String, row:Int)
 }
+
+
 
 class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var itemLabel: DesignableLabel!
     @IBOutlet weak var descriptionLabel: DesignableLabel!
-    @IBOutlet weak var itemImage: DesignableImageView!
     @IBOutlet weak var itemTextField: DesignableTextField!
     @IBOutlet weak var descriptionTextfield: DesignableTextField!
     @IBOutlet weak var itemImageView: DesignableImageView!
@@ -30,6 +32,7 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
     var canEdit:Bool = false
     var savedChanges: Bool = false
     var saveRequested: Bool = false
+    
 
     
     
@@ -53,13 +56,21 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
         descriptionTextfield.delegate = self
         descriptionTextfield.isHidden = true
         descriptionLabel.isUserInteractionEnabled = true
+        itemImageView.isUserInteractionEnabled = true
         
         
-        let aSelector : Selector = "labelTapped"
-        let tapGesture = UITapGestureRecognizer(target: self, action: aSelector)
-        tapGesture.numberOfTapsRequired = 1
-        itemLabel.addGestureRecognizer(tapGesture)
-        descriptionLabel.addGestureRecognizer(tapGesture)
+        let labelSelector : Selector = "labelTapped"
+        let imageSelector : Selector = "imageTapped"
+        let labelTapGesture = UITapGestureRecognizer(target: self, action: labelSelector)
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: imageSelector)
+        
+        labelTapGesture.numberOfTapsRequired = 1
+        imageTapGesture.numberOfTapsRequired = 1
+        
+        itemLabel.addGestureRecognizer(labelTapGesture)
+        descriptionLabel.addGestureRecognizer(labelTapGesture)
+        itemImageView!.addGestureRecognizer(imageTapGesture)
+        
         updateUser()
     }
    
@@ -90,6 +101,12 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
         
     }
     
+    func imageTapped(){
+        if canEdit{
+           delegate?.newImageForCell(changing: true, segment: self.source!, row: self.thisRow!)
+        }
+    }
+    
     func updateUser(){
         if saveRequested == true{
         let updatedUser = delegate!.getUser()
@@ -106,6 +123,10 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
             delegate?.uploadChangesToFirebase()
         }
     }
+    
+    //ImagePickerFunctions:
+    
+    
     
 
 }

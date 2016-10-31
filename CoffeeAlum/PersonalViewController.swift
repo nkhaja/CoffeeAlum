@@ -12,6 +12,7 @@ import Firebase
 
 
 //TODO: Block Add feature when edit mode is enabled.
+// - Employer is selected as just the first in the list. Need to make it so that most recent employer is identified and used instead.
 
 
 class PersonalViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
@@ -32,11 +33,18 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     var changesMade = false
     var saveRequested: Bool = false
     var savedChanges:Bool = true
+    var cellPictureChanging: (Bool,String,Int) = (false, "", 0)
     var newName:String?
+    var newCareer: String?
+    var newLocation: String?
     
     
     // MARK: Outlets - Labels
     @IBOutlet weak var nameLabel: DesignableLabel!
+    @IBOutlet weak var careerLabel: DesignableLabel!
+    @IBOutlet weak var locationLabel: DesignableLabel!
+    
+    
     
     // MARK: Special - Outlets
     @IBOutlet weak var profileImageView: DesignableImageView!
@@ -45,6 +53,13 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     
     //MARK: Outlets - TextFields
     @IBOutlet weak var nameTextField: DesignableTextField!
+    @IBOutlet weak var careerTextField: DesignableTextField!
+    @IBOutlet weak var locationTextField: DesignableTextField!
+    
+    @IBOutlet weak var pictureButtonPressed: DesignableButton!
+    
+    
+    
     
     //ImagePicker
     let imagePicker = UIImagePickerController()
@@ -71,6 +86,17 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         nameTextField.isHidden = true
         nameLabel.text = thisUser?.name
         nameLabel.isUserInteractionEnabled = true
+        
+        careerTextField.delegate = self
+        careerTextField.isHidden = true
+        careerLabel.text = thisUser?.employer[0].name
+        careerLabel.isUserInteractionEnabled = true
+        
+        locationTextField.delegate = self
+        locationTextField.isHidden = true
+        locationLabel.text = thisUser?.location
+        locationLabel.isUserInteractionEnabled = true
+        
         let aSelector : Selector = "labelTapped"
         let tapGesture = UITapGestureRecognizer(target: self, action: aSelector)
         tapGesture.numberOfTapsRequired = 1
@@ -84,6 +110,15 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             nameTextField.isHidden = false
             nameTextField.text = nameLabel.text
             changesMade = true
+            
+            careerLabel.isHidden = true
+            careerTextField.isHidden = false
+            careerTextField.text = careerLabel.text
+            
+            
+            locationLabel.isHidden = true
+            locationTextField.isHidden = false
+            locationTextField.text = locationLabel.text
         }
 
     }
@@ -94,6 +129,18 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         nameLabel.text = nameTextField.text
         nameLabel.isHidden = false
         newName = nameLabel.text
+        
+        careerTextField.isHidden = true
+        careerLabel.text = careerTextField.text
+        careerLabel.isHidden = false
+        newCareer = careerLabel.text
+        
+        locationTextField.isHidden = true
+        locationLabel.text = careerTextField.text
+        locationLabel.isHidden = false
+        newLocation = locationLabel.text
+        
+        
         return true
     }
 
@@ -101,17 +148,34 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     // MARK: - UIImagePickerControllerDelegate Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImageView.contentMode = .scaleAspectFit
-            profileImageView.image = pickedImage
-            thisUser!.portrait = Helper.imageToDataString(image: pickedImage)
-            self.profileImageView.image = pickedImage
+            if cellPictureChanging.0 {
+                switch cellPictureChanging.1{
+                case "experience":
+                    thisUser?.employer[cellPictureChanging.2].logo = Helper.imageToDataString(image: pickedImage)
+                case "interests":
+                    return // TODO: Change this once interests have pictures associated with them
+                case "education":
+                    thisUser?.education[cellPictureChanging.2].logo = Helper.imageToDataString(image: pickedImage)
+                default: return
+                }
+            
+            }
+            
+            else{
+                profileImageView.contentMode = .scaleAspectFit
+                profileImageView.image = pickedImage
+                thisUser!.portrait = Helper.imageToDataString(image: pickedImage)
+                self.profileImageView.image = pickedImage
+            }
+            
         }
-        
+        cellPictureChanging.0 = false
         dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         dismiss(animated: true, completion: nil)
+        tableView.reloadData() //TODO: Insepect what happens when images are changes while edit mode is on. 
     }
     
     
@@ -135,14 +199,17 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         changesMade = false
         saveRequested = true
         savedChanges = true
+        
         thisUser?.name = nameLabel.text!
+        thisUser?.employer[0].name = careerLabel.text! //MUST CHANGE; Does not sync with employment status listed in tableView
+        thisUser?.location = locationLabel.text!
         tableView.reloadData()
     }
     
         
     func uploadChangesToFirebase(){
         
-        
+        thisUser!.ref?.setValue(thisUser!.toAnyObject())
         for e in thisUser!.employer{
             e.ref!.setValue(e.toAnyObject())
         }
@@ -150,7 +217,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         for e in thisUser!.education{
             e.ref!.setValue(e.toAnyObject())
         }
-        thisUser!.ref?.setValue(thisUser!)
+        
         
         
         
@@ -180,14 +247,13 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // Build Save Button
         let saveAction = UIAlertAction(title: "Save", style: .default){ action in
-            let nameField = alert.textFields![0] as UITextField
 
             if selectedIndex == 0{
-                _ = alert.textFields![0]
-                let positionField = alert.textFields![1]
+                let nameField = alert.textFields![0] as UITextField
+                let positionField = alert.textFields![1] as UITextField
                 
                 //Add new item to current user
-                var newEmployer = Employer(name: self.nameTextField.text!, position: positionField.text!)
+                var newEmployer = Employer(name: nameField.text!, position: positionField.text!)
                 self.thisUser?.employer.append(newEmployer)
                 newRef = (self.employerRef?.childByAutoId())!
                 newEmployer.ref = newRef
@@ -196,8 +262,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
                 
             }
             else if selectedIndex == 1 {
-                _ = alert.textFields![0]
-                
+                let nameField = alert.textFields![0] as UITextField
                 let newInterest = nameField.text
                 self.thisUser?.interests.append(newInterest!)
                 newRef = self.interestRef?.childByAutoId()
@@ -205,12 +270,12 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             }
             
             else{
-                _ = alert.textFields![0] as UITextField
+                let nameField = alert.textFields![0] as UITextField
                 let degreeField = alert.textFields![1] as UITextField
                 let majorField = alert.textFields![2] as UITextField
                 let graduationYearField = alert.textFields![3] as UITextField
                 
-                let newEducation = Education(school: self.nameTextField.text!, graduationYear: graduationYearField.text!, major: majorField.text!, type: DegreeType(rawValue: degreeField.text!)!)
+                let newEducation = Education(school: nameField.text!, graduationYear: graduationYearField.text!, major: majorField.text!, type: DegreeType(rawValue: degreeField.text!)!)
                 
                 self.thisUser?.education.append(newEducation)
                 newRef = self.educationRef?.childByAutoId()
@@ -327,12 +392,14 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
                 
                 cell.itemLabel.text = self.thisUser!.employer[indexPath.row].name
                 cell.descriptionLabel.text = self.thisUser!.employer[indexPath.row].position
-                let logo = self.thisUser!.employer[indexPath.row].logo
                 
+                let logo = self.thisUser!.employer[indexPath.row].logo
                 if logo != ""{
                     cell.imageView?.image = Helper.dataStringToImage(dataString: logo)
                 }
-            
+                else{
+                    cell.itemImageView.image = #imageLiteral(resourceName: "first")
+                }
                 cell.source = "experience"
             }
         }
@@ -342,16 +409,25 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
                 cell.itemLabel.text = self.thisUser!.interests[indexPath.row]
                 cell.descriptionLabel.text = ""
             cell.source = "interests"
+            }
         }
-    }
             
         else {
             if !saveRequested{
                 cell.itemLabel.text = self.thisUser!.education[indexPath.row].school
-                cell.itemLabel.text = self.thisUser!.education[indexPath.row].major + ", " + self.thisUser!.education[indexPath.row].type.rawValue                
-                }
+                cell.itemLabel.text = self.thisUser!.education[indexPath.row].major + ", " + self.thisUser!.education[indexPath.row].type.rawValue
                 
-            cell.source = "academic"
+                let logo = self.thisUser!.education[indexPath.row].logo
+                if logo != ""{
+                    cell.itemImageView.image = Helper.dataStringToImage(dataString: logo)
+                }
+                else{
+                    cell.itemImageView.image = #imageLiteral(resourceName: "first")
+                }
+                cell.source = "academic"
+                }
+            
+
         }
         
         self.saveRequested = false
@@ -364,7 +440,13 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
     }
     
     func changesMade(changed: Bool){
-        changesMade = changed
+        self.changesMade = changed
+    }
+    
+    func newImageForCell(changing: Bool, segment:String, row:Int){
+        self.cellPictureChanging = (changing, segment, row)
+        self.changePictureButton(pictureButtonPressed)
+        print("imageViewPressed")
     }
 
 
