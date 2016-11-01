@@ -79,6 +79,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             self.educationRef = thisUserRef?.child("academic")
             self.interestRef = thisUserRef?.child("interests")
             
+            self.profileImageView.image = Helper.dataStringToImage(dataString: self.thisUser!.portrait)
         }
         
         
@@ -414,8 +415,8 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
             
         else {
             if !saveRequested{
-                cell.itemLabel.text = self.thisUser!.education[indexPath.row].school
                 cell.itemLabel.text = self.thisUser!.education[indexPath.row].major + ", " + self.thisUser!.education[indexPath.row].type.rawValue
+                cell.descriptionLabel.text = self.thisUser!.education[indexPath.row].school
                 
                 let logo = self.thisUser!.education[indexPath.row].logo
                 if logo != ""{
@@ -426,8 +427,6 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
                 }
                 cell.source = "academic"
                 }
-            
-
         }
         
         self.saveRequested = false

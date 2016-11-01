@@ -37,9 +37,10 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let tbc = self.tabBarController as? CustomTabBarController{
-            self.user = tbc.thisUser
-        }
+//        if let tbc = self.tabBarController as? CustomTabBarController{
+//            self.user = tbc.thisUser
+//        }
+        
         if let user = self.user{
             nameLabel.text = user.name
             locationLabel.text = user.location
@@ -55,13 +56,15 @@ class ProfileViewController: UIViewController {
 
 
     @IBAction func CoffeeButton(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Coffee Invitaiton Sent",
+                                      message: "\(user!.name) will be in touch with you soon!",
+                                      preferredStyle: .alert)
     }
     
 
     @IBAction func segmentButton(_ sender: AnyObject) {
         tableView.reloadData()
     }
-    
     
     
 

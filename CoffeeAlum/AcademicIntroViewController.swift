@@ -104,7 +104,10 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     @IBAction func submitButton(_ sender: AnyObject) {
         miniView.isHidden = true
-        degreeLabel.text = "\(degree!.rawValue)" +  "\(String(describing: year!))"
+        if let year = year{
+             degreeLabel.text = "\(degree!.rawValue)," +  "\(String(describing: year))"
+        }
+       
     }
     
     

@@ -131,7 +131,8 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                 }
       
             }
-        }
+            self.tableView.reloadData()
+    }
 
     
     
@@ -164,9 +165,7 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if updateComplete {
-            
-        
-        
+
             if filteredAlumni.count > 0 {
                 return self.filteredAlumni.count
             }
@@ -185,19 +184,38 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "connect") as! ConnectTableViewCell
         if updateComplete{
-            let alumForRow = alumni[indexPath.row]
-            cell.nameLabel.text = alumForRow.name
-            cell.employmentLabel.text = alumForRow.employer[0].name
-            cell.locationLabel.text = alumForRow.location
-            cell.schoolLabel.text = alumForRow.education[0].school
-            cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
+            if filteredAlumni.count > 0 {
+                let alumForRow = filteredAlumni[indexPath.row]
+                cell.nameLabel.text = alumForRow.name
+                cell.employmentLabel.text = alumForRow.employer[0].name
+                cell.locationLabel.text = alumForRow.location
+                cell.schoolLabel.text = alumForRow.education[0].school
+                cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
+            }
+            else{
+                let alumForRow = alumni[indexPath.row]
+                cell.nameLabel.text = alumForRow.name
+                cell.employmentLabel.text = alumForRow.employer[0].name
+                cell.locationLabel.text = alumForRow.location
+                cell.schoolLabel.text = alumForRow.education[0].school
+                cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
+                
+            }
+
         }
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedUser = alumni[indexPath.row]
+        if filteredAlumni.count > 0 {
+            selectedUser = filteredAlumni[indexPath.row]
+        }
+        else{
+            selectedUser = alumni[indexPath.row]
+        }
+        
+        
         if updateComplete{
             performSegue(withIdentifier: "seeProfile", sender: self)
         }
