@@ -59,6 +59,18 @@ class ProfileViewController: UIViewController {
         let alert = UIAlertController(title: "Coffee Invitaiton Sent",
                                       message: "\(user!.name) will be in touch with you soon!",
                                       preferredStyle: .alert)
+    
+        let okAction = UIAlertAction(title: "Ok",
+                                         style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+
+        
+        
+        
+        
+        
+        
     }
     
 

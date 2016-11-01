@@ -1546,6 +1546,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="profileImageView" destination="NmW-Jy-kwc" id="xuh-lC-hRC"/>
                         <segue destination="71M-10-4PH" kind="show" identifier="connect" id="JfU-te-A89"/>
                     </connections>
                 </viewController>
@@ -1565,6 +1566,6 @@
         <image name="testUser3" width="1197" height="1197"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wpW-3A-Gco"/>
+        <segue reference="JfU-te-A89"/>
     </inferredMetricsTieBreakers>
 </document>
