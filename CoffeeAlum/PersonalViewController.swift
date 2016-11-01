@@ -64,7 +64,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     //ImagePicker
     let imagePicker = UIImagePickerController()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tj5-ll-gi2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -7,22 +7,90 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="Wo8-XY-XnV">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="Tj5-ll-gi2" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="wSm-gm-NL1"/>
+                        <viewControllerLayoutGuide type="bottom" id="xnD-1d-DnX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="pZx-y4-BpJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cid-JN-XeA">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="students-walking" translatesAutoresizingMaskIntoConstraints="NO" id="keJ-xE-HlN"/>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TId-yH-JpA">
+                                        <frame key="frameInset" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="awJ-7H-fOC">
+                                            <frame key="frameInset"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-rn-M2U">
+                                                    <frame key="frameInset" minY="613" width="375" height="54"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.3272566972" green="0.82678624749999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kF-CY-TOg">
+                                                    <frame key="frameInset"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="5le-IZ-fvR">
+                                                        <frame key="frameInset"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                    <color key="backgroundColor" red="0.28524356369999998" green="0.31732529199999998" blue="1" alpha="0.079775528169999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="light"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Choosing a career is hard. Coffee isn't.&quot; " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-k2-Ua1">
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="42"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoffeeAlum" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-Ac-Je0">
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="45"/>
+                                        <color key="textColor" red="0.98664204" green="0.99607843139999996" blue="0.92933410279999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18755871060000001" green="0.74384462829999998" blue="0.97609287499999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="o9g-k2-Ua1" secondAttribute="trailing" constant="80" id="4nF-Sz-BRA"/>
+                                    <constraint firstItem="o9g-k2-Ua1" firstAttribute="top" secondItem="Cid-JN-XeA" secondAttribute="top" constant="62" id="67X-j9-2rb"/>
+                                    <constraint firstItem="keJ-xE-HlN" firstAttribute="top" secondItem="Cid-JN-XeA" secondAttribute="top" id="OyE-DZ-Lru"/>
+                                    <constraint firstItem="TjN-Ac-Je0" firstAttribute="top" secondItem="o9g-k2-Ua1" secondAttribute="bottom" constant="-1" id="VVi-fF-E9E"/>
+                                    <constraint firstAttribute="bottom" secondItem="keJ-xE-HlN" secondAttribute="bottom" id="ds0-iM-BIv"/>
+                                    <constraint firstItem="o9g-k2-Ua1" firstAttribute="leading" secondItem="Cid-JN-XeA" secondAttribute="leading" constant="33" id="eQz-Yo-Wkt"/>
+                                    <constraint firstItem="TjN-Ac-Je0" firstAttribute="leading" secondItem="Cid-JN-XeA" secondAttribute="leading" constant="33" id="f4J-rc-gnh"/>
+                                    <constraint firstAttribute="trailing" secondItem="keJ-xE-HlN" secondAttribute="trailing" id="jLZ-jh-bhD"/>
+                                    <constraint firstItem="keJ-xE-HlN" firstAttribute="leading" secondItem="Cid-JN-XeA" secondAttribute="leading" id="znG-i2-5jX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xnD-1d-DnX" firstAttribute="top" secondItem="Cid-JN-XeA" secondAttribute="bottom" id="8P7-YZ-nYb"/>
+                            <constraint firstItem="Cid-JN-XeA" firstAttribute="top" secondItem="pZx-y4-BpJ" secondAttribute="top" id="HDq-MY-U44"/>
+                            <constraint firstAttribute="trailing" secondItem="Cid-JN-XeA" secondAttribute="trailing" id="PIb-ja-kbE"/>
+                            <constraint firstItem="Cid-JN-XeA" firstAttribute="leading" secondItem="pZx-y4-BpJ" secondAttribute="leading" id="Son-pZ-Qg0"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAF-q7-RFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="71" y="490"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="students-walking" width="1920" height="1280"/>
+    </resources>
 </document>

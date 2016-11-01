@@ -26,15 +26,15 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
    
 
+    @IBOutlet weak var pickerView2: UIPickerView!
    
     
     @IBOutlet weak var degreeLabel: DesignableLabel!
     @IBOutlet weak var miniView: UIView!
-    @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var schoolTextField: DesignableTextField!
     @IBOutlet weak var majorTextField: DesignableTextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //ALERTs
@@ -71,7 +71,7 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0{
-            return pickerDataSource.count;
+            return pickerDataSource.count
         }
         else{
             return years.count
@@ -97,27 +97,28 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
             degree = DegreeType(rawValue: pickerDataSource[row])
         }
         
-        else{
+        else {
             year = String(years[row])
         }
     }
     
-    @IBAction func submitButton(_ sender: AnyObject) {
+
+    @IBAction func submitButton2(_ sender: AnyObject) {
         miniView.isHidden = true
-        if let year = year{
-             degreeLabel.text = "\(degree!.rawValue)," +  "\(String(describing: year))"
-        }
-       
+            //degreeLabel.text = "BSc, 1951" //"\(degree!.rawValue)," +  "\(String(describing: year))"
+        
     }
     
     
     // SUBMIT RESPONSE, DISMISS PICKERVIEW
     
-    @IBAction func showPickerButton(_ sender: AnyObject) {
+    @IBAction func showPickerButton2(_ sender: AnyObject) {
         miniView.isHidden = false
     }
+
     
-    @IBAction func nextButton(_ sender: AnyObject) {
+
+    @IBAction func nextButton2(_ sender: AnyObject) {
         self.school = schoolTextField.text
         self.major = majorTextField.text
         var checkFails = true
@@ -126,13 +127,13 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
             let shortSchool = school!.trimmingCharacters(in: NSCharacterSet.whitespaces)
             let shortMajor = major!.trimmingCharacters(in: NSCharacterSet.whitespaces)
             
-             checkFails = shortSchool == "" || shortSchool.length < 2 || shortMajor == "" || shortMajor.length < 2
+            checkFails = shortSchool == "" || shortSchool.length < 2 || shortMajor == "" || shortMajor.length < 2
         }
         
-
+        
         
         if checkFails{
-
+            
             self.present(alert, animated: true, completion: nil)
         }
             
