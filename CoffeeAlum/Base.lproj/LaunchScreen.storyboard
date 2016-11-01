@@ -1,28 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW0-sd-mIc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="nDE-ly-UPf">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="GW0-sd-mIc" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="bD7-LT-Wsg"/>
+                        <viewControllerLayoutGuide type="bottom" id="t4C-DZ-1VT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="aap-My-a7A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAI-wL-NbO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="students-walking" translatesAutoresizingMaskIntoConstraints="NO" id="Bvj-OW-hVf">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-mT-uof">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="hGh-iz-tQD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nwn-xe-O3c">
+                                                    <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.3272566972" green="0.82678624749999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXV-8G-oBg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="s47-cT-bn1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                    <color key="backgroundColor" red="0.28524356369999998" green="0.31732529199999998" blue="1" alpha="0.079775528169999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="light"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Choosing a career is hard. Coffee isn't.&quot; " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-AR-Cgc">
+                                        <rect key="frame" x="33" y="62" width="262" height="151.5"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="42"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoffeeAlum" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stE-BM-s38">
+                                        <rect key="frame" x="33" y="212.5" width="215" height="54"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="45"/>
+                                        <color key="textColor" red="0.98664204" green="0.99607843139999996" blue="0.92933410279999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jki-sI-9Nv">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CoffeeAlum" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hor-sA-7SH">
+                                                <rect key="frame" x="17" y="628" width="148" height="28"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="148" id="wdb-W1-GGL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="28"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18755871060000001" green="0.74384462829999998" blue="0.97609287499999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Dyt-AR-Cgc" firstAttribute="leading" secondItem="tAI-wL-NbO" secondAttribute="leading" constant="33" id="0EC-Hs-wlq"/>
+                                    <constraint firstItem="stE-BM-s38" firstAttribute="top" secondItem="Dyt-AR-Cgc" secondAttribute="bottom" constant="-1" id="4M5-wl-3Gi"/>
+                                    <constraint firstItem="Bvj-OW-hVf" firstAttribute="leading" secondItem="tAI-wL-NbO" secondAttribute="leading" id="6nW-Er-RGb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bvj-OW-hVf" secondAttribute="bottom" id="BeK-8p-P4z"/>
+                                    <constraint firstItem="Bvj-OW-hVf" firstAttribute="top" secondItem="tAI-wL-NbO" secondAttribute="top" id="FhJ-OL-oDw"/>
+                                    <constraint firstItem="stE-BM-s38" firstAttribute="leading" secondItem="tAI-wL-NbO" secondAttribute="leading" constant="33" id="M2M-1c-6bf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bvj-OW-hVf" secondAttribute="trailing" id="Oxm-fH-w1j"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dyt-AR-Cgc" secondAttribute="trailing" constant="80" id="fn2-XV-SBY"/>
+                                    <constraint firstItem="Dyt-AR-Cgc" firstAttribute="top" secondItem="tAI-wL-NbO" secondAttribute="top" constant="62" id="nC5-fh-9vs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tAI-wL-NbO" secondAttribute="trailing" id="02Y-2f-bTU"/>
+                            <constraint firstItem="tAI-wL-NbO" firstAttribute="leading" secondItem="aap-My-a7A" secondAttribute="leading" id="2gA-is-qrd"/>
+                            <constraint firstItem="t4C-DZ-1VT" firstAttribute="top" secondItem="tAI-wL-NbO" secondAttribute="bottom" id="IoX-0i-9C5"/>
+                            <constraint firstItem="tAI-wL-NbO" firstAttribute="top" secondItem="aap-My-a7A" secondAttribute="top" id="rg3-tF-8ds"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1H-mt-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="34" y="508"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="students-walking" width="1920" height="1280"/>
+    </resources>
 </document>
