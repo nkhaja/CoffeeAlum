@@ -577,7 +577,6 @@
         <!--Login View Controller-->
         <scene sceneID="CJM-Yt-st6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p5T-bp-tws" sceneMemberID="firstResponder"/>
                 <viewController id="FeC-pd-JMO" customClass="LoginViewController" customModule="CoffeeAlum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="InV-tb-eeS"/>
@@ -753,6 +752,7 @@
                         <segue destination="VKw-Vu-cES" kind="show" identifier="intro" id="aV4-yh-uUU"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5T-bp-tws" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-770.39999999999998" y="-0.44977511244377816"/>
         </scene>
@@ -1419,6 +1419,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="degreeLabel" destination="CSO-XT-GHn" id="Edu-Qj-MYP"/>
                         <outlet property="majorTextField" destination="np9-UK-W0N" id="h3V-cy-Z9Y"/>
                         <outlet property="miniView" destination="2Cd-z5-mOA" id="zNu-rh-k4H"/>
                         <outlet property="pickerView2" destination="i2p-rf-4Gf" id="5GB-C2-nSs"/>
