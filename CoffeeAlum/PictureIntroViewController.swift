@@ -22,7 +22,9 @@ UINavigationControllerDelegate {
     var employer: Employer?
     var education: Education?
     var portrait: String?
+    var email: String?
     var uid: String?
+    
     
     // DATABASE REFERENCES
     var newUserRef: FIRDatabaseReference?
@@ -45,6 +47,7 @@ UINavigationControllerDelegate {
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil{
                 self.uid = user?.uid
+                self.email = user?.email
                 self.buildUser()
                 self.setReferences()
                 self.newUser?.uid = self.uid!
@@ -126,9 +129,6 @@ UINavigationControllerDelegate {
     
     @IBAction func nextButton(sender: AnyObject) {
         register()
-        
-        
-        
     }
     
     

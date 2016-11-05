@@ -23,12 +23,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // Local Variables
-    var user: User?
-    var userRef: FIRDataSnapshot?
+    var profileUser: User? // populated by segue; User featured in this Profile; below are their attributes
+    var thisProfileUserRef: FIRDataSnapshot?
+    var thisUser: User? // the active user for this account
     var interests: [String] = []
     var education: [Education] = []
     var employment: [Employer] = []
     var data = NSArray()
+    
+    // ViewController for Sending emails
+    var mailViewController = MailViewController()
 
 
     
@@ -37,50 +41,37 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let tbc = self.tabBarController as? CustomTabBarController{
-//            self.user = tbc.thisUser
-//        }
+        if let tbc = self.tabBarController as? CustomTabBarController{
+            self.thisUser = tbc.thisUser
+        }
         
-        if let user = self.user{
-            nameLabel.text = user.name
-            locationLabel.text = user.location
-            careerLabel.text = user.employer[0].name
-            profileImage.image = Helper.dataStringToImage(dataString: user.portrait)
-            employment = user.employer
-            education = user.education
-            interests = user.interests
+        if let profileUser = self.profileUser{
+            nameLabel.text = profileUser.name
+            locationLabel.text = profileUser.location
+            careerLabel.text = profileUser.employer[0].name
+            profileImage.image = Helper.dataStringToImage(dataString: profileUser.portrait)
+            employment = profileUser.employer
+            education = profileUser.education
+            interests = profileUser.interests
             tableView.reloadData()
         }
     }
-
-
+    
 
     @IBAction func CoffeeButton(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Coffee Invitaiton Sent",
-                                      message: "\(user!.name) will be in touch with you soon!",
-                                      preferredStyle: .alert)
-    
-        let okAction = UIAlertAction(title: "Ok",
-                                         style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-
-        
-        
-        
-        
-        
-        
+        mailViewController.thisUser = self.thisUser
+        mailViewController.recipientUser = self.profileUser
+        performSegue(withIdentifier: "coffee", sender: self)
+        present(mailViewController, animated: true, completion: nil)        
     }
     
 
     @IBAction func segmentButton(_ sender: AnyObject) {
         tableView.reloadData()
     }
-    
-    
 
 }
+
 
 extension ProfileViewController: UITableViewDataSource{
     
@@ -125,5 +116,15 @@ extension ProfileViewController: UITableViewDataSource{
 
 
 
+
+
+//        let alert = UIAlertController(title: "Coffee Invitaiton Sent",
+//                                      message: "\(user!.name) will be in touch with you soon!",
+//                                      preferredStyle: .alert)
+//
+//        let okAction = UIAlertAction(title: "Ok",
+//                                         style: .default)
+//        alert.addAction(okAction)
+//        present(alert, animated: true, completion: nil)
 
 

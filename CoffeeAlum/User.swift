@@ -20,6 +20,7 @@ class User {
     var interests: [String] = []
     var coffeeIds: [String] = []
     var portrait: String = ""
+    var email: String = ""
     var uid: String = ""
     var key: String = ""
     var ref: FIRDatabaseReference?
@@ -42,8 +43,6 @@ class User {
             let thisEmployer = Employer(snapshot: value)
             employer.append(thisEmployer)
         }
-        
-        
         
         if let locationData = snapshotValue["location"]{
             location = locationData as! String
@@ -74,6 +73,10 @@ class User {
         
         if let portraitsData = snapshotValue["portrait"]{
             portrait = portraitsData as! String
+        }
+        
+        if let emailData = snapshotValue["email"]{
+            email = emailData as! String 
         }
         
         if let uidata = snapshotValue["uid"]{

@@ -18,7 +18,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     var alumni:[User] = []
     var students:[User] = []
     var coffees:[Coffee] = []
-    
     var filteredAlumni: [User] = []
 
     let userRef = FIRDatabase.database().reference(withPath: "users")
@@ -35,6 +34,9 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTable()
+        
+        
 
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater  = self
@@ -55,15 +57,13 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                     if snapshot.hasChildren(){
                         self.thisUser = User(snapshot: snapshot)
                         self.thisUser?.uid = self.userId
-                        self.updateTable()
+                        //self.updateTable()
                         
                         if let tbc = self.tabBarController as? CustomTabBarController {
                             self.currentUserRef!.updateChildValues(["uid": user.uid])
                             tbc.thisUser = self.thisUser
                             tbc.thisUserRef = self.currentUserRef
-
                         }
-                        
                     }
 
                 })
@@ -82,9 +82,10 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                 if accountType == "alumni"{
                     let alumUser = User(snapshot: info)
                     self.alumni.append(alumUser)
-                    self.tableView.reloadData()
                 }
             }
+        self.tableView.reloadData()
+
             
         })
     }
@@ -93,7 +94,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
         filteredAlumni = []
         if let searchText = searchController.searchBar.text{
             filterContent(searchText: searchText, scope: searchController.searchBar.selectedScopeButtonIndex)
-            tableView.reloadData()
+//            tableView.reloadData()
         }
     }
     
@@ -147,7 +148,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
         if segue.identifier == "seeProfile"{
             if let profileViewController = segue.destination as? ProfileViewController{
                 // Assigning the user variable to the thisUser variable.
-               profileViewController.user = self.selectedUser
+               profileViewController.profileUser = self.selectedUser
                 //pass data related to selected profile
             }
         }
