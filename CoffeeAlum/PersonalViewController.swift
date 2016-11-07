@@ -25,9 +25,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     var interestRef: FIRDatabaseReference?
     
     var tbc: CustomTabBarController?
-    var interests: [String] = []
-    var academic: [String] = []
-    var employment: [Employer] = []
     
     var canEdit:Bool = false
     var changesMade = false
@@ -79,6 +76,8 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             self.interestRef = thisUserRef?.child("interests")
             
             self.profileImageView.image = Helper.dataStringToImage(dataString: self.thisUser!.portrait)
+            
+            
         }
         
         
@@ -153,8 +152,8 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
                 case "experience":
                     thisUser?.employer[cellPictureChanging.2].logo = Helper.imageToDataString(image: pickedImage)
                 case "interests":
-                    return // TODO: Change this once interests have pictures associated with them
-                case "education":
+                    thisUser?.interests[cellPictureChanging.2].picture = Helper.imageToDataString(image: pickedImage)
+                case "academic":
                     thisUser?.education[cellPictureChanging.2].logo = Helper.imageToDataString(image: pickedImage)
                 default: return
                 }
@@ -210,6 +209,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     func uploadChangesToFirebase(){
         
         thisUser!.ref?.setValue(thisUser!.toAnyObject())
+        
         for e in thisUser!.employer{
             e.ref!.setValue(e.toAnyObject())
         }
@@ -218,7 +218,9 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             e.ref!.setValue(e.toAnyObject())
         }
         
-        
+        for i in thisUser!.interests{
+            i.ref!.setValue(i.toAnyObject())
+        }
         
         
         
@@ -263,8 +265,8 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             }
             else if selectedIndex == 1 {
                 let nameField = alert.textFields![0] as UITextField
-                let newInterest = nameField.text
-                self.thisUser?.interests.append(newInterest!)
+                let newInterest = Interest(name: nameField.text!)
+                self.thisUser?.interests.append(newInterest)
                 newRef = self.interestRef?.childByAutoId()
                 newRef?.setValue(newInterest)
             }
@@ -275,10 +277,12 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
                 let majorField = alert.textFields![2] as UITextField
                 let graduationYearField = alert.textFields![3] as UITextField
                 
-                let newEducation = Education(school: nameField.text!, graduationYear: graduationYearField.text!, major: majorField.text!, type: DegreeType(rawValue: degreeField.text!)!)
+                var newEducation = Education(school: nameField.text!, graduationYear: graduationYearField.text!, major: majorField.text!, type: DegreeType(rawValue: degreeField.text!)!)
                 
-                self.thisUser?.education.append(newEducation)
+               
                 newRef = self.educationRef?.childByAutoId()
+                newEducation.ref = newRef
+                self.thisUser?.education.append(newEducation)
                 newRef?.setValue(newEducation.toAnyObject())
             }
         }
@@ -395,7 +399,7 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
                 
                 let logo = self.thisUser!.employer[indexPath.row].logo
                 if logo != ""{
-                    cell.imageView?.image = Helper.dataStringToImage(dataString: logo)
+                    cell.itemImageView.image = Helper.dataStringToImage(dataString: logo)
                 }
                 else{
                     cell.itemImageView.image = #imageLiteral(resourceName: "first")
@@ -406,7 +410,7 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
             
         else if segmentedControl.selectedSegmentIndex == 1 {
             if !saveRequested{
-                cell.itemLabel.text = self.thisUser!.interests[indexPath.row]
+                cell.itemLabel.text = self.thisUser!.interests[indexPath.row].name
                 cell.descriptionLabel.text = ""
             cell.source = "interests"
             }
@@ -444,7 +448,6 @@ extension PersonalViewController: UITableViewDataSource, CellDataDelegate{
     func newImageForCell(changing: Bool, segment:String, row:Int){
         self.cellPictureChanging = (changing, segment, row)
         self.changePictureButton(pictureButtonPressed)
-        print("imageViewPressed")
     }
 
 

@@ -64,8 +64,6 @@ class LoginViewController: UIViewController {
                                     alert.addAction(okAction)
                                     self.present(alert, animated: true, completion: nil)
                                 }
-                                
-                                
         }
         
     }
@@ -77,8 +75,49 @@ class LoginViewController: UIViewController {
     @IBAction func unwindToLogin(segue:UIStoryboardSegue){
         newUser = false
     }
-
     
+    func resetPassWord(){
+        
+        // CREATE ALERTS
+        let resetAlert = UIAlertController(title: "Password Reset",
+                                      message: "Please enter your CoffeeAlum email",
+                                      preferredStyle: .alert)
+        
+        let badEmailAlert = UIAlertController(title: "Invalid Email", message: "There is no CoffeeAlum account for this email", preferredStyle: .alert)
+        
+        let successfulChangeAlert = UIAlertController(title: "Success", message: "A password reset link has been sent to your email", preferredStyle: .alert)
+        
+        // CREATE ACTIONS
+        let sendAction = UIAlertAction(title: "Rest", style: .default ){ action in
+            let emailField = resetAlert.textFields![0]
+            
+            FIRAuth.auth()?.sendPasswordReset(withEmail: emailField.text!) { error in
+                if error != nil{
+                    self.present(badEmailAlert, animated: true, completion: nil)
+                }
+                else{
+                    self.present(successfulChangeAlert, animated: true, completion: nil)
+                }
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        
+        // ADD ACTIONS AND TEXTFIELDS
+        resetAlert.addAction(sendAction)
+        resetAlert.addAction(cancelAction)
+        badEmailAlert.addAction(okAction)
+        successfulChangeAlert.addAction(okAction)
+        
+        resetAlert.addTextField { textEmail in
+            textEmail.placeholder = "Enter your CoffeeAlum email"
+        }
+        
+        present(resetAlert, animated: true, completion: nil)
+        
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {

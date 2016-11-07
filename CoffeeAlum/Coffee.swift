@@ -27,14 +27,13 @@ struct Coffee {
     }
     
     init(snapshot:FIRDataSnapshot){
-        key = snapshot.key
         let snapshotValue = snapshot.value as! [String: AnyObject]
         date = snapshotValue["date"] as! Date
         time = snapshotValue["time"] as! Date
         location = snapshotValue["location"] as! String
         guest = snapshotValue["guest"] as! String
         host = snapshotValue["host"] as! String
-        key = snapshotValue["key"] as! String
+        key = snapshot.key
         ref = snapshot.ref
     }
   

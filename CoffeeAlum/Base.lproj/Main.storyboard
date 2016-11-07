@@ -244,9 +244,9 @@
         <scene sceneID="QsZ-gy-6fg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SUf-4a-RhB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf" userLabel="Connect"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="doL-uh-2JA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="doL-uh-2JA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -401,7 +401,7 @@
             </objects>
             <point key="canvasLocation" x="1684" y="-405.24737631184411"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="WQL-Kb-22u">
             <objects>
                 <viewController id="ECQ-ho-RHb" customClass="ProfileViewController" customModule="CoffeeAlum" sceneMemberID="viewController">
@@ -543,24 +543,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dU5-EI-4R8">
-                                <frame key="frameInset" width="375" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHT-3D-bzk">
-                                        <frame key="frameInset" minX="21" minY="10" width="72" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="23"/>
-                                        <state key="normal" title="Back">
-                                            <color key="titleColor" red="0.96100503209999999" green="0.99884170289999996" blue="0.98759311439999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.3272566972" green="0.82678624749999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Profile" id="6nA-KU-Iby"/>
                     <connections>
                         <outlet property="careerLabel" destination="85l-Jc-dcY" id="zb9-82-6bN"/>
                         <outlet property="locationLabel" destination="K1P-A1-LvW" id="Zjl-lE-w3W"/>
@@ -568,11 +554,63 @@
                         <outlet property="profileImage" destination="9Wu-bn-dWb" id="jxV-QV-Vcq"/>
                         <outlet property="segmentedControl" destination="WaC-1u-boU" id="cbu-RG-aQe"/>
                         <outlet property="tableView" destination="3BD-Ii-hsf" id="Neb-oA-gPQ"/>
+                        <segue destination="gM1-NM-xg2" kind="show" identifier="email" id="kvy-gy-fXl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56c-8c-pxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2408.8000000000002" y="-405.24737631184411"/>
+            <point key="canvasLocation" x="2414" y="-405"/>
+        </scene>
+        <!--Mail View Controller-->
+        <scene sceneID="8d0-5e-KdM">
+            <objects>
+                <viewController id="gM1-NM-xg2" customClass="MailViewController" customModule="CoffeeAlum" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pHP-nd-d1D"/>
+                        <viewControllerLayoutGuide type="bottom" id="9u1-Np-T1k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PgQ-Qs-V5H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdz-4A-Odm" customClass="DesignableTextField" customModule="Spring">
+                                <frame key="frameInset" minX="16" minY="94" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="It5-1M-qlD">
+                                <frame key="frameInset" minX="288" minY="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Type your message here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Etz-LJ-Ca0" customClass="DesignableTextView" customModule="Spring">
+                                <frame key="frameInset" minX="16" minY="139" width="343" height="453"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGb-Yg-rge" customClass="DesignableButton" customModule="Spring">
+                                <frame key="frameInset" minX="157" minY="388" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendEmailButtonTappedWithSender:" destination="gM1-NM-xg2" eventType="touchUpInside" id="J8j-iW-nVT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailBodyTextView" destination="Etz-LJ-Ca0" id="IiB-eU-343"/>
+                        <outlet property="subjectLineTextField" destination="cdz-4A-Odm" id="Hte-Qn-upi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8T2-xk-mnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3212" y="-405.24737631184411"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="CJM-Yt-st6">
@@ -1567,6 +1605,6 @@
         <image name="testUser3" width="1197" height="1197"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JfU-te-A89"/>
+        <segue reference="wpW-3A-Gco"/>
     </inferredMetricsTieBreakers>
 </document>

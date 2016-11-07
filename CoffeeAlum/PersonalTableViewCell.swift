@@ -116,7 +116,7 @@ class PersonalTableViewCell: UITableViewCell, UITextFieldDelegate {
             case "academic":
                 updatedUser.education[thisRow!].school = itemLabel.text!
             case "interests":
-                updatedUser.interests[thisRow!] = itemLabel.text!
+                updatedUser.interests[thisRow!].name = itemLabel.text!
         default: return
             }
             self.saveRequested = false

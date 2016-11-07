@@ -9,12 +9,15 @@
 import UIKit
 import MessageUI
 import Firebase
+import Spring
 class MailViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var thisUser:User? = nil
     var thisUserRef: FIRDatabaseReference? = nil
     var recipientUser:User? = nil
 
+    @IBOutlet weak var subjectLineTextField: DesignableTextField!
+    @IBOutlet weak var emailBodyTextView: DesignableTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,8 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
             
         }
     }
+   
+    
     
     @IBAction func sendEmailButtonTapped(sender: AnyObject) {
         let mailComposeViewController = configuredMailComposeViewController()
@@ -40,8 +45,11 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
         mailComposerVC.setToRecipients([self.recipientUser!.email])
-        mailComposerVC.setSubject("User from CoffeeAlum is excited to meet you")
-        mailComposerVC.setMessageBody("Hello User! I'd love to meet with you", isHTML: false)
+        mailComposerVC.setSubject("CoffeeAlum: \(subjectLineTextField.text!)")
+        let bodyString = "\(emailBodyTextView.text)" +
+            "Sent via the \(thisUser?.name)'s iPhone from CoffeeAlum" +
+            "You can reach this user at \(thisUser!.email)"
+        mailComposerVC.setMessageBody(bodyString, isHTML: false)
         
         return mailComposerVC
     }

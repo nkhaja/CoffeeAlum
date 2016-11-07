@@ -57,7 +57,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                     if snapshot.hasChildren(){
                         self.thisUser = User(snapshot: snapshot)
                         self.thisUser?.uid = self.userId
-                        //self.updateTable()
                         
                         if let tbc = self.tabBarController as? CustomTabBarController {
                             self.currentUserRef!.updateChildValues(["uid": user.uid])
@@ -73,6 +72,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     
     func updateTable(){
         updateComplete = true
+        self.alumni = []
         self.userRef.observe(.value, with:{ snapshot in
             for item in snapshot.children{
                 let info = item as! FIRDataSnapshot
@@ -94,7 +94,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
         filteredAlumni = []
         if let searchText = searchController.searchBar.text{
             filterContent(searchText: searchText, scope: searchController.searchBar.selectedScopeButtonIndex)
-//            tableView.reloadData()
         }
     }
     
@@ -123,7 +122,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     
                 case(3):
                     for i in a.interests{
-                        if i.lowercased().range(of: searchText.lowercased()) != nil{
+                        if i.name.lowercased().range(of: searchText.lowercased()) != nil{
                             filteredAlumni.append(a)
                         }
                     }
@@ -143,13 +142,10 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
     }
   
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "seeProfile"{
             if let profileViewController = segue.destination as? ProfileViewController{
-                // Assigning the user variable to the thisUser variable.
                profileViewController.profileUser = self.selectedUser
-                //pass data related to selected profile
             }
         }
     
@@ -190,7 +186,7 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.nameLabel.text = alumForRow.name
                 cell.employmentLabel.text = alumForRow.employer[0].name
                 cell.locationLabel.text = alumForRow.location
-                cell.schoolLabel.text = alumForRow.education[0].school
+                cell.schoolLabel.text = alumForRow.education[0].major
                 cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
             }
             else{
@@ -200,7 +196,6 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.locationLabel.text = alumForRow.location
                 cell.schoolLabel.text = alumForRow.education[0].school
                 cell.profileImage.image = Helper.dataStringToImage(dataString: alumForRow.portrait)
-                
             }
 
         }

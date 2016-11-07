@@ -17,7 +17,7 @@ class User {
     var location: String = ""
     var workHistory: [String] = []
     var education: [Education] = []
-    var interests: [String] = []
+    var interests: [Interest] = []
     var coffeeIds: [String] = []
     var portrait: String = ""
     var email: String = ""
@@ -64,7 +64,11 @@ class User {
         
         
         if let interestsData = snapshotValue["interests"] {
-            interests = interestsData as! [String]
+            for item in interestsData.children {
+                let value = item as! FIRDataSnapshot
+                let thisInterest = Interest(snapshot: value)
+                interests.append(thisInterest)
+            }
         }
         
         if let coffeeIdsData = snapshotValue["coffeeIds"] {
@@ -95,7 +99,7 @@ class User {
         //"employer" : employer,
         "location": location, 
         "workHistory": workHistory,
-        "interests": interests,
+        //"interests": interests,
         "coffeeIds": coffeeIds,
         "portrait": portrait,
         "uid": uid

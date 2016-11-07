@@ -13,6 +13,7 @@
 		BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B37D1DAED0E3001B554D /* Helper.swift */; };
 		BD519B961DBEDE8100069A21 /* PictureIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */; };
 		BD558C581DCBA1970068E959 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558C571DCBA1970068E959 /* MailViewController.swift */; };
+		BD558C5A1DCEEA050068E959 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558C591DCEEA050068E959 /* Interest.swift */; };
 		BD589A401DB9865E0067D1B4 /* NameIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */; };
 		BD589A431DB9868C0067D1B4 /* AccountTypeIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */; };
 		BD589A451DB986AE0067D1B4 /* AcademicIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */; };
@@ -44,6 +45,7 @@
 		BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeAlum.entitlements; sourceTree = "<group>"; };
 		BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureIntroViewController.swift; sourceTree = "<group>"; };
 		BD558C571DCBA1970068E959 /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		BD558C591DCEEA050068E959 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameIntroViewController.swift; sourceTree = "<group>"; };
 		BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeIntroViewController.swift; sourceTree = "<group>"; };
 		BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcademicIntroViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				BD6D9B8A1DA723A100BA0BAF /* Employer.swift */,
 				BD6D9B8C1DA7510000BA0BAF /* Coffee.swift */,
 				BDCDA8351DA9CB3E000F1003 /* Education.swift */,
+				BD558C591DCEEA050068E959 /* Interest.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD589A491DB988D40067D1B4 /* LocationIntroViewController.swift in Sources */,
+				BD558C5A1DCEEA050068E959 /* Interest.swift in Sources */,
 				BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */,
 				BD6D9B891DA71EF000BA0BAF /* User.swift in Sources */,
 				BD6D9B8F1DA756E500BA0BAF /* ConnectTableViewCell.swift in Sources */,

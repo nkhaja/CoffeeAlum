@@ -9,7 +9,6 @@
 import UIKit
 import Spring
 import Firebase
-
 class ProfileViewController: UIViewController {
 
     //Database References
@@ -26,7 +25,7 @@ class ProfileViewController: UIViewController {
     var profileUser: User? // populated by segue; User featured in this Profile; below are their attributes
     var thisProfileUserRef: FIRDataSnapshot?
     var thisUser: User? // the active user for this account
-    var interests: [String] = []
+    var interests: [Interest] = []
     var education: [Education] = []
     var employment: [Employer] = []
     var data = NSArray()
@@ -57,12 +56,19 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "email"{
+            if let mailViewController = segue.destination as? MailViewController{
+                mailViewController.thisUser = self.thisUser
+                mailViewController.recipientUser = self.profileUser
+            }
+        }
+    }
+
+
 
     @IBAction func CoffeeButton(_ sender: AnyObject) {
-        mailViewController.thisUser = self.thisUser
-        mailViewController.recipientUser = self.profileUser
-        performSegue(withIdentifier: "coffee", sender: self)
-        present(mailViewController, animated: true, completion: nil)        
+        performSegue(withIdentifier: "email", sender: self)
     }
     
 
@@ -98,7 +104,7 @@ extension ProfileViewController: UITableViewDataSource{
         }
         
         else if segmentedControl.selectedSegmentIndex == 1{
-            cell.itemLabel.text = interests[indexPath.row]
+            cell.itemLabel.text = interests[indexPath.row].name
             
             
         }
@@ -115,16 +121,5 @@ extension ProfileViewController: UITableViewDataSource{
 }
 
 
-
-
-
-//        let alert = UIAlertController(title: "Coffee Invitaiton Sent",
-//                                      message: "\(user!.name) will be in touch with you soon!",
-//                                      preferredStyle: .alert)
-//
-//        let okAction = UIAlertAction(title: "Ok",
-//                                         style: .default)
-//        alert.addAction(okAction)
-//        present(alert, animated: true, completion: nil)
 
 
