@@ -14,6 +14,7 @@
 		BD519B961DBEDE8100069A21 /* PictureIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */; };
 		BD558C581DCBA1970068E959 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558C571DCBA1970068E959 /* MailViewController.swift */; };
 		BD558C5A1DCEEA050068E959 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558C591DCEEA050068E959 /* Interest.swift */; };
+		BD558C5C1DD015690068E959 /* CoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558C5B1DD015690068E959 /* CoffeeViewController.swift */; };
 		BD589A401DB9865E0067D1B4 /* NameIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */; };
 		BD589A431DB9868C0067D1B4 /* AccountTypeIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */; };
 		BD589A451DB986AE0067D1B4 /* AcademicIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */; };
@@ -46,6 +47,7 @@
 		BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureIntroViewController.swift; sourceTree = "<group>"; };
 		BD558C571DCBA1970068E959 /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
 		BD558C591DCEEA050068E959 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		BD558C5B1DD015690068E959 /* CoffeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeViewController.swift; sourceTree = "<group>"; };
 		BD589A3F1DB9865E0067D1B4 /* NameIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameIntroViewController.swift; sourceTree = "<group>"; };
 		BD589A421DB9868C0067D1B4 /* AccountTypeIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeIntroViewController.swift; sourceTree = "<group>"; };
 		BD589A441DB986AE0067D1B4 /* AcademicIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcademicIntroViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */,
 				BD558C571DCBA1970068E959 /* MailViewController.swift */,
 				BD6D9B771DA71C6300BA0BAF /* Main.storyboard */,
+				BD558C5B1DD015690068E959 /* CoffeeViewController.swift */,
 				BD589A411DB9866A0067D1B4 /* IntroViewControllers */,
 				BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */,
 				BD6D9B7C1DA71C6300BA0BAF /* LaunchScreen.storyboard */,
@@ -320,6 +323,7 @@
 				BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */,
 				BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */,
 				BD589A471DB986C10067D1B4 /* EmployerIntroViewController.swift in Sources */,
+				BD558C5C1DD015690068E959 /* CoffeeViewController.swift in Sources */,
 				BD30B37E1DAED0E3001B554D /* Helper.swift in Sources */,
 				BD6D9B8D1DA7510000BA0BAF /* Coffee.swift in Sources */,
 			);

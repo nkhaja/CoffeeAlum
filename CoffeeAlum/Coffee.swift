@@ -13,17 +13,18 @@ struct Coffee {
     var date: Date
     var time: Date
     var location: String
-    var guest: String
-    var host: String
+    var fromId: String
+    var toId: String
+    var accepted: Bool = false
     var key: String = ""
     var ref: FIRDatabaseReference?
     
-    init(date: Date, time:Date, location: String, guest:String, host: String){
+    init(date: Date, time:Date, location: String, fromId:String, toId: String){
         self.date = date
         self.time = time
         self.location = location
-        self.guest = guest
-        self.host = host
+        self.fromId = fromId
+        self.toId = toId
     }
     
     init(snapshot:FIRDataSnapshot){
@@ -31,10 +32,22 @@ struct Coffee {
         date = snapshotValue["date"] as! Date
         time = snapshotValue["time"] as! Date
         location = snapshotValue["location"] as! String
-        guest = snapshotValue["guest"] as! String
-        host = snapshotValue["host"] as! String
+        fromId = snapshotValue["fromId"] as! String
+        toId = snapshotValue["toId"] as! String
+        accepted = snapshotValue["accepted"] as! Bool
         key = snapshot.key
         ref = snapshot.ref
+    }
+    
+    func toAnyObject() -> Any{
+        return [
+            "date":date,
+            "time":time,
+            "location":location,
+            "fromId":fromId,
+            "toId": toId,
+            "accepted":accepted
+        ]
     }
   
 }
