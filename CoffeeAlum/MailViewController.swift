@@ -25,7 +25,6 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         if let tbc = self.tabBarController as? CustomTabBarController{
             tbc.thisUser = self.thisUser
             tbc.thisUserRef = self.thisUserRef
-            
         }
     }
    

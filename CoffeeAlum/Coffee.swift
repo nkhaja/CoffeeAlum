@@ -13,8 +13,8 @@ struct Coffee {
     var date: Date
     var time: Date
     var location: String
-    var fromId: String
-    var toId: String
+    var fromId: String // name of user that sent invitation
+    var toId: String   // name of user that received invitation
     var accepted: Bool = false
     var key: String = ""
     var ref: FIRDatabaseReference?
