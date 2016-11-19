@@ -304,7 +304,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             alert.addTextField{ positionField in
                 positionField.placeholder = "Your Role"
             }
-            
         }
             
         else if selectedIndex == 1 {

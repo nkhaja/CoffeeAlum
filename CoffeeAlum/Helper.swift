@@ -23,5 +23,14 @@ static func dataStringToImage(dataString: String) -> UIImage {
     let image = UIImage(data: data!)
     return image!
     }
+    
+//    static func todaysDate() -> Date{
+//        let date = NSDate()
+//        let calendar = NSCalendar.current
+//        let hour = calendar.component(.hour, from: date as Date)
+//        let minutes = calendar.component(.minute, from: date as Date)
+//        
+//        return
+//    }
 
 }

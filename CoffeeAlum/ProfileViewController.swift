@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var locationLabel: DesignableLabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var coffeeButtonLabel: UIButton!
     
     // Local Variables
     var profileUser: User? // populated by segue; User featured in this Profile; below are their attributes
@@ -39,7 +40,10 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if thisUser?.uid == profileUser?.uid{
+            coffeeButtonLabel.isHidden = true
+        }
+
         if let tbc = self.tabBarController as? CustomTabBarController{
             self.thisUser = tbc.thisUser
         }

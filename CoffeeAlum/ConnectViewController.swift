@@ -64,7 +64,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                             tbc.thisUserRef = self.currentUserRef
                         }
                     }
-
                 })
             }
         }
@@ -77,7 +76,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
             for item in snapshot.children{
                 let info = item as! FIRDataSnapshot
                 let dict = info.value as! [String:Any]
-                print(info.key)
                 let accountType = (dict["account"] as! String)
                 if accountType == "alumni"{
                     let alumUser = User(snapshot: info)
@@ -85,8 +83,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating {
                 }
             }
         self.tableView.reloadData()
-
-            
         })
     }
     

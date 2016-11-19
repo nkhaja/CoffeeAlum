@@ -234,6 +234,7 @@
                     <connections>
                         <segue destination="SUf-4a-RhB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="7Fh-rk-TzW"/>
+                        <segue destination="4tZ-ri-lVW" kind="relationship" relationship="viewControllers" id="wn3-D2-alo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -399,7 +400,7 @@
                 <exit id="haT-Fb-5DK" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeI-q5-GtF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="-405.24737631184411"/>
+            <point key="canvasLocation" x="1702" y="-405"/>
         </scene>
         <!--Profile-->
         <scene sceneID="WQL-Kb-22u">
@@ -549,6 +550,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="6nA-KU-Iby"/>
                     <connections>
                         <outlet property="careerLabel" destination="85l-Jc-dcY" id="zb9-82-6bN"/>
+                        <outlet property="coffeeButtonLabel" destination="FRd-XG-xWX" id="1kQ-dS-mPo"/>
                         <outlet property="locationLabel" destination="K1P-A1-LvW" id="Zjl-lE-w3W"/>
                         <outlet property="nameLabel" destination="ViA-S6-WdZ" id="cKj-EB-b4u"/>
                         <outlet property="profileImage" destination="9Wu-bn-dWb" id="jxV-QV-Vcq"/>
@@ -1593,10 +1595,10 @@
             </objects>
             <point key="canvasLocation" x="4229.6000000000004" y="1718.5907046476764"/>
         </scene>
-        <!--Coffee View Controller-->
+        <!--Item-->
         <scene sceneID="Nte-eP-aV4">
             <objects>
-                <viewController id="4tZ-ri-lVW" customClass="CoffeeViewController" sceneMemberID="viewController">
+                <viewController id="4tZ-ri-lVW" customClass="CoffeeViewController" customModule="CoffeeAlum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CbR-nB-s3v"/>
                         <viewControllerLayoutGuide type="bottom" id="lVx-9P-gDU"/>
@@ -1641,7 +1643,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="meetingWithLabel" destination="Ctn-yr-LFt" id="AjO-eW-QlS"/>
                                             <outlet property="whenLabel" destination="E5m-eU-7TI" id="XjE-wV-DGy"/>
                                             <outlet property="whereLabel" destination="FuF-sj-RcX" id="HoX-nR-rB6"/>
                                             <outlet property="whoLabel" destination="Ctn-yr-LFt" id="AV3-4h-2lO"/>
@@ -1656,6 +1657,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="first" id="w3u-IT-xWK"/>
                     <connections>
                         <outlet property="tableView" destination="Qj2-wV-JtA" id="kXe-r1-ehw"/>
                         <segue destination="gqp-Oh-TWv" kind="show" identifier="seeCoffee" id="LqN-pU-yB2"/>
@@ -1663,7 +1665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFg-9U-b6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984.79999999999995" y="923.38830584707648"/>
+            <point key="canvasLocation" x="985" y="922"/>
         </scene>
         <!--See Coffee View Controller-->
         <scene sceneID="3ez-0e-hZZ">
@@ -1686,7 +1688,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-V6-DLe" customClass="DesignableLabel" customModule="Spring">
-                                <frame key="frameInset" minX="67" minY="538" width="51" height="21"/>
+                                <frame key="frameInset" minX="67" minY="509" width="51" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1699,7 +1701,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nap-gF-Axk">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nap-gF-Axk" customClass="DesignableButton" customModule="Spring">
                                 <frame key="frameInset" minX="140" minY="351" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Profile Link"/>
@@ -1714,12 +1716,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNg-9g-6op">
+                                <frame key="frameInset" minX="53" minY="538" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ignore"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3c-8i-gZI" customClass="DesignableButton" customModule="Spring">
+                                <frame key="frameInset" minX="147" minY="538" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reschedule"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oA-mi-6yd" customClass="DesignableButton" customModule="Spring">
+                                <frame key="frameInset" minX="277" minY="538" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmButton:" destination="5wX-9t-Sda" eventType="touchUpInside" id="6Bf-Xz-Qkp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="confirmButton" destination="7oA-mi-6yd" id="XIj-We-OSx"/>
+                            <outlet property="ignoreButton" destination="KNg-9g-6op" id="N5J-PH-Izk"/>
+                            <outlet property="meetingWithLabel" destination="qOI-1s-ktI" id="cW2-b7-5TE"/>
+                            <outlet property="rescheduleButton" destination="v3c-8i-gZI" id="AnJ-3d-1HD"/>
+                            <outlet property="whenLabel" destination="9Mz-vY-4ys" id="JBz-RB-z5K"/>
+                            <outlet property="whereLabel" destination="9Mz-vY-4ys" id="0cP-Cb-9Fj"/>
+                            <outlet property="whoLabel" destination="qOI-1s-ktI" id="f9g-dL-8yU"/>
+                        </connections>
                     </view>
-                    <connections>
-                        <segue destination="ECQ-ho-RHb" kind="show" identifier="toProfile" id="pFn-cx-xNF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iw0-yJ-kFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1738,6 +1764,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wpW-3A-Gco"/>
-        <segue reference="pFn-cx-xNF"/>
     </inferredMetricsTieBreakers>
 </document>

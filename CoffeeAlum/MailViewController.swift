@@ -15,6 +15,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
     var thisUser:User? = nil
     var thisUserRef: FIRDatabaseReference? = nil
     var recipientUser:User? = nil
+    var coffeeRef = FIRDatabase.database().reference(withPath: "coffees")
 
     @IBOutlet weak var subjectLineTextField: DesignableTextField!
     @IBOutlet weak var emailBodyTextView: DesignableTextView!
@@ -32,9 +33,24 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
     
     @IBAction func sendEmailButtonTapped(sender: AnyObject) {
         let mailComposeViewController = configuredMailComposeViewController()
+        
+        // MARK: Temporary so I can test the coffee making option beforehand
+        let newCoffee = Coffee(fromId: thisUser!.uid, fromName: thisUser!.name, toId: recipientUser!.uid, toName: recipientUser!.name)
+        coffeeRef.childByAutoId().setValue(newCoffee.toAnyObject())
+        
+        self.navigationController?.popViewController(animated: true)
+        self.tabBarController?.selectedIndex = 2
+        
         if MFMailComposeViewController.canSendMail() {
+        
+            
             self.present(mailComposeViewController, animated: true, completion: nil)
-        } else {
+            
+            let newCoffee = Coffee(fromId: thisUser!.uid, fromName: thisUser!.name, toId: recipientUser!.uid, toName: recipientUser!.name)
+            coffeeRef.childByAutoId().setValue(newCoffee.toAnyObject())
+        }
+        
+        else {
             self.showSendMailErrorAlert()
         }
     }

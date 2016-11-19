@@ -7,22 +7,44 @@
 //
 
 import UIKit
+import Spring
 
 class SeeCoffeeViewController: UIViewController {
     
+    
+    //Needs a map for the location
+    @IBOutlet weak var whoLabel: DesignableLabel!
+    @IBOutlet weak var whenLabel: DesignableLabel!
+    @IBOutlet weak var whereLabel: DesignableLabel!
+    
+    @IBOutlet weak var ignoreButton: UIButton!
+    @IBOutlet weak var confirmButton: DesignableButton!
+    @IBOutlet weak var rescheduleButton: DesignableButton!
+    
     var userBeingVisited: User?
+    var thisCoffee: Coffee?
+    var isInvited: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if !self.isInvited{
+            confirmButton.isHidden = true
+            ignoreButton.isHidden = true
+            rescheduleButton.isHidden = true
+        }
+        
+        else if thisCoffee!.accepted{
+            confirmButton.setTitle("Cancel", for: UIControlState.normal)
+            confirmButton.isHidden = true
+            ignoreButton.isHidden = true
+            rescheduleButton.isHidden = false
+        }
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profile" {
             if let profileViewController = segue.destination as? ProfileViewController{
@@ -36,6 +58,12 @@ class SeeCoffeeViewController: UIViewController {
     @IBAction func profileButton(_ sender: AnyObject) {
         performSegue(withIdentifier: "profile", sender: self)
     }
+    
+    @IBAction func confirmButton(_ sender: AnyObject) {
+        
+    }
+    
+    
 
     
 }
