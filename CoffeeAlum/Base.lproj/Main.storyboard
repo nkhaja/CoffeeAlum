@@ -234,7 +234,7 @@
                     <connections>
                         <segue destination="SUf-4a-RhB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="7Fh-rk-TzW"/>
-                        <segue destination="4tZ-ri-lVW" kind="relationship" relationship="viewControllers" id="wn3-D2-alo"/>
+                        <segue destination="8Xc-nV-MhU" kind="relationship" relationship="viewControllers" id="wn3-D2-alo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1595,7 +1595,7 @@
             </objects>
             <point key="canvasLocation" x="4229.6000000000004" y="1718.5907046476764"/>
         </scene>
-        <!--Item-->
+        <!--Coffee View Controller-->
         <scene sceneID="Nte-eP-aV4">
             <objects>
                 <viewController id="4tZ-ri-lVW" customClass="CoffeeViewController" customModule="CoffeeAlum" customModuleProvider="target" sceneMemberID="viewController">
@@ -1613,7 +1613,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="coffee" rowHeight="100" id="Q9u-QW-33K" customClass="CoffeeTableViewCell" customModule="CoffeeAlum" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q9u-QW-33K" id="db3-NC-mQC">
                                             <frame key="frameInset" width="375" height="99"/>
@@ -1657,7 +1657,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="first" id="w3u-IT-xWK"/>
+                    <navigationItem key="navigationItem" id="Ike-Kr-UDp"/>
                     <connections>
                         <outlet property="tableView" destination="Qj2-wV-JtA" id="kXe-r1-ehw"/>
                         <segue destination="gqp-Oh-TWv" kind="show" identifier="seeCoffee" id="LqN-pU-yB2"/>
@@ -1665,7 +1665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFg-9U-b6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="922"/>
+            <point key="canvasLocation" x="1924" y="921.58920539730138"/>
         </scene>
         <!--See Coffee View Controller-->
         <scene sceneID="3ez-0e-hZZ">
@@ -1679,14 +1679,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kha-7f-eGo" customClass="DesignableImageView" customModule="Spring">
-                                <frame key="frameInset" minX="67" minY="20" width="240" height="128"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-I6-90Z" customClass="DesignableView" customModule="Spring">
+                                <frame key="frameInset" minY="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIw-TZ-6KS" customClass="DesignableImageView" customModule="Spring">
-                                <frame key="frameInset" minX="67" minY="179" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jbt-v3-rWC" customClass="I">
+                                        <frame key="frameInset" minY="81" height="376"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="501302417.976677">
+                                            <!--2016-11-20 02:40:17 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp1-Ym-IY3" customClass="DesignableButton" customModule="Spring">
+                                        <frame key="frameInset" minX="33" minY="490" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelDateSelectionButton:" destination="5wX-9t-Sda" eventType="touchUpInside" id="uC5-Pe-f0u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhR-n4-n76" customClass="DesignableButton" customModule="Spring">
+                                        <frame key="frameInset" minX="275" minY="490" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Set"/>
+                                        <connections>
+                                            <action selector="dateSelectedButton:" destination="5wX-9t-Sda" eventType="touchUpInside" id="OUY-av-ud0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-V6-DLe" customClass="DesignableLabel" customModule="Spring">
                                 <frame key="frameInset" minX="67" minY="509" width="51" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1702,7 +1724,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nap-gF-Axk" customClass="DesignableButton" customModule="Spring">
-                                <frame key="frameInset" minX="140" minY="351" width="76" height="30"/>
+                                <frame key="frameInset" minX="266" minY="409" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Profile Link"/>
                                 <connections>
@@ -1720,11 +1742,17 @@
                                 <frame key="frameInset" minX="53" minY="538" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ignore"/>
+                                <connections>
+                                    <action selector="ignoreButton:" destination="5wX-9t-Sda" eventType="touchUpInside" id="TC4-qR-U4G"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3c-8i-gZI" customClass="DesignableButton" customModule="Spring">
                                 <frame key="frameInset" minX="147" minY="538" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Reschedule"/>
+                                <connections>
+                                    <action selector="rescheduleButton:" destination="5wX-9t-Sda" eventType="touchUpInside" id="blC-Bk-4Gt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oA-mi-6yd" customClass="DesignableButton" customModule="Spring">
                                 <frame key="frameInset" minX="277" minY="538" width="55" height="30"/>
@@ -1734,22 +1762,126 @@
                                     <action selector="confirmButton:" destination="5wX-9t-Sda" eventType="touchUpInside" id="6Bf-Xz-Qkp"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lxe-uM-B1s">
+                                <frame key="frameInset" minY="64" width="375" height="191"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqp-Oh-TWv" id="A2v-v4-GV5"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoT-Zr-iH1" customClass="DesignableButton" customModule="Spring">
+                                <frame key="frameInset" minX="3" minY="464" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SetDate"/>
+                                <connections>
+                                    <action selector="setDateButton:" destination="5wX-9t-Sda" eventType="touchUpInside" id="rVT-q4-xF3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="confirmButton" destination="7oA-mi-6yd" id="XIj-We-OSx"/>
+                            <outlet property="datePicker" destination="jbt-v3-rWC" id="vIv-WS-yK6"/>
+                            <outlet property="dateView" destination="9o2-I6-90Z" id="AHm-m8-4Nq"/>
                             <outlet property="ignoreButton" destination="KNg-9g-6op" id="N5J-PH-Izk"/>
+                            <outlet property="mapView" destination="lxe-uM-B1s" id="OFI-d8-YLt"/>
                             <outlet property="meetingWithLabel" destination="qOI-1s-ktI" id="cW2-b7-5TE"/>
                             <outlet property="rescheduleButton" destination="v3c-8i-gZI" id="AnJ-3d-1HD"/>
+                            <outlet property="setDateButton" destination="FoT-Zr-iH1" id="hgE-oP-se6"/>
                             <outlet property="whenLabel" destination="9Mz-vY-4ys" id="JBz-RB-z5K"/>
                             <outlet property="whereLabel" destination="9Mz-vY-4ys" id="0cP-Cb-9Fj"/>
                             <outlet property="whoLabel" destination="qOI-1s-ktI" id="f9g-dL-8yU"/>
                         </connections>
                     </view>
+                    <connections>
+                        <segue destination="ECQ-ho-RHb" kind="presentation" identifier="seeCoffeeMember" id="xww-PU-LhG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iw0-yJ-kFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="922.48875562218893"/>
+            <point key="canvasLocation" x="2719.1999999999998" y="922.48875562218893"/>
+        </scene>
+        <!--Location Search Table View Controller-->
+        <scene sceneID="b3s-wo-OAV">
+            <objects>
+                <tableViewController storyboardIdentifier="locationSearchTableViewController" id="G09-xh-5hi" customClass="LocationSearchTableViewController" customModule="CoffeeAlum" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="par-4G-8A1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="u0k-Pw-5pP" detailTextLabel="ReL-xG-le9" style="IBUITableViewCellStyleSubtitle" id="fEf-1c-PNy">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fEf-1c-PNy" id="oj3-0w-8Ho">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u0k-Pw-5pP">
+                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ReL-xG-le9">
+                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="G09-xh-5hi" id="ICX-tR-vpT"/>
+                            <outlet property="delegate" destination="G09-xh-5hi" id="2Ti-ad-g8I"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="CHZ-5E-X0t"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d62-7Q-68k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4496.8000000000002" y="921.58920539730138"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="02X-Ww-m2I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Xc-nV-MhU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="first" id="w3u-IT-xWK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U4M-9U-iot">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4tZ-ri-lVW" kind="relationship" relationship="rootViewController" id="vZd-dU-BU6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xM-dE-JXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984.79999999999995" y="921.58920539730138"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="izW-Sj-07W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VoF-y9-zXE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5vb-zz-oa4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="G09-xh-5hi" kind="relationship" relationship="rootViewController" id="8Qv-fW-GLj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1F-Wm-s2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3557.5999999999999" y="921.58920539730138"/>
         </scene>
     </scenes>
     <resources>
@@ -1764,5 +1896,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wpW-3A-Gco"/>
+        <segue reference="N06-vt-GYj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CoffeeViewController: UIViewController {
+class CoffeeViewController: UIViewController, ignoreCoffeeDelegate {
     
     var coffeeRef = FIRDatabase.database().reference(withPath: "coffees")
     var userRef = FIRDatabase.database().reference(withPath: "users")
@@ -37,15 +37,30 @@ class CoffeeViewController: UIViewController {
             for item in snapshot.children{
                 let itemSnap = item as! FIRDataSnapshot
                 let newCoffee = Coffee(snapshot: itemSnap)
+                let formatter = DateFormatter()
                 
-                if newCoffee.date != "TBD"{
-                    let formatter = DateFormatter()
-                    var coffeeDate = formatter.date(from: newCoffee.date)
-                    
+                
+                // Remove expired invitations
+                let dateSent = formatter.date(from: newCoffee.dateSent)
+                let interval = dateSent!.differenceInDaysWithDate(date: Date())
+                
+                if newCoffee.date == "TBD" || interval > 14{
+                    newCoffee.ref?.removeValue()
+                    continue
                 }
                 
+                // Remove a Coffee Appointment who's data has past
+                if newCoffee.date != "TBD"{
+                   
+                    let coffeeDate = formatter.date(from: newCoffee.date)
+                    let calendar = Calendar.autoupdatingCurrent
+                    if calendar.isDateInYesterday(coffeeDate!) {
+                        newCoffee.ref?.removeValue()
+                        continue
+                    }
+                }
                 
-                
+                // Sort Coffees by pending and confirmed
                 if newCoffee.accepted{
                     self.upcomingCoffees.append(newCoffee)
                 }
@@ -81,6 +96,24 @@ class CoffeeViewController: UIViewController {
             }
         }
     }
+
+    // IgnoreCoffeeDelegateFunction - Execute for ignored requests
+    // Removes a coffee after its been ignored
+    func removeIgnoredCoffee(fromId:String){
+        var index = 0
+        for c in pendingCoffees{
+            if c.fromId == fromId{
+                c.ref?.removeValue()
+                break
+            }
+            index += 1
+        }
+        pendingCoffees.remove(at: index)
+        tableView.reloadData()
+    }
+
+
+
 }
 
 extension CoffeeViewController: UITableViewDataSource, UITableViewDelegate{
@@ -120,16 +153,16 @@ extension CoffeeViewController: UITableViewDataSource, UITableViewDelegate{
 
             let coffee = pendingCoffees[indexPath.row]
             if    coffee.date == "TBD"{ cell.whenLabel.text = "TBD"}
-            else                    { cell.whenLabel.text = coffee.date}
+            else                      { cell.whenLabel.text = coffee.date}
             
             
             if coffee.location == "TBD" { cell.whereLabel.text = "TBD"}
-            else                      { cell.whereLabel.text = coffee.location}
+            else                        { cell.whereLabel.text = coffee.location}
             
             
             
             if thisUser!.name == coffee.fromName{ cell.whoLabel.text = coffee.toName  }
-            else                              { cell.whoLabel.text = coffee.fromName}
+            else                                { cell.whoLabel.text = coffee.fromName}
         }
         
         return cell
@@ -173,4 +206,19 @@ extension CoffeeViewController: UITableViewDataSource, UITableViewDelegate{
 //        
 //        return vw
 //    }
+}
+
+
+extension Date {
+    
+    func differenceInDaysWithDate(date: Date) -> Int {
+        let calendar: Calendar = Calendar.current
+        
+        let date1 = calendar.startOfDay(for: self as Date)
+        let date2 = calendar.startOfDay(for: date)
+        let components = calendar.dateComponents([.day, .month, .year], from: date1, to: date2)
+       
+        return components.day!
+    }
+    
 }

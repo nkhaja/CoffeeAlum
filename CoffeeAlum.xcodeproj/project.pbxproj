@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD2CC6CC1DE1064C00AF4E38 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2CC6CB1DE1064C00AF4E38 /* LocationSearchTableViewController.swift */; };
 		BD30B3581DAC5BE2001B554D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B3571DAC5BE2001B554D /* ProfileTableViewCell.swift */; };
 		BD30B35A1DAC8C3C001B554D /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */; };
 		BD30B35C1DAC8E72001B554D /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		11EC12A8D757022DA4C3F1C5 /* Pods-CoffeeAlum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeAlum.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeAlum/Pods-CoffeeAlum.release.xcconfig"; sourceTree = "<group>"; };
+		BD2CC6CB1DE1064C00AF4E38 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		BD30B3571DAC5BE2001B554D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PersonalViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PersonalTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -182,6 +184,7 @@
 				BD558C5B1DD015690068E959 /* CoffeeViewController.swift */,
 				BDF6FBAD1DD2B3B400685FA1 /* CoffeeTableViewCell.swift */,
 				BDF6FBB11DD3B4D100685FA1 /* SeeCoffeeViewController.swift */,
+				BD2CC6CB1DE1064C00AF4E38 /* LocationSearchTableViewController.swift */,
 			);
 			name = CoffeeVCs;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD2CC6CC1DE1064C00AF4E38 /* LocationSearchTableViewController.swift in Sources */,
 				BD589A491DB988D40067D1B4 /* LocationIntroViewController.swift in Sources */,
 				BD558C5A1DCEEA050068E959 /* Interest.swift in Sources */,
 				BDCDA8341DA86246000F1003 /* LoginViewController.swift in Sources */,

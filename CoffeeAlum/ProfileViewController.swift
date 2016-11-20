@@ -31,6 +31,9 @@ class ProfileViewController: UIViewController {
     var employment: [Employer] = []
     var data = NSArray()
     
+    //Means coming from VC where coffee is already set, hide button
+    var cameFromCoffee:Bool = false
+    
     // ViewController for Sending emails
     var mailViewController = MailViewController()
 
@@ -40,6 +43,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if cameFromCoffee{
+            coffeeButtonLabel.isHidden = true
+        }
+        
+        // Can't invite yourself to Coffee
         if thisUser?.uid == profileUser?.uid{
             coffeeButtonLabel.isHidden = true
         }

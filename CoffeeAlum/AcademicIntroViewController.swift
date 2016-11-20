@@ -14,7 +14,7 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     var major: String?
     var data: [String:Any] =  Dictionary()
     var pickerDataSource = ["BSc", "BA", "BBA", "MSc", "MA", "PhD", "MD", "JD", "DDS"]
-    var years:[Int] = Array()
+    var years:[String] = Array()
     var degree: DegreeType?
     var year: String?
     
@@ -41,9 +41,20 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
         alert.addAction(okAction)
         //Hide PickerView
         self.miniView.isHidden = true
-        for i in 1950...2030 {
-            years.append(i)
+        for i in 1950...2040 {
+            years.append(String(i))
         }
+        
+        
+        // Set Defaults for the PickerView
+        let defaultDegree = "BSc"
+        let defaultYear = "1990"
+        
+        let defaultDegreeIndex = pickerDataSource.index(of: defaultDegree)
+        let defaultYearIndex = years.index(of: defaultYear)
+        pickerView2.selectRow(defaultDegreeIndex!, inComponent: 0, animated: false)
+        pickerView2.selectRow(defaultYearIndex!, inComponent: 1, animated: false)
+
     }
 
     
@@ -85,7 +96,7 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
         
         else{
-            return String(years[row])
+            return years[row]
         }
         
         
@@ -104,8 +115,14 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     
 
     @IBAction func submitButton2(_ sender: AnyObject) {
-        miniView.isHidden = true
-        degreeLabel.text! = "\(degree!.rawValue)," +  "\(String(describing: year!))"
+       // Make sure nil isn't returned == happens when pickersView selected mid-slide
+        if !degree!.rawValue.contains("nil") && !year!.contains("nil"){
+            
+            miniView.isHidden = true
+            degreeLabel.text! = "\(degree!.rawValue)," +  "\(year!))"
+            
+        }
+ 
         
     }
     
