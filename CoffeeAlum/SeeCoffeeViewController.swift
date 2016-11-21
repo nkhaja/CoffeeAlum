@@ -14,7 +14,10 @@ protocol ignoreCoffeeDelegate {
 import UIKit
 import Spring
 import MapKit
+import EventKit
 
+
+// INVARIANT: Only Users that receive invitations can accept and set the time/place
 class SeeCoffeeViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -37,25 +40,30 @@ class SeeCoffeeViewController: UIViewController {
     var userBeingVisited: User?
     var thisCoffee: Coffee?
     var isInvited: Bool = false
+    var startDate: Date?
     
     var locationSet: Bool = false
     var dateSet: Bool = false
     var delegate: ignoreCoffeeDelegate?
     
-    
-    
-    
-    
     //For location based functions in MapKit
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
+    
+    // For events:
+    let eventStore = EKEventStore()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         whoLabel.text = userBeingVisited?.name
         self.dateView.isHidden = true
+        
+        // Convert Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd hh:mm Z"
+        startDate = Helper.stringToDate(date: thisCoffee!.date)
 
         
         
@@ -64,6 +72,17 @@ class SeeCoffeeViewController: UIViewController {
             ignoreButton.isHidden = true
             rescheduleButton.isHidden = true
             setDateButton.isHidden = true
+            
+            if thisCoffee?.toEventId != "" && thisCoffee?.fromEventId == ""{
+                Helper.addEvent(startDate: startDate!, coffeeWith: userBeingVisited!.name, coffee: thisCoffee!, role: .from)
+            }
+            
+            else if thisCoffee!.toEventId != "" && thisCoffee!.rescheduled{
+                thisCoffee!.rescheduled = false
+                Helper.removeEvent(savedEventId: thisCoffee!.fromEventId)
+                Helper.addEvent(startDate: startDate!, coffeeWith: userBeingVisited!.name, coffee: thisCoffee!, role: .from)
+            }
+        
         }
         
         else if thisCoffee!.accepted{
@@ -74,7 +93,6 @@ class SeeCoffeeViewController: UIViewController {
         }
         
         
-        //Date Setup:
         
 
 
@@ -92,8 +110,6 @@ class SeeCoffeeViewController: UIViewController {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
-        
-        
     }
 
     
@@ -137,7 +153,16 @@ class SeeCoffeeViewController: UIViewController {
             thisCoffee?.accepted = true
             thisCoffee?.ref?.setValue(thisCoffee?.toAnyObject())
             
-            
+            if isInvited{
+                if thisCoffee!.toEventId != ""{
+                    Helper.removeEvent(savedEventId: thisCoffee!.toEventId)
+                    thisCoffee?.rescheduled = true
+            }
+                Helper.addEvent(startDate: startDate!, coffeeWith: userBeingVisited!.name, coffee: thisCoffee!, role: .to)
+
+            }
+        
+
             let confirmAlert = UIAlertController(title: "Coffee Confirmed!",
                                                  message: "You'll be grabbing Coffee with \(userBeingVisited?.name) at \(thisCoffee?.location)",
                                                  preferredStyle: .alert)
@@ -217,19 +242,19 @@ class SeeCoffeeViewController: UIViewController {
 
 
 extension SeeCoffeeViewController : CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.requestLocation()
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             print("location:: (location)")
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: (error)")
     }
 }
@@ -237,7 +262,7 @@ extension SeeCoffeeViewController : CLLocationManagerDelegate {
 
 
 extension SeeCoffeeViewController : MKMapViewDelegate {
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location
             return nil

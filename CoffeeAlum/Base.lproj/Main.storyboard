@@ -247,7 +247,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SUf-4a-RhB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf" userLabel="Connect"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="doL-uh-2JA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="doL-uh-2JA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1852,7 +1852,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Xc-nV-MhU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" selectedImage="first" id="w3u-IT-xWK"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U4M-9U-iot">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U4M-9U-iot">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1870,7 +1870,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VoF-y9-zXE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5vb-zz-oa4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5vb-zz-oa4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

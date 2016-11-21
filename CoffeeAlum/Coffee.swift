@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct Coffee {
+class Coffee {
     var date: String = "TBD"
     var time: String = "TBD"
     var dateSent: String
@@ -18,7 +18,12 @@ struct Coffee {
     var toId: String
     var fromName: String // name of user that sent invitation
     var toName: String  // name of user that received invitation
+    var fromEventId: String = "" // the id stored locally when the user creates this meeting
+    var toEventId: String = ""
+    
     var accepted: Bool = false
+    var viewed: Bool = false
+    var rescheduled: Bool = false
     var key: String = ""
     var ref: FIRDatabaseReference?
     
@@ -52,7 +57,11 @@ struct Coffee {
         toId = snapshotValue["toId"] as! String
         fromName = snapshotValue["fromName"] as! String
         toName = snapshotValue["fromName"] as! String
+        fromEventId = snapshotValue["fromEventId"] as! String
+        toEventId = snapshotValue["toEventId"] as! String
         accepted = snapshotValue["accepted"] as! Bool
+        viewed = snapshotValue["viewed"] as! Bool
+        rescheduled = snapshotValue["rescheduled"] as! Bool
         key = snapshot.key
         ref = snapshot.ref
     }
@@ -68,9 +77,17 @@ struct Coffee {
             "toId": toId,
             "fromName": fromName,
             "toName": toName,
-            "accepted": accepted
-            
+            "fromEvenId": fromEventId,
+            "toEvenId":toEventId,
+            "accepted": accepted,
+            "viewed": viewed,
+            "rescheduled": rescheduled
         ]
     }
-  
+    
+}
+
+enum CoffeeRole {
+    case from
+    case to
 }

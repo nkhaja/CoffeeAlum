@@ -54,7 +54,6 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
         let defaultYearIndex = years.index(of: defaultYear)
         pickerView2.selectRow(defaultDegreeIndex!, inComponent: 0, animated: false)
         pickerView2.selectRow(defaultYearIndex!, inComponent: 1, animated: false)
-
     }
 
     

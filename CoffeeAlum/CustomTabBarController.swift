@@ -17,6 +17,17 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // If being invited, create notification for each unseen Coffee
+        if let thisUser = self.thisUser{
+            var unseenInvitations = 0
+            for c in thisUser.coffees{
+                if !c.viewed && thisUser.uid == c.toId{
+                    unseenInvitations += 1
+                }
+            }
+            self.tabBar.items![2].badgeValue = String(unseenInvitations)
+        }
+        
 
     }
 

@@ -139,13 +139,18 @@ extension CoffeeViewController: UITableViewDataSource, UITableViewDelegate{
             
             
             if coffee.location == "TBD" { cell.whereLabel.text = "TBD"}
-            else                      { cell.whereLabel.text = coffee.location}
+            else                        { cell.whereLabel.text = coffee.location}
             
                 
                 
             if thisUser!.name == coffee.fromName{ cell.whoLabel.text = coffee.toId  }
             else                                { cell.whoLabel.text = coffee.fromId}
         
+            
+            // TREVIN CHANGE THE COLOR HERE TO SOMETHING SUITABLE FOR UNSEEN NOTIFICATIONS
+            if !coffee.viewed{
+                cell.backgroundColor = UIColor.green
+            }
         
         }
         

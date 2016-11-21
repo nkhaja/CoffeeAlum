@@ -58,6 +58,12 @@ struct Employer{
 }
 
 
+enum forWhom {
+    case from
+    case to
+}
+
+
 
 
 
