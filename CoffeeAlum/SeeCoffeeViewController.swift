@@ -15,6 +15,7 @@ import UIKit
 import Spring
 import MapKit
 import EventKit
+import Firebase
 
 
 // INVARIANT: Only Users that receive invitations can accept and set the time/place
@@ -57,6 +58,8 @@ class SeeCoffeeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FIRDatabase.database().persistenceEnabled = true
+        
         whoLabel.text = userBeingVisited?.name
         self.dateView.isHidden = true
         
@@ -75,12 +78,14 @@ class SeeCoffeeViewController: UIViewController {
             
             if thisCoffee?.toEventId != "" && thisCoffee?.fromEventId == ""{
                 Helper.addEvent(startDate: startDate!, coffeeWith: userBeingVisited!.name, coffee: thisCoffee!, role: .from)
+                thisCoffee!.ref!.child("fromEventId").setValue(thisCoffee!.fromEventId)
             }
             
             else if thisCoffee!.toEventId != "" && thisCoffee!.rescheduled{
                 thisCoffee!.rescheduled = false
                 Helper.removeEvent(savedEventId: thisCoffee!.fromEventId)
                 Helper.addEvent(startDate: startDate!, coffeeWith: userBeingVisited!.name, coffee: thisCoffee!, role: .from)
+                thisCoffee!.ref!.child("fromEventId").setValue(thisCoffee!.fromEventId)
             }
         
         }

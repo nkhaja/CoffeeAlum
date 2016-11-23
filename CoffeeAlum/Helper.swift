@@ -21,10 +21,10 @@ class Helper {
     return base64String
     }
 
-static func dataStringToImage(dataString: String) -> UIImage {
-    let data = Data(base64Encoded: dataString, options: .ignoreUnknownCharacters)
-    let image = UIImage(data: data!)
-    return image!
+    static func dataStringToImage(dataString: String) -> UIImage {
+        let data = Data(base64Encoded: dataString, options: .ignoreUnknownCharacters)
+        let image = UIImage(data: data!)
+        return image!
     }
     
     // Date Helpers:

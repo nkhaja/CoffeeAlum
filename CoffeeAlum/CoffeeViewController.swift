@@ -29,6 +29,11 @@ class CoffeeViewController: UIViewController, ignoreCoffeeDelegate {
         }
         
         
+
+    }
+    
+    //Functions that need to be refreshed regularly, replace with passively scheduled system
+    override func viewDidAppear(_ animated: Bool) {
         let invitedQuery = coffeeRef.queryOrdered(byChild: "toId").queryEqual(toValue: thisUser!.uid)
         let requestQuery = coffeeRef.queryOrdered(byChild: "fromId").queryEqual(toValue: thisUser!.uid)
         
@@ -51,7 +56,7 @@ class CoffeeViewController: UIViewController, ignoreCoffeeDelegate {
                 
                 // Remove a Coffee Appointment who's data has past
                 if newCoffee.date != "TBD"{
-                   
+                    
                     let coffeeDate = formatter.date(from: newCoffee.date)
                     let calendar = Calendar.autoupdatingCurrent
                     if calendar.isDateInYesterday(coffeeDate!) {
@@ -83,8 +88,9 @@ class CoffeeViewController: UIViewController, ignoreCoffeeDelegate {
                     self.pendingCoffees.append(newCoffee)
                 }
             }
-        self.tableView.reloadData()
+            self.tableView.reloadData()
         })
+        
     }
     
     

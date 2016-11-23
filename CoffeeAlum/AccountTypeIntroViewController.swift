@@ -14,6 +14,7 @@ class AccountTypeIntroViewController: UIViewController{
     
     let uncheckedImage = #imageLiteral(resourceName: "uncheckedButton")
     let checkedImage = #imageLiteral(resourceName: "checkedButton")
+    let otherImage = #imageLiteral(resourceName: "testUser3")
     var studentPressed: Bool = true
     var alumniPressed: Bool = false
     var name:String = ""
@@ -26,13 +27,13 @@ class AccountTypeIntroViewController: UIViewController{
         super.viewDidLoad()
         
         if studentPressed{
-            studentButton.setImage(checkedImage, for: .normal)
-            alumniButton.setImage(uncheckedImage, for: .normal)
+            studentButton.setImage(checkedImage, for: .selected)
+            alumniButton.setImage(uncheckedImage, for: .selected)
         }
         
         else{
-            studentButton.setImage(uncheckedImage, for: .normal)
-            alumniButton.setImage(checkedImage, for: .normal)
+            studentButton.setImage(uncheckedImage, for: .selected)
+            alumniButton.setImage(checkedImage, for: .selected)
         }
 
     }

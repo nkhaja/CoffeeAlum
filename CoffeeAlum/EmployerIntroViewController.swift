@@ -20,8 +20,6 @@ class EmployerIntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
 
     
@@ -39,7 +37,6 @@ class EmployerIntroViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     

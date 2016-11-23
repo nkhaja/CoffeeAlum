@@ -247,7 +247,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SUf-4a-RhB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf" userLabel="Connect"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="doL-uh-2JA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="doL-uh-2JA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -298,6 +298,17 @@
                                                         <action selector="logOutButton:" destination="71M-10-4PH" eventType="touchUpInside" id="9LK-Yw-Ucb"/>
                                                     </connections>
                                                 </button>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nrj-3l-v57">
+                                                    <frame key="frameInset" minX="309" minY="20" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alumni" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjC-bR-wqy" customClass="DesignableLabel" customModule="Spring">
+                                                    <frame key="frameInset" minX="217" minY="25" width="79" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.3272566972" green="0.82678624749999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
@@ -393,6 +404,8 @@
                     <navigationItem key="navigationItem" id="EWg-FL-1Mr"/>
                     <connections>
                         <outlet property="tableView" destination="1oW-tq-GiI" id="zeI-Fy-Qoy"/>
+                        <outlet property="userSwitch" destination="Nrj-3l-v57" id="lMF-zS-GAm"/>
+                        <outlet property="userTypeLabel" destination="jjC-bR-wqy" id="y2n-Wq-06T"/>
                         <segue destination="haT-Fb-5DK" kind="unwind" identifier="logOut" unwindAction="unwindToLoginWithSegue:" id="r3O-lo-FYN"/>
                         <segue destination="ECQ-ho-RHb" kind="show" identifier="seeProfile" id="N06-vt-GYj"/>
                     </connections>
@@ -400,7 +413,7 @@
                 <exit id="haT-Fb-5DK" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeI-q5-GtF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="-405"/>
+            <point key="canvasLocation" x="1701.5999999999999" y="-405.24737631184411"/>
         </scene>
         <!--Profile-->
         <scene sceneID="WQL-Kb-22u">
@@ -916,14 +929,15 @@
                                     <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJT-V2-EXK" customClass="DesignableButton" customModule="Spring">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJT-V2-EXK" customClass="DesignableButton" customModule="Spring">
                                             <frame key="frameInset" minX="55" minY="335" width="43" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title=" "/>
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title=" " backgroundImage="checkedButton"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                     <real key="value" value="1"/>
@@ -936,11 +950,11 @@
                                                 <action selector="studentButton:" destination="L6h-9d-gpN" eventType="touchUpInside" id="dvV-VE-35R"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pB-IJ-wPg" customClass="DesignableButton" customModule="Spring">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pB-IJ-wPg" customClass="DesignableButton" customModule="Spring">
                                             <frame key="frameInset" minX="55" minY="415" width="43" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title=" "/>
+                                            <state key="normal" title=" " backgroundImage="uncheckedButton"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                     <real key="value" value="1"/>
@@ -1852,7 +1866,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Xc-nV-MhU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" selectedImage="first" id="w3u-IT-xWK"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U4M-9U-iot">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U4M-9U-iot">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1870,7 +1884,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VoF-y9-zXE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5vb-zz-oa4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5vb-zz-oa4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1888,14 +1902,16 @@
         <image name="University_Students" width="660" height="300"/>
         <image name="about-new2" width="810" height="369"/>
         <image name="banner" width="2600" height="1803"/>
+        <image name="checkedButton" width="179" height="179"/>
         <image name="clearRect" width="375" height="69"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
         <image name="students-or-teenagers-with-laptop-and-tablet-computers" width="2000" height="1042"/>
         <image name="testUser3" width="1197" height="1197"/>
+        <image name="uncheckedButton" width="179" height="179"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wpW-3A-Gco"/>
+        <segue reference="JfU-te-A89"/>
         <segue reference="N06-vt-GYj"/>
     </inferredMetricsTieBreakers>
 </document>
