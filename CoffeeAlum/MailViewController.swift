@@ -30,7 +30,6 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
    
     
-    
     @IBAction func sendEmailButtonTapped(sender: AnyObject) {
         let mailComposeViewController = configuredMailComposeViewController()
         
