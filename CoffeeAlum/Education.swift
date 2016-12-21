@@ -7,6 +7,7 @@ import Foundation
 import Firebase
 
 struct Education{
+    
     var school: String
     var graduationYear:String
     var major:String
@@ -37,8 +38,6 @@ struct Education{
         }
     }
     
-    
-    
     func toAnyObject() -> Any{
         return [
             "school":school,
@@ -50,7 +49,6 @@ struct Education{
     }
     
 }
-
 
 enum DegreeType: String{
     case bsc = "BSc"

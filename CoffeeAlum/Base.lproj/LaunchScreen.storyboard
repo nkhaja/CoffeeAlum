@@ -51,6 +51,9 @@
                                                             <rect key="frame" x="21" y="12" width="148" height="34"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="148" id="7S1-Od-wqO"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="28"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -60,7 +63,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="J4j-g8-0h5" secondAttribute="bottom" constant="8" id="S8b-OV-1oa"/>
                                                         <constraint firstItem="J4j-g8-0h5" firstAttribute="leading" secondItem="w7p-rn-M2U" secondAttribute="leading" constant="21" id="Upt-Ap-0TG"/>
-                                                        <constraint firstAttribute="trailing" secondItem="J4j-g8-0h5" secondAttribute="trailing" constant="206" id="cHv-V8-239"/>
                                                         <constraint firstAttribute="height" constant="54" id="flY-TS-0Rz"/>
                                                         <constraint firstItem="J4j-g8-0h5" firstAttribute="top" secondItem="w7p-rn-M2U" secondAttribute="top" constant="12" id="sXR-n7-9aQ"/>
                                                     </constraints>
@@ -81,12 +83,15 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Choosing a career is hard. Coffee isn't.&quot; " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-k2-Ua1">
                                         <rect key="frame" x="33" y="62" width="262" height="151.5"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="262" id="erh-wV-ZIQ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="42"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoffeeAlum" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-Ac-Je0">
-                                        <rect key="frame" x="33" y="212.5" width="214.5" height="54"/>
+                                        <rect key="frame" x="33" y="212.5" width="215" height="54"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="45"/>
                                         <color key="textColor" red="0.98664204" green="0.99607843139999996" blue="0.92933410279999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,7 +100,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.18755871060000001" green="0.74384462829999998" blue="0.97609287499999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="o9g-k2-Ua1" secondAttribute="trailing" constant="80" id="4nF-Sz-BRA"/>
                                     <constraint firstItem="o9g-k2-Ua1" firstAttribute="top" secondItem="Cid-JN-XeA" secondAttribute="top" constant="62" id="67X-j9-2rb"/>
                                     <constraint firstItem="TId-yH-JpA" firstAttribute="top" secondItem="Cid-JN-XeA" secondAttribute="top" id="6vr-VK-WqS"/>
                                     <constraint firstAttribute="trailing" secondItem="TId-yH-JpA" secondAttribute="trailing" id="ALU-Tt-CVU"/>

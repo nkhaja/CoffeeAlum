@@ -47,7 +47,6 @@
 		BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PersonalViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BD30B35B1DAC8E72001B554D /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PersonalTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BD30B37D1DAED0E3001B554D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeAlum.entitlements; sourceTree = "<group>"; };
 		BD519B951DBEDE8100069A21 /* PictureIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureIntroViewController.swift; sourceTree = "<group>"; };
 		BD558C571DCBA1970068E959 /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
 		BD558C591DCEEA050068E959 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
@@ -142,7 +141,6 @@
 		BD6D9B701DA71C6300BA0BAF /* CoffeeAlum */ = {
 			isa = PBXGroup;
 			children = (
-				BD4F6B2A1DB2F1FE00B95A43 /* CoffeeAlum.entitlements */,
 				BD6D9B711DA71C6300BA0BAF /* AppDelegate.swift */,
 				BD6D9B871DA71E2200BA0BAF /* Model */,
 				DD8D2C5B1E09B7E900450914 /* Controllers */,
@@ -240,7 +238,7 @@
 				TargetAttributes = {
 					BD6D9B6D1DA71C6300BA0BAF = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = PU7KSX8Z6J;
+						DevelopmentTeam = 9ME882KZTA;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -483,8 +481,7 @@
 			baseConfigurationReference = C0E065FF2EB151F0C12BEAF1 /* Pods-CoffeeAlum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoffeeAlum/CoffeeAlum.entitlements;
-				DEVELOPMENT_TEAM = PU7KSX8Z6J;
+				DEVELOPMENT_TEAM = 9ME882KZTA;
 				INFOPLIST_FILE = CoffeeAlum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeealum;
@@ -498,8 +495,7 @@
 			baseConfigurationReference = 11EC12A8D757022DA4C3F1C5 /* Pods-CoffeeAlum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoffeeAlum/CoffeeAlum.entitlements;
-				DEVELOPMENT_TEAM = PU7KSX8Z6J;
+				DEVELOPMENT_TEAM = 9ME882KZTA;
 				INFOPLIST_FILE = CoffeeAlum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeealum;

@@ -12,13 +12,22 @@ import Spring
 class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: - Required Variables
+    // Stores the user's school name, a type String
     var school: String?
+    // Stores the user's major data, a type String
     var major: String?
+    // Data is used for
     var data: [String : Any] =  Dictionary()
+    // The list of degrees for the pickerView
     var pickerDataSource = ["BSc", "BA", "BBA", "MSc", "MA", "PhD", "MD", "JD", "DDS"]
+    // Stores the list of years
     var years: [String] = Array()
+    // Stores the degree information, type enum
     var degree: DegreeType?
+    // Year variable, takes a type String
     var year: String?
+    // Picker view to display the academic majors
+    var academicMajorPickerView = UIPickerView()
     
     // MARK: - Alerts
     let alert = UIAlertController(title: "Fields left unfilled",
@@ -27,11 +36,9 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
     
     // MARK: - IBOutlets
-    // Picker view to display the academic majors
-    @IBOutlet weak var academicMajorPickerView: UIPickerView!
     
     // degree label displays the selected degree
-    @IBOutlet weak var degreeLabel: DesignableLabel!
+    @IBOutlet weak var degreeTextField: DesignableTextField!
     
     // schoolTextField displays the user's school name
     @IBOutlet weak var schoolTextField: DesignableTextField!
@@ -39,26 +46,43 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     // majorTextField displays the user's selected major
     @IBOutlet weak var majorTextField: DesignableTextField!
     
+    // MARK: - Methods
+    func setDegree(sender: UIPickerView) {
+        // Make sure nil isn't returned == happens when pickersView selected mid-slide
+        if !degree!.rawValue.contains("nil") && !year!.contains("nil"){
+            degreeTextField.text! = "\(degree!.rawValue)," +  "\(year!))"
+        }
+    }
     
     // MARK: - View Did Load Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Sends an alert in the view
         alert.addAction(okAction)
         // Sets out the range of the dates in String format
         for i in 1950...2040 {
             years.append(String(i))
         }
+        
         // Set Defaults for the PickerView
         let defaultDegree = "BSc"
         let defaultYear = "1990"
-        // Setting the defaultDegree as the picker view's default state
+        // Setting the defaultDegree as the picker view's default degree
         let defaultDegreeIndex = pickerDataSource.index(of: defaultDegree)
+        // Setting the defaultYear as the picker view's default year
         let defaultYearIndex = years.index(of: defaultYear)
+        // TODO: - Fix the crash here
         academicMajorPickerView.selectRow(defaultDegreeIndex!, inComponent: 0, animated: false)
+        // Sets
         academicMajorPickerView.selectRow(defaultYearIndex!, inComponent: 1, animated: false)
+        
+        degreeTextField.inputView = academicMajorPickerView
+        setDegree(sender: academicMajorPickerView)
+        academicMajorPickerView.dataSource = self
+        academicMajorPickerView.delegate = self
     }
-
+    
     // MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profile" {
@@ -72,13 +96,13 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
         
     }
     
-   // MARK: - Pickerview Functions
+    // MARK: - Pickerview Functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0{
+        if component == 0 {
             return pickerDataSource.count
         } else {
             return years.count
@@ -96,7 +120,6 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         if component == 0 {
             degree = DegreeType(rawValue: pickerDataSource[row])
         } else {
@@ -104,22 +127,8 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    
     // MARK: - IBActions
-    // Submit button after the user has selected the degree
-    @IBAction func submitButton2(_ sender: AnyObject) {
-       // Make sure nil isn't returned == happens when pickersView selected mid-slide
-        if !degree!.rawValue.contains("nil") && !year!.contains("nil"){
-            degreeLabel.text! = "\(degree!.rawValue)," +  "\(year!))"
-        }
-    }
-    
-    
-    // Submit response, dimiss the picker view
-    @IBAction func showPickerButton2(_ sender: AnyObject) {
-        // TODO: - Add keyboard that contains PickerView
-    }
-
-    
     @IBAction func academicIntroNextButton(_ sender: AnyObject) {
         self.school = schoolTextField.text
         self.major = majorTextField.text

@@ -9,15 +9,17 @@
 import UIKit
 import Spring
 
-class NameIntroViewController: UIViewController {
+class NameIntroViewController: UIViewController, UITextFieldDelegate {
     var data: [String:Any] =  Dictionary()
     var name: String = ""
+    
     @IBOutlet weak var nameLabel: DesignableTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.nameLabel.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,6 +55,10 @@ class NameIntroViewController: UIViewController {
         }
     }
     
-
+    // Very important to allow the keyboard to hide when they finish typing their name
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 
 }

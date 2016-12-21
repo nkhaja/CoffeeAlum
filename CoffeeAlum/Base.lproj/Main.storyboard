@@ -870,7 +870,7 @@
                                             <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoffeeAlum" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fu9-4j-Jff">
-                                                    <rect key="frame" x="20" y="15" width="148" height="34"/>
+                                                    <rect key="frame" x="20" y="15" width="133.5" height="34"/>
                                                     <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.55000000000000004"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="28"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -879,7 +879,6 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.3272566972" green="0.82678624749999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Fu9-4j-Jff" secondAttribute="trailing" constant="207" id="Cex-Tc-qaT"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fu9-4j-Jff" secondAttribute="bottom" constant="11" id="EJL-i2-9Nq"/>
                                                 <constraint firstAttribute="height" constant="60" id="IP9-fK-Rmf"/>
                                                 <constraint firstItem="Fu9-4j-Jff" firstAttribute="leading" secondItem="ijM-ii-bmC" secondAttribute="leading" constant="20" id="qBP-es-tYa"/>
@@ -887,10 +886,10 @@
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-WO-1MV" customClass="DesignableButton" customModule="Spring">
-                                            <rect key="frame" x="258" y="528" width="74" height="57"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="37"/>
+                                            <rect key="frame" x="259" y="528" width="73" height="57"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="37"/>
                                             <state key="normal" title="Next">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.0" green="0.210690707" blue="0.63936203719999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="nextButton:" destination="VKw-Vu-cES" eventType="touchUpInside" id="GCr-YT-mjU"/>
@@ -926,11 +925,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter you name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0e-sW-CJf" customClass="DesignableTextField" customModule="Spring">
-                                <rect key="frame" x="34" y="393" width="275" height="37"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter you name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0e-sW-CJf" customClass="DesignableTextField" customModule="Spring">
+                                <rect key="frame" x="34" y="393" width="198" height="37"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="27"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -942,14 +941,12 @@
                             <constraint firstItem="P0e-sW-CJf" firstAttribute="leading" secondItem="PvN-NW-iiH" secondAttribute="leadingMargin" constant="18" id="QcM-73-Bgb"/>
                             <constraint firstItem="hxe-Tv-BAV" firstAttribute="top" secondItem="epc-d3-Pma" secondAttribute="bottom" id="T4Z-fO-Gcj"/>
                             <constraint firstItem="A05-8K-1jB" firstAttribute="leading" secondItem="PvN-NW-iiH" secondAttribute="leading" id="XVZ-iL-H4K"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P0e-sW-CJf" secondAttribute="trailing" constant="50" id="aIK-i0-0vG"/>
                             <constraint firstItem="epc-d3-Pma" firstAttribute="leading" secondItem="PvN-NW-iiH" secondAttribute="leading" id="nKO-7l-6pR"/>
                             <constraint firstItem="5VQ-x6-NGj" firstAttribute="top" secondItem="P0e-sW-CJf" secondAttribute="bottom" id="ni6-8I-x8H"/>
                             <constraint firstAttribute="trailing" secondItem="epc-d3-Pma" secondAttribute="trailing" id="sfK-nT-5nh"/>
                             <constraint firstItem="hxe-Tv-BAV" firstAttribute="top" secondItem="A05-8K-1jB" secondAttribute="bottom" id="trj-ZF-Ire"/>
                             <constraint firstItem="A05-8K-1jB" firstAttribute="top" secondItem="PvN-NW-iiH" secondAttribute="top" id="vKW-uJ-pWj"/>
                             <constraint firstItem="epc-d3-Pma" firstAttribute="top" secondItem="n1t-ME-12N" secondAttribute="bottom" id="y5D-nB-I4Q"/>
-                            <constraint firstItem="P0e-sW-CJf" firstAttribute="top" secondItem="lRk-MQ-vwa" secondAttribute="bottom" constant="178.5" id="yOC-do-4dj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1463,6 +1460,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="4Ru-8i-tmX" secondAttribute="trailing" constant="207" id="vMf-pP-4TE"/>
                                             </constraints>
                                         </view>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJq-gw-qUM" customClass="DesignableTextField" customModule="Spring">
+                                            <rect key="frame" x="35" y="359" width="269" height="32"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KQb-Jn-TbS" customClass="DesignableImageView" customModule="Spring">
                                             <rect key="frame" x="36" y="391" width="266" height="1"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1503,16 +1506,16 @@
                                                 <action selector="academicIntroNextButton:" destination="mAG-hs-mSf" eventType="touchUpInside" id="ss5-H0-U2a"/>
                                             </connections>
                                         </button>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Major, Minor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="np9-UK-W0N" customClass="DesignableTextField" customModule="Spring">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Major" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="np9-UK-W0N" customClass="DesignableTextField" customModule="Spring">
                                             <rect key="frame" x="32" y="436" width="269" height="31"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJq-gw-qUM" customClass="DesignableTextField" customModule="Spring">
-                                            <rect key="frame" x="35" y="359" width="269" height="32"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Degree/Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b9C-Pl-5hi" customClass="DesignableTextField" customModule="Spring">
+                                            <rect key="frame" x="32" y="475" width="272" height="31"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </subviews>
@@ -1522,9 +1525,11 @@
                                         <constraint firstItem="iH6-na-0Gw" firstAttribute="leading" secondItem="GiT-Mi-zpa" secondAttribute="leading" constant="33" id="Awq-Sm-z4K"/>
                                         <constraint firstItem="KQb-Jn-TbS" firstAttribute="leading" secondItem="GiT-Mi-zpa" secondAttribute="leading" constant="36" id="DfT-MM-Z7P"/>
                                         <constraint firstItem="T5O-K7-kE5" firstAttribute="leading" secondItem="GiT-Mi-zpa" secondAttribute="leading" id="F5e-cY-SO9"/>
+                                        <constraint firstAttribute="trailing" secondItem="b9C-Pl-5hi" secondAttribute="trailing" constant="71" id="HUz-i3-cRz"/>
                                         <constraint firstItem="wvo-oK-Tce" firstAttribute="top" secondItem="GiT-Mi-zpa" secondAttribute="top" constant="48" id="IoS-lf-9Xv"/>
                                         <constraint firstAttribute="trailing" secondItem="iH6-na-0Gw" secondAttribute="trailing" constant="73" id="LBZ-1E-mj8"/>
                                         <constraint firstItem="np9-UK-W0N" firstAttribute="top" secondItem="KQb-Jn-TbS" secondAttribute="bottom" constant="44" id="SlS-wC-3AS"/>
+                                        <constraint firstItem="b9C-Pl-5hi" firstAttribute="top" secondItem="iH6-na-0Gw" secondAttribute="bottom" constant="5" id="TJf-OF-fzw"/>
                                         <constraint firstAttribute="trailing" secondItem="KQb-Jn-TbS" secondAttribute="trailing" constant="73" id="TPr-t6-Ejj"/>
                                         <constraint firstItem="wvo-oK-Tce" firstAttribute="leading" secondItem="GiT-Mi-zpa" secondAttribute="leading" constant="33" id="TbV-No-fmF"/>
                                         <constraint firstAttribute="trailing" secondItem="T5O-K7-kE5" secondAttribute="trailing" id="UhK-ty-zVv"/>
@@ -1533,6 +1538,7 @@
                                         <constraint firstItem="iH6-na-0Gw" firstAttribute="top" secondItem="np9-UK-W0N" secondAttribute="bottom" constant="2" id="ZOQ-yG-xXG"/>
                                         <constraint firstItem="WJq-gw-qUM" firstAttribute="leading" secondItem="GiT-Mi-zpa" secondAttribute="leading" constant="35" id="aDL-kV-Mak"/>
                                         <constraint firstAttribute="trailing" secondItem="np9-UK-W0N" secondAttribute="trailing" constant="74" id="bSo-WK-MaU"/>
+                                        <constraint firstItem="b9C-Pl-5hi" firstAttribute="leading" secondItem="GiT-Mi-zpa" secondAttribute="leading" constant="32" id="cLR-5n-HFw"/>
                                         <constraint firstItem="KQb-Jn-TbS" firstAttribute="top" secondItem="WJq-gw-qUM" secondAttribute="bottom" id="fYJ-1u-V5B"/>
                                         <constraint firstItem="np9-UK-W0N" firstAttribute="leading" secondItem="GiT-Mi-zpa" secondAttribute="leading" constant="32" id="h7V-uX-hxM"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6FI-Bb-Q3x" secondAttribute="trailing" constant="40" id="pOH-h3-heF"/>
@@ -1555,6 +1561,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="degreeTextField" destination="b9C-Pl-5hi" id="b0v-z1-FGU"/>
                         <outlet property="majorTextField" destination="np9-UK-W0N" id="h3V-cy-Z9Y"/>
                         <outlet property="schoolTextField" destination="WJq-gw-qUM" id="fyn-1j-3ou"/>
                         <segue destination="09J-n7-F8a" kind="show" identifier="profile" id="zLo-ji-FGS"/>
@@ -1562,7 +1569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIm-2H-LzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3514" y="1719"/>
+            <point key="canvasLocation" x="3512.8000000000002" y="1718.5907046476764"/>
         </scene>
         <!--Picture Intro View Controller-->
         <scene sceneID="AQQ-ir-OpB">
