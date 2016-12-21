@@ -147,9 +147,7 @@
 				BD6D9B871DA71E2200BA0BAF /* Model */,
 				DD8D2C5B1E09B7E900450914 /* Controllers */,
 				DD8D2C5C1E09B7F000450914 /* Views */,
-				BDF6FBB31DD3B93000685FA1 /* CoffeeVCs */,
 				BD6D9B771DA71C6300BA0BAF /* Main.storyboard */,
-				BD589A411DB9866A0067D1B4 /* IntroViewControllers */,
 				BD6D9B7A1DA71C6300BA0BAF /* Assets.xcassets */,
 				BD6D9B7C1DA71C6300BA0BAF /* LaunchScreen.storyboard */,
 				BD6D9B7F1DA71C6300BA0BAF /* Info.plist */,
@@ -191,6 +189,8 @@
 				BDC53E341DB72FA300C29237 /* ConnectViewController.swift */,
 				BD6D9B901DA7574B00BA0BAF /* ProfileViewController.swift */,
 				BD30B3591DAC8C3C001B554D /* PersonalViewController.swift */,
+				BDF6FBB31DD3B93000685FA1 /* CoffeeVCs */,
+				BD589A411DB9866A0067D1B4 /* IntroViewControllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

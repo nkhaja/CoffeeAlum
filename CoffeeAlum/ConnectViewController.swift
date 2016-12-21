@@ -78,7 +78,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
         
     }
     
-//    Keep table updated on every new visit 
+    // Keep table updated on every new visit
     override func viewDidAppear(_ animated: Bool) {
         if firstLoad{
             firstLoad = false
@@ -137,50 +137,50 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
     }
     
     
-        func filterContent(searchText:String, scope: Int){
-            filteredUsers = []
-            var arrayToUse: [User] = []
-            if alumni.count == 0 {
-                return
-            }
-            
-            if showStudents{
-                // Not ideal, passing by value duplicates data...
-                arrayToUse = self.students
-            }
-            else{
-                arrayToUse = self.alumni
-            }
-            
-    
-            for a in arrayToUse{
-    
-                switch(scope){
-                case(0):
-                    if a.name.lowercased().range(of: searchText.lowercased()) != nil{
-                        filteredUsers.append(a)
-                    }
-                case(1):
-                    if a.employer[0].name.lowercased().range(of: searchText.lowercased()) != nil{
-                        filteredUsers.append(a)
-                    }
-                case(2):
-                    if a.location.lowercased().range(of: searchText.lowercased()) != nil{
-                        filteredUsers.append(a)
-                    }
-    
-                case(3):
-                    for i in a.interests{
-                        if i.name.lowercased().range(of: searchText.lowercased()) != nil{
-                            filteredUsers.append(a)
-                        }
-                    }
-                default:
-                    break
+    func filterContent(searchText:String, scope: Int){
+        filteredUsers = []
+        var arrayToUse: [User] = []
+        if alumni.count == 0 {
+            return
+        }
+        
+        if showStudents{
+            // Not ideal, passing by value duplicates data...
+            arrayToUse = self.students
+        }
+        else{
+            arrayToUse = self.alumni
+        }
+        
+
+        for a in arrayToUse{
+
+            switch(scope){
+            case(0):
+                if a.name.lowercased().range(of: searchText.lowercased()) != nil{
+                    filteredUsers.append(a)
                 }
-      
+            case(1):
+                if a.employer[0].name.lowercased().range(of: searchText.lowercased()) != nil{
+                    filteredUsers.append(a)
+                }
+            case(2):
+                if a.location.lowercased().range(of: searchText.lowercased()) != nil{
+                    filteredUsers.append(a)
+                }
+
+            case(3):
+                for i in a.interests{
+                    if i.name.lowercased().range(of: searchText.lowercased()) != nil{
+                        filteredUsers.append(a)
+                    }
+                }
+            default:
+                break
             }
-            self.tableView.reloadData()
+  
+        }
+        self.tableView.reloadData()
     }
     
     
