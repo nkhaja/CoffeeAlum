@@ -41,8 +41,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var careerLabel: DesignableLabel!
     @IBOutlet weak var locationLabel: DesignableLabel!
     
-    
-    
     // MARK: Special - Outlets
     @IBOutlet weak var profileImageView: DesignableImageView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -56,9 +54,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var pictureButtonPressed: DesignableButton!
     
     
-    
-    
-    //ImagePicker
+    // ImagePicker
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -76,8 +72,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             self.interestRef = thisUserRef?.child("interests")
             
             self.profileImageView.image = Helper.dataStringToImage(dataString: self.thisUser!.portrait)
-            
-            
         }
         
         
@@ -96,7 +90,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         locationLabel.text = thisUser?.location
         locationLabel.isUserInteractionEnabled = true
         
-        let aSelector : Selector = "labelTapped"
+        let aSelector : Selector = #selector(PersonalViewController.labelTapped)
         let tapGesture = UITapGestureRecognizer(target: self, action: aSelector)
         tapGesture.numberOfTapsRequired = 1
         nameLabel.addGestureRecognizer(tapGesture)
@@ -222,9 +216,6 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
             i.ref!.setValue(i.toAnyObject())
         }
         
-        
-        
-        
     }
 
     @IBAction func saveEditsButton(_ sender: AnyObject) {
@@ -236,7 +227,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
-    //MARK: ADD NEW ITEM FUNCTIONALITY
+    // MARK: ADD NEW ITEM FUNCTIONALITY
     @IBAction func addItemButton(_ sender: DesignableButton) {
         
         let alert = UIAlertController(title: "Update",
@@ -254,7 +245,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
                 let nameField = alert.textFields![0] as UITextField
                 let positionField = alert.textFields![1] as UITextField
                 
-                //Add new item to current user
+                // Add new item to current user
                 var newEmployer = Employer(name: nameField.text!, position: positionField.text!)
                 self.thisUser?.employer.append(newEmployer)
                 newRef = (self.employerRef?.childByAutoId())!
@@ -291,7 +282,7 @@ class PersonalViewController: UIViewController, UIImagePickerControllerDelegate,
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         
         
-        //ADD Textfields with custom placeholders to Alerts
+        // ADD Textfields with custom placeholders to Alerts
         
         if selectedIndex == 0 {
             itemChanged = "work experience"

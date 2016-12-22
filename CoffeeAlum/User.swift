@@ -25,7 +25,6 @@ class User {
     var key: String = ""
     var ref: FIRDatabaseReference?
     
-    
     init(name:String, account:AccountType){
         self.name = name
         self.account = account
@@ -58,10 +57,6 @@ class User {
             let thisEducation = Education(snapshot: value)
             education.append(thisEducation)
         }
-    
-        
-        
-        
         
         if let interestsData = snapshotValue["interests"] {
             for item in interestsData.children {
@@ -109,12 +104,8 @@ class User {
         "uid": uid
         ]
     }
-    
-
    
 }
-
-
 
 enum AccountType: String {
     case student = "student"

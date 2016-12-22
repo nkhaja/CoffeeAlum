@@ -29,18 +29,15 @@ class AccountTypeIntroViewController: UIViewController{
         if studentPressed{
             studentButton.setImage(checkedImage, for: .selected)
             alumniButton.setImage(uncheckedImage, for: .selected)
-        }
-        
-        else{
+        } else {
             studentButton.setImage(uncheckedImage, for: .selected)
             alumniButton.setImage(checkedImage, for: .selected)
         }
 
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "location"{
+        if segue.identifier == "location"{
             if let livc = segue.destination as? LocationIntroViewController{
                 data["accountType"] = self.accountType
                 livc.data = self.data
@@ -49,18 +46,15 @@ class AccountTypeIntroViewController: UIViewController{
     }
     
     
-    // BUTTONS //
-
+    // MARK: - IBActions
     @IBAction func studentButton(_ sender: AnyObject) {
         studentPressed = true
         alumniPressed = false
         studentButton.setImage(checkedImage, for: .normal)
         alumniButton.setImage(uncheckedImage, for: .normal)
-        
-        
-    
     }
     
+    // TODO: - Check if this is setup automatically, if not the user experience might be uncomfortable
     @IBAction func alumniButton(_ sender: AnyObject) {
         studentPressed = false
         alumniPressed = true
@@ -68,17 +62,12 @@ class AccountTypeIntroViewController: UIViewController{
         alumniButton.setImage(checkedImage, for: .normal)
     }
     
-   
-    
     @IBAction func nextButton(_ sender: AnyObject) {
         if studentPressed{
             self.accountType = .student
-        }
-        
-        else{
+        } else {
             self.accountType = .alumni
         }
-        
         performSegue(withIdentifier: "location", sender: self)
     }
     

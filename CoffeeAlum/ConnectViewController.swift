@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import Spring
 
-class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearchBarDelegate{
+class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearchBarDelegate {
     var userId:String = (FIRAuth.auth()?.currentUser?.uid)!
     var thisUser:User?
     var selectedUser:User?
@@ -28,7 +28,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
     var firstLoad = true
     var tableIndex: Int = 2
     
-    
     @IBOutlet weak var userTypeLabel: DesignableLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userSwitch: UISwitch!
@@ -36,15 +35,14 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        // TODO: - Fix error here
         updateTable()
-        userSwitch.addTarget(self, action: "userSwitchTriggered", for: UIControlEvents.valueChanged)
+        // userSwitch.addTarget(self, action: #selector(ConnectViewController.userSwitchTriggered), for: UIControlEvents.valueChanged)
         
-        //Firebase Setup
+        // Firebase Setup
         userRef.keepSynced(true)
         
-        
-        //SearchController Setup
+        // SearchController Setup
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater  = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -52,10 +50,8 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
         searchController.searchBar.scopeButtonTitles = ["Name", "Employer", "Location", "Interests", "Major"]
         searchController.searchBar.showsScopeBar = true
         
-        
         tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
-    
         
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             if let user = user{
@@ -74,27 +70,24 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
                 })
             }
         }
-        
-        
     }
     
     // Keep table updated on every new visit
     override func viewDidAppear(_ animated: Bool) {
         if firstLoad{
             firstLoad = false
-        }
-        
-        else{
+        } else {
            updateTable()
         }
     }
+    
     
     func updateTable(){
         updateComplete = true
         self.alumni = []
         self.students = []
         self.filteredUsers = []
-        self.userRef.observe(.value, with:{ snapshot in
+        self.userRef.observe(.value, with: { snapshot in
             for item in snapshot.children{
                 let info = item as! FIRDataSnapshot
                 let dict = info.value as! [String:Any]
@@ -116,6 +109,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
         self.tableView.reloadData()
         })
     }
+    
     
     func updateTableForRange(index: Int){
         if index % 15 == 0 && index > 15{
@@ -203,8 +197,9 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
         
         switch(scope){
         case(0):
+            // TODO: - Why isn't this called?
             let userNameRef = userRef.queryOrdered(byChild: "name").queryEqual(toValue: searchText)
-            //let userNameRef = userRef.queryOrdered(byChild: "name").queryStarting(atValue:)
+            // let userNameRef = userRef.queryOrdered(byChild: "name").queryStarting(atValue:)
             userRef.observe(.value, with: { snapshot in
                 if snapshot.hasChildren(){
                     for item in snapshot.children{
@@ -270,7 +265,7 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
                     let info = item as! FIRDataSnapshot
                     let searchedUser = User(snapshot: info)
                     for e in searchedUser.education{
-                        if e.major.lowercased().range(of: searchText.lowercased()) != nil{
+                        if e.major.lowercased().range(of: searchText.lowercased()) != nil {
                             self.filteredUsers.append(searchedUser)
                         }
                     }
@@ -295,7 +290,6 @@ class ConnectViewController: UIViewController, UISearchResultsUpdating , UISearc
             self.userTypeLabel.text! = "Alumni"
         }
         updateTable()
-        
     }
     
 
