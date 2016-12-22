@@ -13,8 +13,7 @@ import Firebase
 class PictureIntroViewController: UIViewController,UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
     
-    //User's Variables
-    
+    // User's Variables
     var name:String?
     var accountType: AccountType?
     var city: String?
@@ -25,13 +24,10 @@ UINavigationControllerDelegate {
     var email: String?
     var uid: String?
     
-    
     // DATABASE REFERENCES
     var newUserRef: FIRDatabaseReference?
     var employerRef: FIRDatabaseReference?
     var educationRef: FIRDatabaseReference?
-    
-    
     
     let userRef:FIRDatabaseReference = FIRDatabase.database().reference(withPath: "users")
     var newUser: User?
@@ -101,7 +97,6 @@ UINavigationControllerDelegate {
     }
     
 
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         profileImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.dismiss(animated: true, completion: nil);
@@ -170,12 +165,9 @@ UINavigationControllerDelegate {
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true,
+                       completion: nil)
         
     }
-
-
-    
-    
 
 }

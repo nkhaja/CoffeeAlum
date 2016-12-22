@@ -81,5 +81,5 @@ class AccountTypeIntroViewController: UIViewController{
         
         performSegue(withIdentifier: "location", sender: self)
     }
-
+    
 }

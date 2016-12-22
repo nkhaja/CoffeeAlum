@@ -64,23 +64,10 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
         for i in 1950...2040 {
             years.append(String(i))
         }
-        
-        // Set Defaults for the PickerView
-        let defaultDegree = "BSc"
-        let defaultYear = "1990"
-        // Setting the defaultDegree as the picker view's default degree
-        let defaultDegreeIndex = pickerDataSource.index(of: defaultDegree)
-        // Setting the defaultYear as the picker view's default year
-        let defaultYearIndex = years.index(of: defaultYear)
-        // TODO: - Fix the crash here
-        academicMajorPickerView.selectRow(defaultDegreeIndex!, inComponent: 0, animated: false)
-        // Sets
-        academicMajorPickerView.selectRow(defaultYearIndex!, inComponent: 1, animated: false)
-        
-        degreeTextField.inputView = academicMajorPickerView
-        setDegree(sender: academicMajorPickerView)
+        // Setup for the UIPickerView as the keyboard input
         academicMajorPickerView.dataSource = self
         academicMajorPickerView.delegate = self
+        degreeTextField.inputView = academicMajorPickerView
     }
     
     // MARK: - Prepare for Segue
@@ -98,32 +85,38 @@ class AcademicIntroViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     // MARK: - Pickerview Functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        // Two components, one for degree and one for year
         return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // Component is the either 0 or 1. If it's 0, it's selecting the degree row. If it's 1, it's selecting the year row.
         if component == 0 {
             return pickerDataSource.count
         } else {
             return years.count
         }
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        // Component is the either 0 or 1. If it's 0, it's selecting the degree row. If it's 1, it's selecting the year row.
         if component == 0 {
             return pickerDataSource[row]
         } else {
             return years[row]
         }
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // Component is the either 0 or 1. If it's 0, it's selecting the degree row. If it's 1, it's selecting the year row.
         if component == 0 {
             degree = DegreeType(rawValue: pickerDataSource[row])
         } else {
             year = String(years[row])
+        }
+        // Checks if the degree or year is empty. If it's not empty, change the text
+        if (degree!.rawValue.isEmpty == false) && (year?.isEmpty == false) {
+            degreeTextField.text = "\(degree!.rawValue) " + year!
         }
     }
     

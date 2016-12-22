@@ -38,6 +38,7 @@ class NameIntroViewController: UIViewController, UITextFieldDelegate {
         let shortName = name.trimmingCharacters(in: NSCharacterSet.whitespaces)
         let containsSpace = self.name.lowercased().rangeOfCharacter(from: charSet)
         
+        // Warning if the name is too short
         if shortName == "" || shortName.length < 2 || containsSpace == nil {
             let alert = UIAlertController(title: "Invalid Name",
                                           message: "Your name must be two or more letters long, or You have not included both names",
@@ -46,19 +47,10 @@ class NameIntroViewController: UIViewController, UITextFieldDelegate {
             let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-            
-            
-        }
-        
-        else{
+    
+        } else {
             performSegue(withIdentifier: "account", sender: self)
         }
     }
     
-    // Very important to allow the keyboard to hide when they finish typing their name
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
-
 }

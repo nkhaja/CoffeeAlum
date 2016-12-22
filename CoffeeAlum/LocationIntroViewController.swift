@@ -70,7 +70,4 @@ class LocationIntroViewController: UIViewController {
         }
     }
     
-    
-
-
 }
